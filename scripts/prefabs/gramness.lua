@@ -61,6 +61,7 @@ local function doresourcefulattempt(inst, data)
 		
 		print("Dropping extra loot")
 		local lootdropper = target.components.lootdropper
+		if not lootdropper then return end
 		local pos = target:GetPosition()
 		local loots = GRAMNESS_SPECIALDROPS[target.prefab]
 		
