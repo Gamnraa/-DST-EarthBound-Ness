@@ -200,7 +200,7 @@ function Homesickness:OnLoad(data)
 	
 	--TODO REFACTOR TO DoTaskInTime CHECKS LIKE ABOVE
 	if data.favoritefoodbuff then
-		self.favoritefoodbuff = self.inst:DoTaskInTime(data.favoritefoodbuff, function() inst.components.talker:Say("The good feelings never last...") self.favoritefoodbuff = nil end)
+		self.favoritefoodbuff = self.inst:DoTaskInTime(data.favoritefoodbuff, function() self.inst.components.talker:Say("The good feelings never last...") self.favoritefoodbuff = nil end)
 	end
 	if data.foodbuff then 
 		self.foodbuff = self.inst:DoTaskInTime(data.foodbuff, function() self.inst.components.talker:Say("Sigh... guess I could eat more, haha!") self.foodbuff = nil end)
