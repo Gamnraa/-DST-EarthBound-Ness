@@ -302,7 +302,7 @@ local SCRIPT_GRAMNESS2 = {
 }
 
 AddComponentPostInit("stageactingprop", function(inst)
-	inst:AddGeneralScript("GRAMNESS2", SCRIPT_GRAMNESS2)
+	inst:AddGeneralScript("GRAMNESS1", SCRIPT_GRAMNESS2)
 end)
 
 		
