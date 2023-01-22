@@ -41,12 +41,12 @@ local function doPsi(inst, target, pos)
 		if v.components.hauntable then
 			v.components.hauntable:Panic(5)
 			v:DoTaskInTime(5.1, function()
-				if v.components.combat:HasTarget() then
-					v.components.combat:DropTarget()
+				if v.components.combat.target then
+					v.components.combat:StopTrackingTarget(v.components.combat.target)
 				end
 			end)
-		elseif v.components.combat:HasTarget() then
-			v.components.combat:DropTarget()
+		elseif v.components.combat.target then
+			v.components.combat:StopTrackingTarget(v.components.combat.target)
 		end
 		
 		if v:HasTag("epic") and --[[v.components.health.maxhealth < 10000 and]] inst.prefab == "pk_flash_o" then
