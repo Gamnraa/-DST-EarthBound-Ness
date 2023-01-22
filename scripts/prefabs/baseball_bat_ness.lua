@@ -104,7 +104,7 @@ local function fn()
 
     inst:AddTag("weapon")
 	
-    if GLOBAL.IsDLCEnabled(2) then MakeInventoryFloatable(inst) end
+    if IsDLCEnabled(2) then MakeInventoryFloatable(inst) end
 
     inst:AddComponent("weapon")
     inst.components.weapon:SetDamage(DAMAGE)
