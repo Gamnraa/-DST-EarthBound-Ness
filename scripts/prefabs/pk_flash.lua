@@ -28,10 +28,12 @@ end
 -- target - the target the player is casting the spell on
 ----------------------------------------
 local function doPsi(inst, target, pos) 
-	local ents = TheSim:FindEntities(pos.x, pos.y, pos.z, 18, {"_combat"}, {"player", "companion", "shadow", --[["shadowminion",]] "shadowchesspiece"})
+	local ents = TheSim:FindEntities(pos.x, pos.y, pos.z, 18, {"monster, hostile, smallcreature"}, {"player", "companion", "shadow", --[["shadowminion",]] "shadowchesspiece"})
 	
 	inst.SoundEmitter:PlaySound("psisfx/psisfx/" .. inst.prefab)
 	for _, v in pairs(ents) do
+
+		--print(v)
 		
 		v.pkflashfx = SpawnPrefab("pk_flash_fx")
 		v.pkflashfx.entity:SetParent(v.entity)
