@@ -6,6 +6,7 @@
  local EventHandler = GLOBAL.EventHandler
 GLOBAL.require "stategraphs/commonstates"
 local CommonHandlers = GLOBAL.CommonHandlers
+local Vector3 = GLOBAL.Vector3
  
  local baseball_swing = State({
     name = "swing_bat",
@@ -174,7 +175,7 @@ local knockback = State{
 			
             if data.radius ~= nil and data.knocker ~= nil and data.knocker:IsValid() then
                 local x, y, z = data.knocker.Transform:GetWorldPosition()
-                local distsq = inst:GetDistanceSqToPoint(x, y, z)
+                local distsq = inst:GetDistanceSqToPoint(Vector3(x, y, z))
                 local rangesq = data.radius * data.radius
                 local rot = inst.Transform:GetRotation()
                 local rot1 = distsq > 0 and inst:GetAngleToPoint(x, y, z) or data.knocker.Transform:GetRotation() + 180
