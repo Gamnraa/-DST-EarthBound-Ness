@@ -221,6 +221,7 @@ local homesick_interrupt = State({
 --We MIGHT be able to get away with using this for both server and client...
 --I'm not an expert on stategraphs. First time writing them in DST
 AddStategraphState("wilson",  homesick_interrupt)
+AddStategraphState("wilsonboating", homesick_interrupt)
 
 modimport "scripts/baseball_bat_ness_common.lua"
 
@@ -232,6 +233,66 @@ if TUNING.DLC_ACTIVE then
 		inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_SMALL)
 	end)
 end
+
+--Spellcasting
+local ActionHandler = GLOBAL.ActionHandler
+local DSTCASTSPELL = GLOBAL.Action ( {mount_enabled=true},
+									  1, --priority
+									  false, --instant
+									  true, --rmb
+									  20) --range
+DSTCASTSPELL.id = "DSTCASTSPELL"
+DSTCASTSPELL.str = "Cast Spell"
+DSTCASTSPELL.crosseswaterboundary = true
+DSTCASTSPELL.fn = function(act)
+    --For use with magical staffs
+	print("Cast spell")
+    local staff = act.invobject or act.doer.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+	--local act_pos = act:GetActionPoint()
+    if staff and staff.components.betterspellcaster and staff.components.betterspellcaster:CanCast(act.doer, act.target, act.pos) then
+        staff.components.betterspellcaster:CastSpell(act.target, act.pos, act.doer)
+        return true
+    end
+end
+
+AddAction(DSTCASTSPELL)
+
+local quickcastspell = GLOBAL.State({
+        name = "quickcastspell",
+        tags = { "doing", "busy", "canrotate" },
+
+        onenter = function(inst)
+            inst.components.locomotor:Stop()
+            if inst.components.rider:IsRiding() then
+                inst.AnimState:PlayAnimation("player_atk")
+                --inst.AnimState:PushAnimation("player_atk", false)
+            else
+				inst.AnimState:PlayAnimation("atk")
+				--inst.AnimState:PushAnimation("atk", false)
+            end
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/attack_weapon")
+        end,
+		
+        timeline =
+        {
+            GLOBAL.TimeEvent(9 * GLOBAL.FRAMES, function(inst)
+                inst:PerformBufferedAction()
+				inst.sg:RemoveStateTag("busy")
+				inst.sg:AddStateTag("idle")
+            end),
+        },
+
+        events =
+        {
+            GLOBAL.EventHandler("animqueueover", function(inst)
+                if inst.AnimState:AnimDone() then
+                    inst.sg:GoToState("idle")
+                end
+            end),
+        },
+    })
+AddStategraphState("wilson", quickcastspell)
+AddStategraphState("wilsonboating", quickcastspell)
 
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
