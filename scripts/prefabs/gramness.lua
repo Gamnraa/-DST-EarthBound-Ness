@@ -240,7 +240,7 @@ local fn = function(inst)
 
 	local pk_flash_recipe = Recipe("pk_flash",
 		{Ingredient("purplegem", 1)},
-		RECIPETABS.MAGIC, TECH.MAGIC_TWO, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1))
+		RECIPETABS.MAGIC, TECH.MAGIC_TWO, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
 	pk_flash_recipe.atlas = "images/inventoryimages/pk_flash.xml"
 	
 end

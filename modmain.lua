@@ -221,7 +221,7 @@ local homesick_interrupt = State({
 --I'm not an expert on stategraphs. First time writing them in DST
 AddStategraphState("wilson",  homesick_interrupt)
 
-modimport "scripts/baseball_bat_ness_common"
+modimport "scripts/baseball_bat_ness_common.lua"
 
 --DLC Check
 TUNING.DLC_ACTIVE = GLOBAL.IsDLCEnabled(1) or GLOBAL.IsDLCEnabled(2) or GLOBAL.IsDLCEnabled(3)

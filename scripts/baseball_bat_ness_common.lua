@@ -4,7 +4,7 @@
  local FRAMES = GLOBAL.FRAMES
  local TimeEvent = GLOBAL.TimeEvent
  local EventHandler = GLOBAL.EventHandler
-require "stategraphs/commonstates"
+GLOBAL.require "stategraphs/commonstates"
 local CommonHandlers = GLOBAL.CommonHandlers
  
  local baseball_swing = State({
@@ -147,12 +147,12 @@ local validAnims = {
 	["mutated_penguin"] = true,
 }
 
-local oldRegisterPrefabsImpl = GLOBAL.RegisterPrefabsImpl
-GLOBAL.RegisterPrefabsImpl = function(prefab, ...)
+local oldRegisterPrefabs = GLOBAL.RegisterPrefabs
+GLOBAL.RegisterPrefabs = function(prefab, ...)
 	if newAnims[prefab.name] then
 		table.insert(prefab.assets, newAnims[prefab.name])
 	end
-	oldRegisterPrefabsImpl(prefab, ...)
+	oldRegisterPrefabs(prefab, ...)
 end
 
 
