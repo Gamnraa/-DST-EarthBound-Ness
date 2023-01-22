@@ -294,5 +294,21 @@ local quickcastspell = GLOBAL.State({
 AddStategraphState("wilson", quickcastspell)
 AddStategraphState("wilsonboating", quickcastspell)
 
+AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(DSTCASTSPELL, function(inst, action)
+	return action.invobject ~= nil
+        and (
+				(action.invobject:HasTag("quickcast") and "quickcastspell")
+			)
+		or "castspell"
+	end))
+
+AddStategraphActionHandler("wilsonboating", GLOBAL.ActionHandler(DSTCASTSPELL, function(inst, action)
+	return action.invobject ~= nil
+        and (
+				(action.invobject:HasTag("quickcast") and "quickcastspell")
+			)
+		or "castspell"
+	end))
+
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
