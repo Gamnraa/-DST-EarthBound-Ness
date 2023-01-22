@@ -3,9 +3,14 @@ require "components/lootdropper"
 
 local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
+	Asset("ANIM", "anim/gramness.zip"),
 }
 
 local prefabs = {
+	"baseball_bat_ness",
+	"baseball_cap_ninten",
+	"pk_flash",
+	"offense_up_ness"
 }
 
 
@@ -14,7 +19,7 @@ local start_inv = {
 	"offense_up_ness",
 	"pk_flash",
 	"baseball_cap_ninten",
-	"backpack",
+	--"backpack"
 }
 
 

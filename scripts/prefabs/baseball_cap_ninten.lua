@@ -116,7 +116,7 @@ end
 STRINGS.NAMES.BASEBALL_CAP_NINTEN  = "Baseball Cap"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.BASEBALL_CAP_NINTEN = "It keeps the sun out of my eyes."
 STRINGS.CHARACTERS.WX78.DESCRIBE.BASEBALL_CAP_NINTEN = "THIS WILL COVER MY PROCESSING UNIT"
-STRINGS.CHARACTERS.GRAMNESS.DESCRIBE.BASEBALL_CAP_NINTEN = "It's not quite my childhood cap, but it'll do!"
+--STRINGS.CHARACTERS.GRAMNESS.DESCRIBE.BASEBALL_CAP_NINTEN = "It's not quite my childhood cap, but it'll do!"
 
 
 return Prefab("baseball_cap_ninten", fn, assets)
