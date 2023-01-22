@@ -162,11 +162,13 @@ local Homesickness = Class(function(self, inst)
 
 	if not self.inst.firstSpawn then
 		--onload(inst)
-		for _, v in pairs(self.inst.components.inventory.itemslots) do
-			if v.prefab == "baseball_cap_ninten" then
-				v.components.fueled:DoDelta(-3456) --LOL I love numbers
+		self.inst:DoTaskInTime(.1, function() 
+			for _, v in pairs(self.inst.components.inventory.itemslots) do
+				if v.prefab == "baseball_cap_ninten" then
+					v.components.fueled:DoDelta(-3456) --LOL I love numbers
+				end
 			end
-		end
+		end)
 			
 		self.inst.components.inventory:Equip(SpawnPrefab("backpack"))
 		self.inst.firstSpawn = true
