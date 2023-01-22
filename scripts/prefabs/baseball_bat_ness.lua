@@ -55,9 +55,10 @@ end
 
 local function onequip(inst, owner)
 	owner:AddTag("homerunner")
+	owner.AnimState:OverrideSymbol("swap_object", "swap_baseball_bat_ness", "swap_baseball_bat_ness")
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
-	
+
 	if owner.components.homesickness then
 		owner:PushEvent("sanitydelta", {oldpercent = owner.components.sanity:GetPercent(), newpercent = owner.components.sanity:GetPercent()})
 	end
