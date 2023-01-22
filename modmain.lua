@@ -2,7 +2,7 @@ PrefabFiles = {
 	"gramness",
 	"gramness_none",
 	--"offense_up_ness",
-	--"pk_flash",
+	"pk_flash",
 	"baseball_bat_ness",
 	"baseball_cap_ninten",
 	

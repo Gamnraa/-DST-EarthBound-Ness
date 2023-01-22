@@ -99,22 +99,17 @@ end
 		inst.entity:AddTransform()
 		inst.entity:AddAnimState()
 		inst.entity:AddSoundEmitter()
-		inst.entity:AddNetwork()
 		
 		MakeInventoryPhysics(inst)
 		inst.AnimState:SetBank(name)
 		inst.AnimState:SetBuild("ground_" .. name)
 		inst.AnimState:PlayAnimation("idle")
-		if not TheWorld.ismastersim then
-			return inst
-		end
-		inst.entity:SetPristine()
 		
-		inst:AddComponent("spellcaster")	
-		inst.components.spellcaster:SetSpellFn(canPsi)
-		inst.components.spellcaster.canuseontargets = true	
-		inst.components.spellcaster.canonlyuseonlocomotors = true
-		inst.components.spellcaster.quickcast = true
+		inst:AddComponent("betterspellcaster")	
+		inst.components.betterspellcaster:SetSpellFn(canPsi)
+		inst.components.betterspellcaster.canuseontargets = true	
+		inst.components.betterspellcaster.canonlyuseonlocomotors = true
+		inst.components.betterspellcaster.quickcast = true
 		--inst.OnLoad = onLoad
 		--inst.OnSave = onSave
 		
