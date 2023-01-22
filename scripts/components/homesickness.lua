@@ -130,11 +130,11 @@ local function OnSanityUpdated(inst, data)
 		homesickness.sanitydrain = sanityLevels[level]
 		homesickness.resourcefulness = resourcefulChances[level]
 		
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workRateModifiers[level], "homesickness")
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workRateModifiers[level], "homesickness")
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, workRateModifiers[level], "homesickness")
+		--inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workRateModifiers[level], "homesickness")
+		--inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workRateModifiers[level], "homesickness")
+		--inst.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, workRateModifiers[level], "homesickness")
 		
-		inst.components.combat.externaldamagemultipliers:SetModifier(inst, damageMultipliers[level], "homesickness")
+		--inst.components.combat.externaldamagemultipliers:SetModifier(inst, damageMultipliers[level], "homesickness")
 		
 		if interruptTimes[level] and not homesickness.actioninterrupt then
 			print("BEGINNING INTERRUPTIONS")
