@@ -159,6 +159,18 @@ local Homesickness = Class(function(self, inst)
 	self.offenseupbuff = nil
 	
 	self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
+
+	if not self.inst.firstSpawn then
+		--onload(inst)
+		for _, v in pairs(self.inst.components.inventory.itemslots) do
+			if v.prefab == "baseball_cap_ninten" then
+				v.components.fueled:DoDelta(-3456) --LOL I love numbers
+			end
+		end
+			
+		self.inst.components.inventory:Equip(SpawnPrefab("backpack"))
+		self.inst.firstSpawn = true
+	end
 end, nil, {})
 
 function Homesickness:OnSave()
