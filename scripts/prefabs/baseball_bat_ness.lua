@@ -94,7 +94,6 @@ local function fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
-    inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
 
@@ -103,16 +102,9 @@ local function fn()
     inst.AnimState:PlayAnimation("idle")
 	-- inst:AddTag("propweapon")
 
-    --weapon (from weapon component) added to pristine state for optimization
     inst:AddTag("weapon")
-
-    MakeInventoryFloatable(inst, "med", 0.1, {0.7, 0.5, 0.7})
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
+	
+    if GLOBAL.IsDLCEnabled(2) then MakeInventoryFloatable(inst) end
 
     inst:AddComponent("weapon")
     inst.components.weapon:SetDamage(DAMAGE)
@@ -136,13 +128,12 @@ local function fn()
     inst.components.equippable:SetOnEquip(onequip)
     inst.components.equippable:SetOnUnequip(onunequip)
 
-    MakeHauntableLaunch(inst)
-
     return inst
 end
 
 STRINGS.NAMES.BASEBALL_BAT_NESS = "Baseball Bat"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.BASEBALL_BAT_NESS = "Well a weapon is a weapon."
 STRINGS.CHARACTERS.WX78.DESCRIBE.BASEBALL_BAT_NESS = "I HAVE NO USE FOR HUMAN RECREATION INSTRUMENTS"
+STRINGS.CHARACTERS.GRAMNESS.DESCRIBE.BASEBALL_BAT_NESS = "Batter up!"
 
 return Prefab("baseball_bat_ness", fn, assets)

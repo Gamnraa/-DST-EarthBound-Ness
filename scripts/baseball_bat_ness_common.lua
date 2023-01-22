@@ -87,73 +87,6 @@ local CommonHandlers = GLOBAL.CommonHandlers
 })
 AddStategraphState("wilson",  baseball_swing)
 
- local baseball_swing_client = State({
-    name = "swing_bat",
-    tags = { "baseballbat", "attack", "abouttoattack", "notalking"},
-
-    onenter = function(inst)
-		local buffaction = inst:GetBufferedAction()
-		
-		if inst.replica.combat:InCooldown() then
-			inst.sg:RemoveStateTag("abouttoattack")
-            inst:ClearBufferedAction()
-            inst.sg:GoToState("idle", true)
-            return
-        end
-				
-		local target = buffaction ~= nil and buffaction.target or nil
-			
-		local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
-        inst.replica.combat:StartAttack()
-			
-        inst.components.locomotor:Stop()
-		inst.AnimState:PlayAnimation("atk_prop_pre")
-        inst.AnimState:PushAnimation("atk_prop", false)
-        inst.SoundEmitter:PlaySound("dontstarve/wilson/attack_whoosh")
-
-			
-		inst.sg:SetTimeout(16 * FRAMES)
-		
-		if buffaction then
-			inst:PerformPreviewBufferedAction()
-			
-			if target and target:IsValid() then
-				inst:FacePoint(target:GetPosition())
-                inst.sg.statemem.attacktarget = target
-                inst.sg.statemem.retarget = target
-			end
-		end
-    end,
-    timeline =
-    {
-        TimeEvent(8 * FRAMES, function(inst)
-			inst:ClearBufferedAction()
-            inst.sg:RemoveStateTag("abouttoattack")
-        end),
-    },
-		
-	ontimeout = function(inst)
-		inst.sg:RemoveStateTag("attack")
-		inst.sg:AddStateTag("idle")
-	end,
-
-    events =
-    {
-        EventHandler("animqueueover", function(inst)
-            if inst.AnimState:AnimDone() then
-                inst.sg:GoToState("idle")
-            end
-        end),
-    },
-
-    onexit = function(inst)
-        if inst.sg:HasStateTag("abouttoattack") then
-            inst.replica.combat:CancelAttack()
-        end
-    end,
-})
-AddStategraphState("wilson_client",  baseball_swing_client)
-
 --Add our attack stategraph to the existing attack action handler
 AddStategraphPostInit("wilson", function(sg)
 	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
@@ -169,19 +102,6 @@ AddStategraphPostInit("wilson", function(sg)
 	end)
 end)
 
-AddStategraphPostInit("wilson_client", function(sg)
-	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
-	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		inst.sg.mem.localchainattack = not action.forced or nil
-        if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or GLOBAL.IsEntityDead(inst)) then
-            local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
-			if equip and equip.prefab == "baseball_bat_ness" then
-				return "swing_bat"
-			else return oldattackhandler.deststate(inst, action)
-			end
-		end
-	end)
-end)
 
 
 local newAnims = {

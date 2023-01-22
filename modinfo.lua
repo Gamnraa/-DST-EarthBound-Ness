@@ -8,15 +8,16 @@ version = "0.3.0" -- This is the version of the template. Change it to your own 
 forumthread = "/files/file/950-extended-sample-character/"
 
 -- This lets other players know if your mod is out of date, update it to match the current version in the game
-api_version = 10
+api_version = 6
 
 -- Compatible with Don't Starve Together
-dst_compatible = true
+dst_compatible = false
 
 -- Not compatible with Don't Starve
-dont_starve_compatible = false
-reign_of_giants_compatible = false
-shipwrecked_compatible = false
+dont_starve_compatible = true
+reign_of_giants_compatible = true
+shipwrecked_compatible = true
+hamlet_compatible = true
 
 -- Character mods are required by all clients
 all_clients_require_mod = true 

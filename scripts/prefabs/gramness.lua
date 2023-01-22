@@ -10,25 +10,13 @@ local prefabs = {
 
 
 -- Custom starting inventory
-TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.GRAMNESS = {
+local start_inv = {
 	"offense_up_ness",
 	"pk_flash",
 	"baseball_cap_ninten",
 	"backpack",
 }
 
-local start_item_images = {
-	offense_up_ness = {atlas = "images/inventoryimages/offense_up.xml", image = "offense_up.tex"},
-	pk_flash = {atlas = "images/inventoryimages/pk_flash.xml"},
-	baseball_cap_ninten = {atlas = "images/inventoryimages/baseball_cap_ninten.xml"},
-}
-TUNING.STARTING_ITEM_IMAGE_OVERRIDE = type(TUNING.STARTING_ITEM_IMAGE_OVERRIDE) == "table" and MergeMaps(TUNING.STARTING_ITEM_IMAGE_OVERRIDE, start_item_images) or start_item_images
-
-
-local start_inv = {}
-for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
-    start_inv[string.lower(k)] = v.GRAMNESS
-end
 
 local exemptiontags = {"stump"}
 
@@ -186,45 +174,13 @@ local function oneatfood(inst, data)
 	end
 end
 
--- When the character is revived from human
-local function onbecamehuman(inst)
-	-- Set speed when not a ghost (optional)
-	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "gramness_speed_mod", 1)
-	inst.components.homesickness:Enable()
-end
-
 local function onbecameghost(inst)
 	-- Remove speed modifier when becoming a ghost
    inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "gramness_speed_mod")
    inst.components.homesickness:Disable()
 end
 
--- When loading or spawning the character
-local function onload(inst, data)
-    inst.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED)
-	inst.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED)
-    inst:ListenForEvent("ms_respawnedfromghost", onbecamehuman)
-    inst:ListenForEvent("ms_becameghost", onbecameghost)
-
-    if inst:HasTag("playerghost") then
-        onbecameghost(inst)
-    else
-        onbecamehuman(inst)
-    end
-end
-
--- This initializes for both the server and client. Tags can be added here.
-local common_postinit = function(inst) 
-	-- Minimap icon
-	inst.MiniMapEntity:SetIcon( "gramness.tex" )
-	--inst:ListenForEvent("playeractivated", onPlayerSpawn)
-	inst:AddTag("nesscraft")
-	inst:AddTag("psychic")
-end
--- This initializes for the server only. Components are added here.
-local master_postinit = function(inst)
-	-- Set starting inventory
-    inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
+local fn = function(inst)
 	
 	-- choose which sounds this character will play
 	inst.soundsname = "gramness"
@@ -232,7 +188,7 @@ local master_postinit = function(inst)
 	-- Uncomment if "wathgrithr"(Wigfrid) or "webber" voice is used
     --inst.talker_path_override = "dontstarve_DLC001/characters/"
 	
-	inst.components.foodaffinity:AddPrefabAffinity("trunk_cooked", TUNING.AFFINITY_15_CALORIES_MED)
+	--inst.components.foodaffinity:AddPrefabAffinity("trunk_cooked", TUNING.AFFINITY_15_CALORIES_MED)
 	
 	-- Stats	
 	inst.components.health:SetMaxHealth(TUNING.GRAMNESS_HEALTH)
@@ -248,9 +204,8 @@ local master_postinit = function(inst)
 	
 	inst:AddComponent("homesickness")
 	
-	inst.OnLoad = onload
     inst.OnNewSpawn = function()
-		onload(inst)
+		--onload(inst)
 		for _, v in pairs(inst.components.inventory.itemslots) do
 			if v.prefab == "baseball_cap_ninten" then
 				v.components.fueled:DoDelta(-3456) --LOL I love numbers
@@ -259,12 +214,35 @@ local master_postinit = function(inst)
 			
 		inst.components.inventory:Equip(SpawnPrefab("backpack"))
 	end
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon( "gramness.tex" )
+
+	inst:AddTag("nesscraft")
+	inst:AddTag("psychic")
 	
 	inst:ListenForEvent("killed", doresourcefulattempt)
 	inst:ListenForEvent("finishedwork", doresourcefulattempt)
 	inst:ListenForEvent("onhitother", docritattempt)
 	inst:ListenForEvent("oneat", oneatfood)
+
+	local baseball_bat_ness_recipe = Recipe("baseball_bat_ness",
+		{Ingredient("log", 4),
+	 	Ingredient("rope", 1)},
+	 	RECIPETABS.MAGIC, TECH.SCIENCE_ONE, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
+	baseball_bat_ness_recipe.atlas= "images/inventoryimages/baseball_bat_ness.xml"
+
+	local pk_flash_o_recipe = Recipe("pk_flash_o",
+		{Ingredient("purplegem", 2),
+	 	Ingredient("pk_flash", 1, "images/inventoryimages/pk_flash.xml", nil, "pk_flash.tex")},
+	 	RECIPETABS.MAGIC, TECH.MAGIC_THREE, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
+	pk_flash_o_recipe.atlas= "images/inventoryimages/pk_flash_o.xml"
+
+	local pk_flash_recipe = Recipe("pk_flash",
+		{Ingredient("purplegem", 1)},
+		RECIPETABS.MAGIC, TECH.MAGIC_TWO, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1))
+	pk_flash_recipe.atlas = "images/inventoryimages/pk_flash.xml"
 	
 end
 
-return MakePlayerCharacter("gramness", prefabs, assets, common_postinit, master_postinit, start_inv)
+return MakePlayerCharacter("gramness", prefabs, assets, fn, start_inv)

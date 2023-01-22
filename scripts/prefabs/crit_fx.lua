@@ -11,19 +11,12 @@ local function fn()
     local inst = CreateEntity()
 	
     inst.entity:AddTransform()
-    inst.entity:AddNetwork()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddAnimState()
 	inst.AnimState:SetBank("crit_fx")
     inst.AnimState:SetBuild("crit_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/crithit") end)
 	inst.AnimState:PlayAnimation("anim")
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 	
 	inst.kill_fx = killFX
     return inst
