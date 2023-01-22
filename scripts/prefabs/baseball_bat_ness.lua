@@ -55,15 +55,9 @@ end
 
 local function onequip(inst, owner)
 	owner:AddTag("homerunner")
-    local skin_build = inst:GetSkinBuild()
-    if skin_build ~= nil then
-        owner:PushEvent("equipskinneditem", inst:GetSkinName())
-        owner.AnimState:OverrideItemSkinSymbol("swap_object", skin_build, "swap_baseball_bat_ness", inst.GUID, "swap_baseball_bat_ness")
-    else
-        owner.AnimState:OverrideSymbol("swap_object", "swap_baseball_bat_ness", "swap_baseball_bat_ness")
-    end
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
+	
 	if owner.components.homesickness then
 		owner:PushEvent("sanitydelta", {oldpercent = owner.components.sanity:GetPercent(), newpercent = owner.components.sanity:GetPercent()})
 	end
@@ -77,10 +71,6 @@ local function onunequip(inst, owner)
 	owner:RemoveTag("homerunner")
     owner.AnimState:Hide("ARM_carry")
     owner.AnimState:Show("ARM_normal")
-    local skin_build = inst:GetSkinBuild()
-    if skin_build ~= nil then
-        owner:PushEvent("unequipskinneditem", inst:GetSkinName())
-    end
 	
 	if owner.components.homesickness then
 		owner:PushEvent("sanitydelta", {oldpercent = owner.components.sanity:GetPercent(), newpercent = owner.components.sanity:GetPercent()})
