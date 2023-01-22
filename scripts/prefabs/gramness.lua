@@ -209,7 +209,9 @@ local fn = function(inst)
 	
 	inst:AddComponent("homesickness")
 	
-    inst.OnNewSpawn = function()
+	inst.firstSpawn = false
+
+    if not inst.firstSpawn then
 		--onload(inst)
 		for _, v in pairs(inst.components.inventory.itemslots) do
 			if v.prefab == "baseball_cap_ninten" then
@@ -218,6 +220,7 @@ local fn = function(inst)
 		end
 			
 		inst.components.inventory:Equip(SpawnPrefab("backpack"))
+		inst.firstSpawn = true
 	end
 
 	local minimap = inst.entity:AddMiniMapEntity()
