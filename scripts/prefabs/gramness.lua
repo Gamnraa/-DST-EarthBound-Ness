@@ -216,6 +216,7 @@ local fn = function(inst)
 
 	inst:AddTag("nesscraft")
 	inst:AddTag("psychic")
+	inst:AddTag("player")
 	
 	inst:ListenForEvent("killed", doresourcefulattempt)
 	inst:ListenForEvent("finishedwork", doresourcefulattempt)
