@@ -65,6 +65,9 @@ local function doresourcefulattempt(inst, data)
 		target:DoTaskInTime(.2, function() 
 		if not loots then 
 			loots = {}
+			
+			if data.product then table.insert(loots, data.product) end
+
 			if lootdropper.chanceloottable then
 				print("chanceloottable")
 				print(lootdropper.chanceloottable)

@@ -473,7 +473,7 @@ AddComponentPostInit("hackable", function(hackable)
 	oldHack = hackable.Hack
 	hackable.Hack = function(self, hacker, numworks, shear_mult, from_shears)
 		if self.hacksleft <= 1 then
-			hacker:PushEvent("finishedhack", {target = self.inst})
+			hacker:PushEvent("finishedhack", {target = self.inst, product = self.product})
 		end
 		if shear_mult then
 			oldHack(self, hacker, numworks, shear_mult, from_shears)
