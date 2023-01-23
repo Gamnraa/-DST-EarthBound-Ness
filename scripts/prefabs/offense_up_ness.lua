@@ -43,7 +43,6 @@ local function removePsi(inst, target)
 	end
 	inst:RemoveEventCallback("onhitother", onAttack, target)
 	--inst:Remove()
-	target.offenseupfx:kill_fx()
 	target:DoTaskInTime(0, function()
 		target.offenseupfx = nil
 	end)
@@ -100,7 +99,7 @@ local function doPsi(inst, target, isOwner)
 	end
 	
 	local duration = 240
-	psiInsts[target] = target:DoTaskInTime(duration, function() removePsi(target) end)
+	psiInsts[target] = target:DoTaskInTime(duration, function() removePsi(inst, target) end)
 	
 	if target.components.homesickness then
 		target:AddTag("gutsy")
@@ -108,8 +107,6 @@ local function doPsi(inst, target, isOwner)
 	end
 	
 	inst:ListenForEvent("onhitother", onAttack, target)
-
-	psiInsts[target] = target:DoTaskInTime(duration, function() removeShield(inst, target) end)
 	target.offenseupfx = SpawnPrefab("offense_up_fx")
 
 	target.offenseupfx.entity:SetParent(target.entity)
