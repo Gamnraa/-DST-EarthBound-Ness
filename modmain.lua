@@ -425,5 +425,23 @@ else
 	end
 end
 
+--Combat changes
+
+AddComponentPostInit("combat", function(combat)
+	combat.DropTarget = function(self, hasnexttarget)
+		if self.target then
+			--self:SetLastTarget(self.target)
+			self:StopTrackingTarget(self.target)
+			self.inst:StopUpdatingComponent(self)
+			local oldtarget = self.target
+			self.target = nil
+			if not hasnexttarget then
+				self.inst:PushEvent("droppedtarget", {target=oldtarget})
+			end
+			self.lastwasattackedbytargettime = 0
+		end
+	end
+end)
+
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
