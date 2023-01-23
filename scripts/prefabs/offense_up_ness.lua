@@ -12,6 +12,8 @@ local assets =
 local psiLines = {
   "Offense Up!"
 }
+
+local psiInsts = {}
 	
 local function onequip(inst, owner)
     owner.AnimState:OverrideSymbol("swap_object", "swap_offense_up_ness", "swap_offense_up_ness")
@@ -151,7 +153,7 @@ end
 		inst.AnimState:SetBuild("ground_" .. build)
 		inst.AnimState:PlayAnimation("idle")
 		
-		inst:AddComponent("spellcaster")	
+		inst:AddComponent("betterspellcaster")	
 		inst.components.betterspellcaster:SetSpellFn(canPsi)
 		inst.components.betterspellcaster.canuseontargets = true	
 		inst.components.betterspellcaster.canonlyuseonlocomotors = true
