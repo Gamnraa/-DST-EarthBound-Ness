@@ -428,6 +428,8 @@ end
 --Combat changes
 
 AddComponentPostInit("combat", function(combat)
+	combat.nessdamagemods = {}
+
 	combat.DropTarget = function(self, hasnexttarget)
 		if self.target then
 			--self:SetLastTarget(self.target)
@@ -440,6 +442,17 @@ AddComponentPostInit("combat", function(combat)
 			end
 			self.lastwasattackedbytargettime = 0
 		end
+	end
+
+	oldCalcDamage = combat.CalcDamage
+	combat.CalcDamage = function(self, target, weapon, multiplier)
+		for _, v in pairs(self.nessdamagemods) do
+			multiplier = multiplier * v
+		end
+	if multiplier then
+		return oldCalcDamage(self, target, weapon, multiplier)
+	else
+		return oldCalcDamage(self, target, weapon)
 	end
 end)
 
