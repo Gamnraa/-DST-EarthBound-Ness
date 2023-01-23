@@ -375,7 +375,7 @@ local flashBrains = {
 	"rockybrain",
 	"rookbrain",
 	"royalpigguardbrain",
-	"sharkittenbrain"
+	"sharkittenbrain",
 	"sharxbrain",
 	"slurperbrain",
 	"smallbirdbrain",
