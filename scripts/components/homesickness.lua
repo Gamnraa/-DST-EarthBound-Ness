@@ -160,7 +160,7 @@ local Homesickness = Class(function(self, inst)
 	
 	self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
 
-	if not self.inst.firstSpawn then
+	if self.inst.firstSpawn == false then
 		--onload(inst)
 		self.inst:DoTaskInTime(.1, function() 
 			for _, v in pairs(self.inst.components.inventory.itemslots) do
