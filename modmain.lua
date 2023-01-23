@@ -449,10 +449,12 @@ AddComponentPostInit("combat", function(combat)
 		for _, v in pairs(self.nessdamagemods) do
 			multiplier = multiplier * v
 		end
-	if multiplier then
-		return oldCalcDamage(self, target, weapon, multiplier)
-	else
-		return oldCalcDamage(self, target, weapon)
+
+		if multiplier then
+			return oldCalcDamage(self, target, weapon, multiplier)
+		else
+			return oldCalcDamage(self, target, weapon)
+		end
 	end
 end)
 
