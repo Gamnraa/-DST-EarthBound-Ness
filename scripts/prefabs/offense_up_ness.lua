@@ -30,17 +30,18 @@ local function onAttack(inst, data)
 end
 
 local function removePsi(inst, target)
-	inst:RemoveTag("gutsy")
+	psiInsts[target] = nil
 	if target.components.homesickness then
 		target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
 	end
 	
-	target.components.combat.externaldamagemultipliers:RemoveModifier(inst, "offenseup")
-	if target.components.talker then	
+	target.components.combat.nessdamagemods["offenseup"] = 1
+	if target.components.talker and inst:HasTag("player") then	
 		target.components.talker:Say("It was fun while it lasted.")
 	end
 	inst:RemoveEventCallback("onhitother", onAttack, target)
-	inst:Remove()
+	--inst:Remove()
+	target.offenseupfx:kill_fx()
 	target:DoTaskInTime(0, function()
 		target.offenseupfx = nil
 	end)
@@ -86,28 +87,30 @@ end
 -- target - the target the player is casting the spell on
 ----------------------------------------
 local function doPsi(inst, target, isOwner) 
-	if isOwner then
+	--[[if isOwner then
 		target.components.combat.externaldamagemultipliers:SetModifier(target, psiVars["self"][inst.prefab], "offenseup")
 	else
 		target.components.combat.externaldamagemultipliers:SetModifier(target, psiVars["other"][inst.prefab], "offenseup")
+	end]]
+
+	if target.components.combat then
+		target.components.combat.nessdamagemods["offenseup"] = 1.25
 	end
 	
-	local duration = psiVars["time"][inst.prefab]
+	local duration = 240
 	psiInsts[target] = target:DoTaskInTime(duration, function() removePsi(target) end)
 	
 	if target.components.homesickness then
 		target:AddTag("gutsy")
-		--[[target.components.homesickness.offenseupbuff = target:DoTaskInTime(duration, function() 
-			target.components.homesickness.offenseupbuff = nil
-			target:RemoveTag("gutsy")
-			target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
-		end)]]
+		target.components.homesickness.offenseupbuff = true
 	end
 	
-	psiTypes[target] = "offense_up"
-	target.psifx = SpawnPrefab("shield_fx")
+	inst:ListenForEvent("onhitother", onAttack, target)
 
-	target.psifx.entity:SetParent(target.entity)
+	psiTypes[target] = target:DoTaskInTime(duration, function() removeShield(inst, target) end)
+	target.offenseupfx = SpawnPrefab("offense_up_fx")
+
+	target.offenseupfx.entity:SetParent(target.entity)
 
 end
 
@@ -117,7 +120,8 @@ end
 -- target - the target the player is casting the spell on
 -----------------------------------------
 local function canPsi(inst, target)
-	local caster = inst.components.inventoryitem.owner	
+	local caster = inst.components.inventoryitem.owner
+	if not target then target = caster end	
     if caster.components.sanity.current >= TUNING.GRAMNESS_OFFENSE_UP_SANITY then
 		if target.offenseupfx then
 			if caster == target then
@@ -129,7 +133,7 @@ local function canPsi(inst, target)
 		end
 		caster.components.talker:Say(psiLines[math.random(#psiLines)])
 		caster.components.sanity:DoDelta(-TUNING.GRAMNESS_OFFENSE_UP_SANITY)
-		target:AddDebuff("buff_" .. inst.prefab, "buff_" .. inst.prefab)
+		doPsi(inst, target, target == caster)
 	else 
 		caster.components.talker:Say("No can do!")	  
     end
@@ -141,21 +145,17 @@ end
 		local inst = CreateEntity()
 		inst.entity:AddTransform()
 		inst.entity:AddAnimState()
-		inst.entity:AddNetwork()
 		
 		MakeInventoryPhysics(inst)
 		inst.AnimState:SetBank("ground_" .. build)
 		inst.AnimState:SetBuild("ground_" .. build)
 		inst.AnimState:PlayAnimation("idle")
-		if not TheWorld.ismastersim then
-			return inst
-		end
-		inst.entity:SetPristine()
 		
 		inst:AddComponent("spellcaster")	
-		inst.components.spellcaster:SetSpellFn(canPsi)
-		inst.components.spellcaster.canuseontargets = true	
-		inst.components.spellcaster.canonlyuseonlocomotors = true
+		inst.components.betterspellcaster:SetSpellFn(canPsi)
+		inst.components.betterspellcaster.canuseontargets = true	
+		inst.components.betterspellcaster.canonlyuseonlocomotors = true
+		inst.components.betterspellcaster.canusefrominventory = true
 		--inst.components.spellcaster.quickcast = true
 		--inst.OnLoad = onLoad
 		--inst.OnSave = onSave
@@ -225,7 +225,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.OFFENSE_UP_NESS = "I don't even know what th
 STRINGS.CHARACTERS.WX78.DESCRIBE.OFFENSE_UP_NESS = "ERROR. UNDEFINED OBJECT"
 STRINGS.CHARACTERS.GRAMNESS.DESCRIBE.OFFENSE_UP_NESS = "Pack an extra punch, at the snap of the fingers!"
 
-return createPsi("offense_up_ness", "offense_up"),
-	   makeBuff("buff_offense_up_ness", onAttached, removePsi, 240, 1, {"offense_up_fx"})
+return createPsi("offense_up_ness", "offense_up")
+	  -- makeBuff("buff_offense_up_ness", onAttached, removePsi, 240, 1, {"offense_up_fx"})
 
 
