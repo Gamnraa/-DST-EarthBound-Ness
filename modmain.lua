@@ -234,6 +234,8 @@ if TUNING.DLC_ACTIVE then
 	end)
 end
 
+TUNING.ALL_DLC_ACTIVE = GLOBAL.IsDLCEnabled(1) and GLOBAL.IsDLCEnabled(2) and GLOBAL.IsDLCEnabled(3)
+
 --Spellcasting
 local ActionHandler = GLOBAL.ActionHandler
 local DSTCASTSPELL = GLOBAL.Action ( {mount_enabled=true},
@@ -311,118 +313,116 @@ AddStategraphActionHandler("wilsonboating", GLOBAL.ActionHandler(DSTCASTSPELL, f
 	end))
 
 --PK Flash fix
-local flashBrainsFinal = {}
-local flashBrainsAll = {
-	"antbrain",
-	"antwarriorbrain",
-	"babybeefalobrain",
-	"babyoxbrain",
-	"ballphinbrain",
-	"batbrain",
-	"beardbunnymanbrain",
-	"beebrain",
-	"beefalobrain",
-	"birchnutdrakebrain",
-	"birdbrain",
-	"bishopbrain",
-	"bunnymanbrain",
-	"buzzardbrain",
-	"catcoonbrain",
-	"citypigbrain",
-	"chickenbrain",
-	"crabbrain",
-	"crocodogbrain",
-	"doydoybrain",
-	"dragoonbrain",
-	"dungbeetlebrain",
-	"flupbrain",
-	"flytrapbrain",
-	"frogbrain",
-	"giantgrubbrain",
-	"glowflybrain",
-	"hippopotamoosebrain",
-	"houndbrain",
-	"jellyfishbrain",
-	"killerbeebrain",
-	"knightboatbrain",
-	"knightbrain",
-	"koalefantbrain",
-	"krampusbrain",
-	"lightninggoatbrain",
-	"mermbrain",
-	"monkeybrain",
-	"mosquitobrain",
-	"mosslingbrain",
-	"nightmaremonkeybrain",
-	"nightmareprimeapebrain",
-	"oxbrain",
-	"packbotbrain",
-	"packimbrain",
-	"pangoldenbrain",
-	"peagawkbrain",
-	"peagawkbushbrain",
-	"peekhenbrain",
-	"penguinbrain",
-	"perdbrain",
-	"pigbanditbrain",
-	"pigbrain",
-	"pigguardbrain",
-	"pigtraderbrain",
-	"pikobrain",
-	"pogbrain",
-	"primeapebrain",
-	"rabbitbrain",
-	"rainbowjellyfishbrain",
-	"rockybrain",
-	"rookbrain",
-	"royalpigguardbrain",
-	"sharkittenbrain",
-	"sharxbrain",
-	"slurperbrain",
-	"smallbirdbrain",
-	"snakebrain",
-	"snapdragonbrain",
-	"spatbrain",
-	"spiderapebrain",
-	"spiderbrain",
-	"werepigbrain",
-	"stungraybrain",
-	"swordfishbrain",
-	"tallbirdbrain",
-	"thunderbirdbrain",
-	"vampirebatbrain",
-	"walrusbrain",
-	"weevolebrain",
-	"wargbrain",
-	"wildborebrain",
-	"wormbrain",
-	"zebbrain",
+local flashBrains = {
+	["antbrain"] = true,
+	["antwarriorbrain"] = true,
+	["babybeefalobrain"] = true,
+	["babyoxbrain"] = true,
+	["ballphinbrain"] = true,
+	["batbrain"] = true,
+	["beardbunnymanbrain"] = true,
+	["beebrain"] = true,
+	["beefalobrain"] = true,
+	["birchnutdrakebrain"] = true,
+	["birdbrain"] = true,
+	["bishopbrain"] = true,
+	["bunnymanbrain"] = true,
+	["buzzardbrain"] = true,
+	["catcoonbrain"] = true,
+	["citypigbrain"] = true,
+	["chickenbrain"] = true,
+	["crabbrain"] = true,
+	["crocodogbrain"] = true,
+	["doydoybrain"] = true,
+	["dragoonbrain"] = true,
+	["dungbeetlebrain"] = true,
+	["flupbrain"] = true,
+	["flytrapbrain"] = true,
+	["frogbrain"] = true,
+	["giantgrubbrain"] = true,
+	["glowflybrain"] = true,
+	["hippopotamoosebrain"] = true,
+	["houndbrain"] = true,
+	["jellyfishbrain"] = true,
+	["killerbeebrain"] = true,
+	["knightboatbrain"] = true,
+	["knightbrain"] = true,
+	["koalefantbrain"] = true,
+	["krampusbrain"] = true,
+	["lightninggoatbrain"] = true,
+	["mermbrain"] = true,
+	["monkeybrain"] = true,
+	["mosquitobrain"] = true,
+	["mosslingbrain"] = true,
+	["nightmaremonkeybrain"] = true,
+	["nightmareprimeapebrain"] = true,
+	["oxbrain"] = true,
+	["packbotbrain"] = true,
+	["packimbrain"] = true,
+	["pangoldenbrain"] = true,
+	["peagawkbrain"] = true,
+	["peagawkbushbrain"] = true,
+	["peekhenbrain"] = true,
+	["penguinbrain"] = true,
+	["perdbrain"] = true,
+	["pigbanditbrain"] = true,
+	["pigbrain"] = true,
+	["pigguardbrain"] = true,
+	["pigtraderbrain"] = true,
+	["pikobrain"] = true,
+	["pogbrain"] = true,
+	["primeapebrain"] = true,
+	["rabbitbrain"] = true,
+	["rainbowjellyfishbrain"] = true,
+	["rockybrain"] = true,
+	["rookbrain"] = true,
+	["royalpigguardbrain"] = true,
+	["sharkittenbrain"] = true,
+	["sharxbrain"] = true,
+	["slurperbrain"] = true,
+	["smallbirdbrain"] = true,
+	["snakebrain"] = true,
+	["snapdragonbrain"] = true,
+	["spatbrain"] = true,
+	["spiderapebrain"] = true,
+	["spiderbrain"] = true,
+	["werepigbrain"] = true,
+	["stungraybrain"] = true,
+	["swordfishbrain"] = true,
+	["tallbirdbrain"] = true,
+	["thunderbirdbrain"] = true,
+	["vampirebatbrain"] = true,
+	["walrusbrain"] = true,
+	["weevolebrain"] = true,
+	["wargbrain"] = true,
+	["wildborebrain"] = true,
+	["wormbrain"] = true,
+	["zebbrain"] = true,
 }
 
-local oldRegisterPrefabs = GLOBAL.RegisterPrefabs
-GLOBAL.RegisterPrefabs = function(prefab, ...)
-	for _, v in pairs(flashBrainsAll) do
-		if v == (prefab.name .. "brain") then
-			AddBrainPostInit(v, function(brain)
-				local inst = brain.inst
-				table.insert(brain.bt.root.children, 1,
-					GLOBAL.WhileNode(function() return inst:HasTag("pkflashed") end, "Panic", GLOBAL.Panic(inst))
-				)
-			end)
-		end
-	end
-	oldRegisterPrefabs(prefab, ...)
-end
-
 require "behaviours/panic"
+local oldRegisterPrefabs = GLOBAL.RegisterPrefabs
 
-for _, v in pairs(flashBrainsFinal) do
-	AddBrainPostInit(v, function(brain)
+local function AddFlashPanic(b)
+	AddBrainPostInit(b, function(brain)
 		local inst = brain.inst
 		table.insert(brain.bt.root.children, 1,
 			GLOBAL.WhileNode(function() return inst:HasTag("pkflashed") end, "Panic", GLOBAL.Panic(inst))
 		)
 	end)
+end
+
+if TUNING.ALL_DLC_ACTIVE then
+	for k, _ in pairs(flashBrains) do
+		AddFlashPanic(k)
+	end
+else
+	GLOBAL.RegisterPrefabs = function(prefab, ...)
+		if flashBrains[prefab.name .. "brain"] then
+			AddFlashPanic(prefab.name .. "brain")
+		end
+		oldRegisterPrefabs(prefab, ...)
+	end
 end
 
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
