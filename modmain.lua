@@ -311,7 +311,8 @@ AddStategraphActionHandler("wilsonboating", GLOBAL.ActionHandler(DSTCASTSPELL, f
 	end))
 
 --PK Flash fix
-local flashBrains = {
+local flashBrainsFinal = {}
+local flashBrainsAll = {
 	"antbrain",
 	"antwarriorbrain",
 	"babybeefalobrain",
@@ -398,9 +399,24 @@ local flashBrains = {
 	"zebbrain",
 }
 
+local oldRegisterPrefabs = GLOBAL.RegisterPrefabs
+GLOBAL.RegisterPrefabs = function(prefab, ...)
+	for _, v in pairs(flashBrainsAll) do
+		if v == (prefab.name .. "brain") then
+			AddBrainPostInit(v, function(brain)
+				local inst = brain.inst
+				table.insert(brain.bt.root.children, 1,
+					GLOBAL.WhileNode(function() return inst:HasTag("pkflashed") end, "Panic", GLOBAL.Panic(inst))
+				)
+			end)
+		end
+	end
+	oldRegisterPrefabs(prefab, ...)
+end
+
 require "behaviours/panic"
 
-for _, v in pairs(flashBrains) do
+for _, v in pairs(flashBrainsFinal) do
 	AddBrainPostInit(v, function(brain)
 		local inst = brain.inst
 		table.insert(brain.bt.root.children, 1,

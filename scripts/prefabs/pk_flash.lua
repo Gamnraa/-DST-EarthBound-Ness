@@ -42,7 +42,7 @@ local function doPsi(inst, target, pos)
 		v:DoTaskInTime(7, function()
 			v:RemoveTag("pkflashed")
 			if v.components.combat.target then
-				v.components.combat:StopTrackingTarget(v.components.combat.target)
+			--	v.components.combat:StopTrackingTarget(v.components.combat.target)
 			end
 		end)
 		
