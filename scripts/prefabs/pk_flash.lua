@@ -38,16 +38,12 @@ local function doPsi(inst, target, pos)
 		v.pkflashfx = SpawnPrefab("pk_flash_fx")
 		v.pkflashfx.entity:SetParent(v.entity)
 		
-		if v.components.hauntable then
-			v.components.hauntable:Panic(5)
-			v:DoTaskInTime(5.1, function()
-				if v.components.combat.target then
-					v.components.combat:StopTrackingTarget(v.components.combat.target)
-				end
-			end)
-		elseif v.components.combat.target then
-			v.components.combat:StopTrackingTarget(v.components.combat.target)
-		end
+		v:AddTag("pkflashed")
+		v:DoTaskInTime(7, function()
+			if v.components.combat.target then
+				v.components.combat:StopTrackingTarget(v.components.combat.target)
+			end
+		end)
 		
 		if v:HasTag("epic") and --[[v.components.health.maxhealth < 10000 and]] inst.prefab == "pk_flash_o" then
 			local roll = math.random(100)
