@@ -402,7 +402,7 @@ for _, v in pairs(flashBrains) do
 	AddBrainPostInit(v, function(brain)
 		local inst = brain.inst
 		table.insert(brain.bt.root.children, 1,
-			WhileNode(function() return inst:HasTag("pkflashed") end, "Panic", Panic(self.inst))
+			WhileNode(function() return inst:HasTag("pkflashed") end, "Panic", Panic(inst))
 		)
 	end)
 end
