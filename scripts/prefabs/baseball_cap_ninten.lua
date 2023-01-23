@@ -101,7 +101,7 @@ local function fn()
     inst.components.equippable.dapperness = TUNING.DAPPERNESS_MED_LARGE
 
     inst:AddComponent("fueled")
-    inst.components.fueled.fueltype = FUELTYPE.USAGE
+    inst.components.fueled.fueltype = "USAGE"
     inst.components.fueled:InitializeFuelLevel(30 * 16 * 12) --12 days
     inst.components.fueled:SetDepletedFn(inst.Remove)
 	
