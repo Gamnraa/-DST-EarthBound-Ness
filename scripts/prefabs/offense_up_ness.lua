@@ -31,10 +31,24 @@ local function onAttack(inst, data)
 	inst.offenseupfx.AnimState:PlayAnimation("rehit")
 end
 
+local function onUseDoor(inst, data)
+	if inst.offenseupfx then
+		--inst.shieldfx.Remove()
+		inst:DoTaskInTime(.33, function()
+			inst.offenseupfx = SpawnPrefab(inst.offenseupfx.prefab)
+			inst.offenseupfx.entity:SetParent(inst.entity)
+		end)
+	end
+end
+
 local function removePsi(inst, target)
 	psiInsts[target] = nil
 	if target.components.homesickness then
 		target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
+	end
+
+	if inst.components.entitytracker then
+		inst.components.entitytracker:ForgetEntity(target.GUID)
 	end
 	
 	target.components.combat.nessdamagemods["offenseup"] = 1
@@ -42,6 +56,7 @@ local function removePsi(inst, target)
 		target.components.talker:Say("It was fun while it lasted.")
 	end
 	inst:RemoveEventCallback("onhitother", onAttack, target)
+	target:RemoveEventCallback("fadeout", onUseDoor)
 	--inst:Remove()
 	target:DoTaskInTime(0, function()
 		target.offenseupfx = nil
@@ -107,9 +122,14 @@ local function doPsi(inst, target, isOwner)
 	end
 	
 	inst:ListenForEvent("onhitother", onAttack, target)
+	target:ListenForEvent("fadeout", onUseDoor)
 	target.offenseupfx = SpawnPrefab("offense_up_fx")
 
 	target.offenseupfx.entity:SetParent(target.entity)
+
+	if inst.components.entitytracker then
+		inst.components.entitytracker:TrackEntity(target.GUID, target)
+	end
 
 end
 
@@ -136,7 +156,33 @@ local function canPsi(inst, target)
 	else 
 		caster.components.talker:Say("No can do!")	  
     end
- 
+end
+
+local function onSave(inst, data)
+	
+	for k, v in pairs(psiInsts) do
+		table.insert(data, k.GUID)
+		data[k.GUID] = GetTaskRemaining(v)
+	end
+	
+	
+	return data
+end
+
+local function onLoad(inst, data)
+	print("LOAD")
+	
+	if data and inst.components.entitytracker then
+		--Wait for EntityTracker
+		inst:DoTaskInTime(0, function()
+			for k, v in pairs(data) do
+				local shielder = inst.components.entitytracker.entities[v]
+				if shielder then
+					doPsi(inst, shielder, shielder.prefab == "gramness", data[v])
+				end
+			end
+		end)
+	end
 end
 
  local function createPsi(name, build)
@@ -155,9 +201,9 @@ end
 		inst.components.betterspellcaster.canuseontargets = true	
 		inst.components.betterspellcaster.canonlyuseonlocomotors = true
 		inst.components.betterspellcaster.canusefrominventory = true
-		--inst.components.spellcaster.quickcast = true
-		--inst.OnLoad = onLoad
-		--inst.OnSave = onSave
+
+		inst.OnLoad = onLoad
+		inst.OnSave = onSave
 		
 		inst:AddComponent("inspectable")
 		inst:AddComponent("inventoryitem") 
@@ -183,6 +229,8 @@ end
 				end
 			end
 		end
+
+		inst:AddComponent("entitytracker")
 		return inst
 	end
     return Prefab(name, fn, assets)

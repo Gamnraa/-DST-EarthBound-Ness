@@ -458,5 +458,15 @@ AddComponentPostInit("combat", function(combat)
 	end
 end)
 
+--I need an event listener that catches ALL forms of door use
+--There doesn't seem to be one that catches going from one room to another, at least none that the player can listen to
+AddComponentPostInit("interiorspawner", function(interiorspawner)
+	old_fadeoutfinished = interiorspawner.FadeOutFinished
+	interiorspawner.FadeOutFinished = function(self, dont_fadein)
+		GLOBAL.GetPlayer():PushEvent("fadeout")
+		return old_fadeoutfinished(self, dont_fadein)
+	end
+end)
+
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
