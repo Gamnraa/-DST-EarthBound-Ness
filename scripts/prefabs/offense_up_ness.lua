@@ -109,7 +109,7 @@ local function doPsi(inst, target, isOwner)
 	
 	inst:ListenForEvent("onhitother", onAttack, target)
 
-	psiTypes[target] = target:DoTaskInTime(duration, function() removeShield(inst, target) end)
+	psiInsts[target] = target:DoTaskInTime(duration, function() removeShield(inst, target) end)
 	target.offenseupfx = SpawnPrefab("offense_up_fx")
 
 	target.offenseupfx.entity:SetParent(target.entity)
