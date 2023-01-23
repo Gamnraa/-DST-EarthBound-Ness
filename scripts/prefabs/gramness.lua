@@ -43,7 +43,7 @@ local function doresourcefulattempt(inst, data)
 	end
 	
 	if numDrops == 0 then return end
-	local target = data.victim or data.target	
+	local target = data.victim or data.target
 	
 	if target then
 		--for _, v in pairs(exemptiontags) do
@@ -220,6 +220,8 @@ local fn = function(inst)
 	
 	inst:ListenForEvent("killed", doresourcefulattempt)
 	inst:ListenForEvent("finishedwork", doresourcefulattempt)
+	inst:ListenForEvent("finishedhack", doresourcefulattempt)
+
 	inst:ListenForEvent("onhitother", docritattempt)
 	inst:ListenForEvent("oneat", oneatfood)
 

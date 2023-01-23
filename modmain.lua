@@ -468,5 +468,20 @@ AddComponentPostInit("interiorspawner", function(interiorspawner)
 	end
 end)
 
+--Hackable listener
+AddComponentPostInit("hackable", function(hackable)
+	oldHack = hackable.Hack
+	hackable.Hack = function(self, hacker, numworks, shear_mult, from_shears)
+		if self.hacksleft <= 1 then
+			hacker:PushEvent("finishedhack", {target = self.inst})
+		end
+		if shear_mult then
+			oldHack(self, hacker, numworks, shear_mult, from_shears)
+		else
+			oldHack(self, hacker, numworks)
+		end
+	end
+end)
+
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
