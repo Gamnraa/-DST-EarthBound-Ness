@@ -13,27 +13,8 @@ local Vector3 = GLOBAL.Vector3
     tags = { "baseballbat", "attack", "abouttoattack", "notalking", "autopredict" },
 
     onenter = function(inst)
-		if inst.components.combat:InCooldown() then
-			inst.sg:RemoveStateTag("abouttoattack")
-			inst:ClearBufferedAction()
-			inst.sg:GoToState("idle", true)
-			return
-		end
-			
-		local buffaction = inst:GetBufferedAction()
-		local target = buffaction ~= nil and buffaction.target or nil
-        inst.components.combat:SetTarget(target)
-        inst.components.combat:StartAttack()
-        inst.components.locomotor:Stop()
-		inst.AnimState:PlayAnimation("atk_prop_pre")
-        inst.AnimState:PushAnimation("atk_prop", false)
-        inst.SoundEmitter:PlaySound("dontstarve/wilson/attack_whoosh")
-
-       --[[ if inst.components.playercontroller ~= nil then
-            inst.components.playercontroller:RemotePausePrediction()
-        end]]
-			
-		inst.sg:SetTimeout(16 * FRAMES)
+		
+		local target = inst.components.combat.target
 		
 		if target then
 			if inst.prefab == "gramness" then
@@ -45,20 +26,28 @@ local Vector3 = GLOBAL.Vector3
 			end
 				
 			if target:IsValid() then
-				inst:FacePoint(target:GetPosition())
-				inst.sg.statemem.attacktarget = target
-                inst.sg.statemem.retarget = target
-			elseif buffaction and buffaction.pos then
-				--Make sure you clear the server side buffered action for clients
-				--Otherwise you WILL get desyncs
-				inst:ClearBufferedAction()
+				inst:FacePoint(Point(target.Transform:GetWorldPosition()))
 			end
 		end
+
+		inst.sg.statemem.target = target
+        inst.components.combat:StartAttack()
+        inst.components.locomotor:Stop()
+		inst.AnimState:PlayAnimation("atk_prop_pre")
+        inst.AnimState:PushAnimation("atk_prop", false)
+        inst.SoundEmitter:PlaySound("dontstarve/wilson/attack_whoosh")
+
+       --[[ if inst.components.playercontroller ~= nil then
+            inst.components.playercontroller:RemotePausePrediction()
+        end]]
+			
+		inst.sg:SetTimeout(16 * FRAMES)
+
     end,
     timeline =
     {
         TimeEvent(8 * FRAMES, function(inst)
-			inst:PerformBufferedAction()
+			inst.components.combat:DoAttack(inst.sg.statemem.target) 
             inst.sg:RemoveStateTag("abouttoattack")
         end),
     },
