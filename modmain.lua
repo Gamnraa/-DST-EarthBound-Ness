@@ -67,7 +67,7 @@ Assets = {
 	
 	Asset("ANIM", "anim/ds_pig_elite.zip"),
 	Asset("ANIM", "anim/player_emotes.zip"),
-	Asset("ANIM", "anim/swap_sign_elite.zip")
+	Asset("ANIM", "anim/player_attack_prop.zip"),
 }
 
 AddMinimapAtlas("images/map_icons/gramness.xml")
