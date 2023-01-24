@@ -67,13 +67,6 @@ local Vector3 = GLOBAL.Vector3
             end
         end),
     },
-
-    onexit = function(inst)
-        inst.components.combat:SetTarget(nil)
-        if inst.sg:HasStateTag("abouttoattack") then
-            inst.components.combat:CancelAttack()
-        end
-    end,
 })
 AddStategraphState("wilson",  baseball_swing)
 
