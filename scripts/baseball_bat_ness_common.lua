@@ -90,14 +90,13 @@ AddStategraphState("wilson",  baseball_swing)
 
 --Add our attack stategraph to the existing attack action handler
 AddStategraphPostInit("wilson", function(sg)
-	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
-	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		inst.sg.mem.localchainattack = not action.forced or nil
-        if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or inst.components.health:IsDead()) then
-            local weapon = inst.components.combat ~= nil and inst.components.combat:GetWeapon() or nil
+	local oldattackhandler = sg.events["doattack"]
+	sg.events["doattack"] = GLOBAL.EventHandler("doattack", function(inst)
+		if not inst.components.health:IsDead() and not inst.sg:HasStateTag("attack") and not inst.sg:HasStateTag("sneeze") then
+            local weapon = inst.components.combat and inst.components.combat:GetWeapon()
 			if weapon and weapon.prefab == "baseball_bat_ness" then
-				return "swing_bat"
-			else return oldattackhandler.deststate(inst, action)
+				inst.sg:GoToState("swing_bat")
+			else oldattackhandler.fn(inst)
 			end
 		end
 	end)
