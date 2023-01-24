@@ -129,6 +129,8 @@ local function OnSanityUpdated(inst, data)
 		
 		homesickness.sanitydrain = sanityLevels[level]
 		homesickness.resourcefulness = resourcefulChances[level]
+
+		homesickness.workfulness = workRateModifiers[level]
 		
 		--inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workRateModifiers[level], "homesickness")
 		--inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workRateModifiers[level], "homesickness")
@@ -153,6 +155,7 @@ local Homesickness = Class(function(self, inst)
 	self.guts = 10
 	self.sanitydrain = 0
 	self.resourcefulness = {66, 33}
+	self.workfulness = 1
 	self.actioninterrupt = nil
 	self.favoritefoodbuff = nil
 	self.foodbuff = nil
@@ -202,11 +205,13 @@ function Homesickness:OnSave()
 		favoritefoodbuff = self.favoritefoodbuff or false,
 		foodbuff = self.foodbuff or false,
 		offenseupbuff = self.offenseupbuff or false,
+		workfulness = self.workfulness
 	}
 end
 
 function Homesickness:OnLoad(data)
 	self.level = data.level
+	self.workfulness = data.workfulness
 	if data.actioninterrupt then 
 		print("Scheduling next interrupt in... " .. data.actioninterrupt .. " seconds")
 		self.actioninterrupt = self.inst:DoTaskInTime(data.actioninterrupt, function() self:DoNextInterrupt() end)

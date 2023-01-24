@@ -496,5 +496,16 @@ AddComponentPostInit("dislodgeable", function(dislodgeable)
 	end
 end)
 
+AddComponentPostInit("workable", function(workable)
+	oldWorkedBy = workable.WorkedBy
+	workable.WorkedBy = function(self, worker, numworks)
+		if worker.components.homesickness then
+			numworks = numworks or 1
+			numworks = numworks * worker.components.homesickness.workfulness
+		end
+		oldWorkedBy(self, worker, numworks)
+	end
+end)
+
 STRINGS.RECIPE_DESC.PK_FLASH_O = "PK Flash, but even better."
 STRINGS.RECIPE_DESC.BASEBALL_BAT_NESS = "Knock 'em outta the park."
