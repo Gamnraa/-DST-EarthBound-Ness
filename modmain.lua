@@ -472,6 +472,7 @@ end)
 AddComponentPostInit("hackable", function(hackable)
 	oldHack = hackable.Hack
 	hackable.Hack = function(self, hacker, numworks, shear_mult, from_shears)
+		--oldHack handles reducing hacksleft
 		if self.hacksleft <= 1 then
 			hacker:PushEvent("finishedhack", {target = self.inst, product = self.product})
 		end
@@ -480,6 +481,17 @@ AddComponentPostInit("hackable", function(hackable)
 		else
 			oldHack(self, hacker, numworks)
 		end
+	end
+end)
+
+AddComponentPostInit("dislodgeable", function(dislodgeable)
+	oldDislodge = dislodgeable.Dislodge
+	dislodgeable.Dislodge = function(self, dislodger)
+		if self.product then
+			dislodger:PushEvent("finishedhack", {target = self.inst, product = self.product})
+		end
+
+		oldDislodge(self, dislodger)
 	end
 end)
 
