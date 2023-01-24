@@ -65,7 +65,8 @@ Assets = {
 	Asset("SOUNDPACKAGE", "sound/gramness.fev"),
 	Asset("SOUND", "sound/gramness.fsb"),
 	
-	Asset("ANIM", "anim/ds_pig_elite.zip")
+	Asset("ANIM", "anim/ds_pig_elite.zip"),
+	Asset("ANIM", "anim/player_emotes.zip"),
 }
 
 AddMinimapAtlas("images/map_icons/gramness.xml")
