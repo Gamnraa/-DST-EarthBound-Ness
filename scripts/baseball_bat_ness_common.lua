@@ -108,7 +108,9 @@ local newAnims = {
 	["walrus"] = Asset("ANIM", "anim/walrusknockback.zip"), 
 
 	["antman"] = Asset("ANIM", "anim/knockback_antman.zip"),
-	["bill"] = Asset("ANIM", "anim/knockback_bill.zip")
+	["bill"] = Asset("ANIM", "anim/knockback_bill.zip"),
+	["crab"] = Asset("ANIM", "anim/knockback_crabbit.zip"),
+	["dragoon"] = Asset("ANIM", "anim/knockback_dragoon.zip"),
 }
 
 --These mobs have smacked animations already
@@ -131,7 +133,12 @@ local validAnims = {
 	["mutatedhound"] = true,
 	["mutated_penguin"] = true,
 
-	["antman_warrior"] = true
+	["antman_warrior"] = true,
+	["crocodog"] = true,
+	["poisoncrocodog"] = true,
+	["watercrocodog"] = true,
+	["doydoy"] = true,
+	["doydoybaby"] = true,
 }
 
 local oldRegisterPrefabs = GLOBAL.RegisterPrefabs
@@ -291,7 +298,12 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS = {
 
 	["ant"] = 1.7,
 	["ballphin"] = 2.0,
-	["bill"] = 2.5
+	["bill"] = 2.5,
+	["crab"] = 3.0,
+	["crocodog"] = 1.5,
+	["doydoy"] = 2.0,
+	["doydoybaby"] = 2.2,
+	["dragoon"] = 1.6,
 }
 
 MassAddStategraphEvent(GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS, "baseballknockback", BaseballKnockbackEvent)
@@ -321,3 +333,5 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["mutated_penguin"] = 2.2
 
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["antman"] = 1.7
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["antman_warrior"] = 1.6
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["poisoncrocodog"] = 1.5
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["watercrocodog"] = 1.5
