@@ -116,6 +116,8 @@ local newAnims = {
 	["mandrakeman"] = Asset("ANIM", "anim/knockback_mandrakeman.zip"),
 	--["pigbandit"] = Asset("ANIM", "anim/ds_pig_elite.zip"),
 	["piko"] = Asset("ANIM", "anim/knockback_piko.zip"),
+	["rabid_beetle"] = Asset("ANIM", "anim/knockback_rabidbeetle.zip")
+	["wildbore"] = Asset("ANIM", "anim/ds_pig_elite.zip")
 }
 
 --These mobs have smacked animations already
@@ -307,15 +309,29 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS = {
 	["doydoybaby"] = 2.2,
 	["dragoon"] = 1.6,
 	["dungbeetle"] = 1.7,
-	["flup"] = 3.3,
-	["flytrap"] = 1.3,
+	["flup"] = 3.0,
+	["mean_flytrap"] = 1.3,
 	["jellyfish"] = 2.1,
 	["knightboat"] = 1.0,
 	["mandrakeman"] = 1.5,
 	["peagawk"] = 2.0,
 	["pigbandit"] = 1.5,
 	["piko"] = 3.0,
-	["pog"] - 2.2,
+	["pog"] = 2.2,
+	["primeape"] = 1.8,
+	["rabid_beetle"] = 2.8,
+	["rainbowjellyfish"] = 2.1,
+	["scorpion"] = 1.9,
+	["sharkitten"] = 1.8,
+	["sharx"] = 1.5,
+	["snake"] = 1.7,
+	["stungray"] = 1.7,
+	["swordfish"] = 1.4,
+	["thunderbird"] = 1.8,
+	["vampirebat"] = 2.5,
+	["warriorant"] = 1.7,
+	["weevole"] = 2.7,
+	["wildbore"] = 1.4,
 }
 
 MassAddStategraphEvent(GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS, "baseballknockback", BaseballKnockbackEvent)
@@ -347,6 +363,9 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["antman"] = 1.7
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["antman_warrior"] = 1.6
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["poisoncrocodog"] = 1.5
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["watercrocodog"] = 1.5
-GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["mean_flytrap"] = 1.3
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["piko_orange"] = 3.0
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_poison"] = 1.7
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_fire"] = 1.7
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_amphibious"] = 1.7
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["wildboreguard"] = 1.4
 
