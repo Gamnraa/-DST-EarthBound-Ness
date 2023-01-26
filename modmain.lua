@@ -154,6 +154,14 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["stalker_atrium"] = {"nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "armorskeleton"},
 	["toadstool"] = {"blue_mushroomhat", "green_mushroomhat", "red_mushroomhat"},
 	
+	["twister"] = {"turbine_blades", "gears", "gears", "gears"},
+	["tigershark"] = {"tigereye", "shark_gills", "shark_gills"},
+	["pugalisk"] = {"redgem", "bluegem"},
+	["kraken"] = {"ruinshat", "armorruins"},
+	["antqueen"] = {"trunk_cooked"},
+	["ancient_hulk"] = {"infused_iron"},
+	["ancient_herald"] = {"ancient_remnant", "ancient_remnant", "nightmarefuel"},
+	
 	--World objects that can be worked for loot
 	["rock_ice"] = {"ice"},
 	["moon_altar_rock_glass"] = {"rocks"},
