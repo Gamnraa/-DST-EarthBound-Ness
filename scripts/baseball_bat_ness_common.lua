@@ -116,8 +116,8 @@ local newAnims = {
 	["mandrakeman"] = Asset("ANIM", "anim/knockback_mandrakeman.zip"),
 	--["pigbandit"] = Asset("ANIM", "anim/ds_pig_elite.zip"),
 	["piko"] = Asset("ANIM", "anim/knockback_piko.zip"),
-	["rabid_beetle"] = Asset("ANIM", "anim/knockback_rabidbeetle.zip")
-	["wildbore"] = Asset("ANIM", "anim/ds_pig_elite.zip")
+	["rabid_beetle"] = Asset("ANIM", "anim/knockback_rabidbeetle.zip"),
+	["wildbore"] = Asset("ANIM", "anim/ds_pig_elite.zip"),
 }
 
 --These mobs have smacked animations already
@@ -332,6 +332,7 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS = {
 	["warriorant"] = 1.7,
 	["weevole"] = 2.7,
 	["wildbore"] = 1.4,
+
 }
 
 MassAddStategraphEvent(GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS, "baseballknockback", BaseballKnockbackEvent)
@@ -368,4 +369,36 @@ GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_poison"] = 1.7
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_fire"] = 1.7
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["snake_amphibious"] = 1.7
 GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["wildboreguard"] = 1.4
+
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_beautician"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_florist"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_erudite"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_hatmaker"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_storeowner"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_banker"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_collector"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_hunter"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_mayor"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_mechanic"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_professor"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_usher"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_royalguard"] = 1.3
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_royalguard_2"] = 1.3
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_farmer"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_miner"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_queen"] = 1.4
+
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_beautician_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_florist_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_erudite_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_hatmaker_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_storeowner_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_banker_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_collector_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_hunter_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_mayor_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_mechanic_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_professor_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_farmer_shopkeep"] = 1.4
+GLOBAL.GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS["pigman_miner_shopkeep"] = 1.4
 
