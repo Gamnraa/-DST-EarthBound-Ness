@@ -177,6 +177,8 @@ return {
             GENERIC = "I don't have any better ideas for what to write.",
             INUSE = "They'll write something much nicer than I could!",
         },
+		REPAIRBOAT =		
+			GENERIC = "There's nothing to patch up, haha!								 
         DRAW =
         {
             NOIMAGE = "I'm not artist: I need a reference!",
@@ -413,7 +415,8 @@ return {
 	},
 
 	ACTIONFAIL_GENERIC = "No can do!",
-	ANNOUNCE_BOAT_LEAK = "Um, the water should be OUTSIDE the boat, right?",
+	ANNOUNCE_MAGIC_FAIL = "Hmmm, maybe a hamburger or two would help me concentrate!",
+	ANNOUNCE_BOAT_LEAK = "Um, the water should be OUTSIDE the boat, right?",																
 	ANNOUNCE_BOAT_SINK = "D-don't worry, I-I'm a great swimmer...!",
 	ANNOUNCE_DIG_DISEASE_WARNING = "It looks better already.", --removed
 	ANNOUNCE_PICK_DISEASE_WARNING = "Uh, is it supposed to smell like that?", --removed
@@ -524,6 +527,7 @@ return {
 	ANNOUNCE_HIGHRESEARCH = "Look at what I know~",
 	ANNOUNCE_HOUNDS = "Something's hunting us!",
 	ANNOUNCE_WORMS = "Something's hunting us!",
+	ANNOUNCE_SHARX = "I'm not alone out here!",																	 
 	ANNOUNCE_HUNGRY = "I could go for a nice steak right about now!",
 	ANNOUNCE_HUNT_BEAST_NEARBY = "It's close.",
 	ANNOUNCE_HUNT_LOST_TRAIL = "Hmmmm, I think I lost the trail.",
@@ -545,6 +549,7 @@ return {
 	ANNOUNCE_NONIGHTSIESTA = "I don't feel like relaxing.",
 	ANNOUNCE_NONIGHTSIESTA_CAVE = "I don't feel like relaxing.",
 	ANNOUNCE_NOHUNGERSIESTA = "I want a bite to eat first!",
+	ANNOUNCE_NODANGERAFK = "I'm capable of anything!",
 	ANNOUNCE_NO_TRAP = "Huh. Was kinda expecting an explosion or something!",
 	ANNOUNCE_PECKED = "Hey, watch the noggin!",
 	ANNOUNCE_QUAKE = "Everything's shaking!",
@@ -574,9 +579,15 @@ return {
 	ANNOUNCE_WET = "So uh, I should probably find shelter, huh?",
 	ANNOUNCE_WETTER = "I'm soaked!",
 	ANNOUNCE_SOAKED = "Too much water, too much!!",
-
+	ANNOUNCE_TREASURE = "Treasure? I wonder if it'll help on my adventure!",
+	ANNOUNCE_MORETREASURE = "This'll be handy, haha!",
+	ANNOUNCE_OTHER_WORLD_TREASURE = "Hmmm, I think I'm just going in circles!",
+	ANNOUNCE_OTHER_WORLD_PLANT = "This soil is no good!",
+	ANNOUNCE_MESSAGEBOTTLE = 
+	{
+		"I can't make anything out. Ugh.",
+	},
 	ANNOUNCE_WASHED_ASHORE = "Haha, maybe I'll be next careful next time!",
-
     ANNOUNCE_DESPAWN = "Looks like my time here is up!",
 	ANNOUNCE_BECOMEGHOST = "oOooOooo!!",
 	ANNOUNCE_GHOSTDRAIN = "It's time for me to move on...",
@@ -597,7 +608,46 @@ return {
 		SEED_LOW = "I see it!",
 		SEED_REVEAL = "There we go!",
 	},
+	ANNOUNCE_VOLCANO_ERUPT = "Ah! Are we in the Lost Underworld?!",
+	ANNOUNCE_MAPWRAP_WARN = "Who's out there!",
+	ANNOUNCE_MAPWRAP_LOSECONTROL = "It's a riptide!",
+	ANNOUNCE_MAPWRAP_RETURN = "I'm all turned around...",
+	ANNOUNCE_CRAB_ESCAPE = "You win this time!",
+	ANNOUNCE_TRAWL_FULL = "It's stuffed to the brim!",
+	ANNOUNCE_BOAT_DAMAGED = "My boat's damaged!",
+	ANNOUNCE_BOAT_SINKING = "Hold on just a longer, please...?",
+	ANNOUNCE_BOAT_SINKING_IMMINENT = "My journey can't end here!!",
+	ANNOUNCE_WAVE_BOOST = "Whoooa!!",
 
+	ANNOUNCE_WHALE_HUNT_BEAST_NEARBY = "It's close now!",
+	ANNOUNCE_WHALE_HUNT_LOST_TRAIL = "Haha, the ocean's kinda big, huh?",
+	ANNOUNCE_WHALE_HUNT_LOST_TRAIL_SPRING = "Water's too rough for this!",	
+
+	-- PORKLAND SPEECH
+	ANNOUCE_UNDERLEAFCANOPY = "Ahhh, that's nice.",
+	ANNOUCE_ALARMOVER = "Looks safe now!",	
+	ANNOUCE_BATS = "Bad guys...",
+	ANNOUCE_OTHERWORLD_DEED = "It doesn't mean much here, haha!",
+	ANNOUNCE_TOOLCORRODED = "Someone was a little too brittle, hahaha!",
+	ANNOUNCE_TURFTOOHARD = "I can't really dig it out!",
+	ANNOUNCE_GAS_DAMAGE = "*Gasp* Wait... I can't... breathe...!",
+	ANNOUNCE_GNATS_DIED = "Sorry Buzz Buzz, but these bugs I'm not a fan of!",	
+	ANNOUNCE_SNEEZE = "Ah-ah! Ahhhhh CHOOO!!",	
+	ANNOUNCE_HAYFEVER = "I think this place is making me sick...",	
+	ANNOUNCE_HAYFEVER_OFF = "Much better!",	
+	ANNOUNCE_PICKPOOP = {"This is too gross for even me...", "I'll never be clean again...", "Ewwww..."},	
+	ANNOUNCE_TOO_HUMID = {"It's way too humid for %s...","This %s is too hot."},	
+	ANNOUNCE_DEHUMID = {"Much more comfy."},	
+	ANNOUNCE_PUGALISK_INVULNERABLE = {"You'll break eventually", "Nothing is too strong for me!"},
+	ANNOUNCE_MYSTERY_FOUND = "What's this?",
+	ANNOUNCE_MYSTERY_NOREWARD = "A dead end.",
+	ANNOUNCE_MYSTERY_DOOR_FOUND = "What's on the other side?",
+	ANNOUNCE_MYSTERY_DOOR_NOT_FOUND = "Nothing's behind here!",
+	ANNOUNCE_TAXDAY = "No wonder why Mayor Pirkle is so insistent on reelection!",
+	ANNOUNCE_HOUSE_DOOR = "I should ask for a permit!",
+	ANNOUNCE_ROOM_STUCK = "Someone forgot the door!",
+	ANNOUNCE_NOTHING_FOUND = "Nothing.",
+	ANNOUNCE_SUITUP = "Ah, looks like it's time to save the world again!",																			
     --hallowed nights
     ANNOUNCE_SPOOKED = "Aah! Spooky!",
 	ANNOUNCE_BRAVERY_POTION = "Hah, homesick? Not me!",
@@ -904,6 +954,7 @@ return {
 
 	DESCRIBE =
 	{
+		WILDBOREGUARD = "They're not too keen on being my friend!",							
 		MULTIPLAYER_PORTAL = "So this is where I came from?",
         MULTIPLAYER_PORTAL_MOONROCK = "It's teeming with unearthly power!",
         MOONROCKIDOL = "It begs to be offered.",
@@ -1254,6 +1305,12 @@ return {
         },
 
         LAVA_POND_ROCK = "Reminds me of Fire Spring!",
+		LAVA_POND_ROCK2 = "Reminds me of Fire Spring!",
+		LAVA_POND_ROCK3 = "Reminds me of Fire Spring!",					   
+		LAVA_POND_ROCK4 = "Reminds me of Fire Spring!",					   
+		LAVA_POND_ROCK5 = "Reminds me of Fire Spring!",					   
+		LAVA_POND_ROCK6 = "Reminds me of Fire Spring!",					   
+		LAVA_POND_ROCK7 = "Reminds me of Fire Spring!",					   
 
 		WEBBERSKULL = "What kind of skull is this?",
 		WORMLIGHT = "It glows so very bright!",
@@ -1495,8 +1552,13 @@ return {
         SPIDERHOLE = "Property of spiders!",
         SPIDERHOLE_ROCK = "A home for spiders.",
         STALAGMITE = "Cave rocks!",
+		STALAGMITE_FULL = "Is it stalagmite, or stalagtite?",
+		STALAGMITE_LOW = "I feel like I learned about these in Earth science.",
+		STALAGMITE_MED = "I wonder how they form!",
+		STALAGMITE_TALL_FULL = "Echo... echo... echo!",
         STALAGMITE_TALL = "It's pretty big!",
-
+		STALAGMITE_TALL_LOW = "It's not THAT massive!",
+		STALAGMITE_TALL_MED = "This one's just right!",
         TURF_CARPETFLOOR = "Reminds me of home.",
         TURF_CHECKERFLOOR = "I've seen these around diners.",
 		--No.
@@ -1740,6 +1802,7 @@ return {
 			PICKED = "Maybe another will grow back!",
 		},
 		BOARDS = "I made them nice and flat!",
+		BOAT = "To sea!",										 
 		BONESHARD = "Remains.",
 		BONESTEW = "Mmmmm, looks delicious!",
 		BUGNET = "Call me the bug catcher!",
@@ -1900,7 +1963,7 @@ return {
 		CUTGRASS = "Smells like grass!",
 		CUTREEDS = "Reeds.",
 		CUTSTONE = "I made them as square as I possibly could!",
-		DEADLYFEAST = "A most potent dish.", --unimplemented
+		DEADLYFEAST = "Fool me twice...!", --unimplemented
 		DEER =
 		{
 			GENERIC = "I wonder how they get around.",
@@ -1930,13 +1993,13 @@ return {
 		},
 		DIVININGRODBASE =
 		{
-			GENERIC = "I wonder what it does.", --singleplayer
-			READY = "It looks like it needs a large key.", --singleplayer
-			UNLOCKED = "Now the machine can work!", --singleplayer
+			GENERIC = "I bet Jeff'd know how it works!", --singleplayer
+			READY = "It needs something!", --singleplayer
+			UNLOCKED = "It's up and at em'!", --singleplayer
 		},
 		DIVININGRODSTART = "That rod looks useful!", --singleplayer
 		DRAGONFLY = "She's very territorial!",
-		ARMORDRAGONFLY = "This would been useful in Fire Spring!",
+		ARMORDRAGONFLY = "This would have been useful in Fire Spring!",
 		DRAGON_SCALES = "Wow, your scales are big!",
 		DRAGONFLYCHEST = "It'll keep my things from burning up!",
 		DRAGONFLYFURNACE =
@@ -2096,7 +2159,11 @@ return {
 		FISH = "I gotcha!",
 		FISHINGROD = "I can go fishing now!",
 		FISHSTICKS = "Fish sticks rock!",
+		FISH_MED = "Fish outta water!",
+		FISH_MED_COOKED = "Mmmm, bet you taste great!",
 		FISHTACOS = "Yummy yum yum!",
+		FISH3 = "Pretty!",		
+		FISH3_COOKED = "Now, I eat!",							 
 		FISH_COOKED = "I cooked it well, I think.",
 		FLINT = "It's sharp!",
 		FLOWER =
@@ -2134,6 +2201,7 @@ return {
 		FURTUFT = "Bunches of fur!",
 		GEARS = "Maybe I could build myself a robot body again!",
 		GHOST = "I've fought ghosts before!",
+		GHOST_SAILOR = "It must be lonely out at sea...",							  
 		GOLDENAXE = "This axe is awesome!",
 		GOLDENPICKAXE = "It's a super pickaxe!",
 		GOLDENPITCHFORK = "Nice!",
@@ -2245,6 +2313,7 @@ return {
 		GOATMILK = "Delicious!",
 		LITTLE_WALRUS = "Your dad sures love to hunt!",
 		LIVINGLOG = "It just mumbling gibberish in my head.",
+		LOCKEDWES = "Someone really hates mimes, haha!,													 
 		LOG =
 		{
 			BURNING = "Our supplies!",
@@ -2254,7 +2323,12 @@ return {
 		LUREPLANT = "It traps living things.",
 		LUREPLANTBULB = "Maybe I could use it?",
 		MALE_PUPPET = "He's trapped!", --single player
-
+		MANDRAKE = 
+		{
+			DEAD = "Is it edible?",
+			GENERIC = "What is that thing?",
+			PICKED = "Hahaha! You're very loud!",
+		},
 		MANDRAKE_ACTIVE = "Hahaha! You're very loud!",
 		MANDRAKE_PLANTED = "What is that thing?",
 		MANDRAKE = "Mmmm, maybe I can eat it.",
@@ -2332,6 +2406,7 @@ return {
         MOSSLING = "Hi!",
         FEATHERFAN = "It creates such a relaxing breeze!",
         MINIFAN = "I love playing with them!",
+		TROPICALFAN = "It's really useful in this sort of weather!",
         GOOSE_FEATHER = "It tickles!",
         STAFF_TORNADO = "PK Cyclone!",
         MOSQUITO =
@@ -2589,7 +2664,8 @@ return {
 		SILK = "Silky!",
 		SKELETON = "Haha, I'm gonna die out here!",
 		SCORCHED_SKELETON = "Dying wasn't enough?",
-		SKULLCHEST = "I'm not sure if I want to open it.", --removed
+		SKELETON_PLAYER = "I have a rockin' skeleton, haha!",
+		SKULLCHEST = "I'm not sure if I want to open it.", --removed									
 		SMALLBIRD =
 		{
 			GENERIC = "Haha, it's cute!",
@@ -2635,6 +2711,7 @@ return {
         },
 		STATUEHARP = "How about a statue of an electric guitar?",
 		STATUEMAXWELL = "Haha, you're in for a world of pain one of these days!",
+		STEAMEDHAMSANDWICH = "Mmmmmmm!",											 
 		STEELWOOL = "It's very metalic.",
 		STINGER = "A bee's stinger.",
 		STRAWHAT = "I'd prefer a baseball cap!",
@@ -2955,6 +3032,7 @@ return {
 		TWIGS = "I'm a twig collector!",
 		UMBRELLA = "I'll stay nice and dry now!",
 		GRASS_UMBRELLA = "It's not the perfect umbrella, but I tried!",
+		PALMLEAF_UMBRELLA = "It keeps me KINDA dry...!",
 		UNIMPLEMENTED = "It doesn't look finished! It could be dangerous.",
 		WAFFLES = "Yummy!",
 		WALL_HAY =
@@ -3139,6 +3217,1549 @@ return {
         YELLOWMOONEYE = "I can sense where it is at all times!",
         BLUEMOONEYE = "I can sense where it is at all times!",
 
+		FLOTSAM = "I betcha it's hiding all sorts of secrets!",
+		
+		SUNKEN_BOAT = 
+		{
+			GENERIC = "Someone had a bit of a wreck!",
+			ABANDONDED = "Polly's not home!",
+		},
+		SUNKEN_BOAT_BURNT = "How do you light a boat on fire underwater??",
+   		SUNKEN_BOAT_TRINKET_1 = "Math's never been my specialty haha!", --sextant
+		SUNKEN_BOAT_TRINKET_2 = "Fun at the beach!", --toy boat
+		SUNKEN_BOAT_TRINKET_3 = "There's no wax left!", --candle
+		SUNKEN_BOAT_TRINKET_4 = "Cool!", --sea worther
+		SUNKEN_BOAT_TRINKET_5 = "Someone's missing this!", --boot
+		
+		--- CAPY DLC ------------------------------------------------------------------------------------------------
+		
+		--STUFFEDEGGPLANT = "I'll be stuffed after eating this!",
+		SUNKBOAT = "Sheesh, I oughta be careful!",
+		--BANANAPOP = "No, not brain freeze! I need that for science!",
+		--BISQUE = "Cooking that sure kept me bisque-y!",
+		--CEVICHE = "Can I get a bigger bowl? This one looks a little shrimpy.",
+		--SEAFOODGUMBO = "It's a jumbo seafood gumbo.",
+		--SURFNTURF = "It's perf!",
+		SHARKFINSOUP = "It's a delicacy in Summers!",
+		--LOBSTERDINNER = "If I eat it in the morning is it still dinner?",
+		--LOBSTERBISQUE = "Could use more salt, but that's none of my bisque-ness.",
+		JELLYOPOP = "So yummmy!",
+		--SWEATERVEST = "This vest is dapper as all get-out.",
+		--REFLECTIVEVEST = "Keep off, evil sun!",
+		--HAWAIIANSHIRT = "It's not lab safe!",
+		--TAFFY = "My dentist'd get mad if I ate this... but I don't have one.",
+
+		ANTIVENOM = "It's a shame my PSI Healing doesn't seem to work...",
+		VENOMGLAND = "It could be useful, in a pinch.",
+		BLOWDART_POISON = "Poisoning isn't nice, but when it comes to self-defense!",
+		OBSIDIANMACHETE = "The obisdian makes it super strong!.",
+		SPEARGUN_POISON = "I'm like a scorpion with it!",
+		OBSIDIANSPEARGUN = "It's like one of Jeff's gadgets!",
+		LUGGAGECHEST = "Dad uses it all the time.",
+		PIRATIHATITATOR =
+		{
+			GENERIC = "The pirate hat is necessary, yes.",
+			BURNT = "Oops.",
+		},
+		COFFEEBEANS = "Mmmmm, smells like home!",
+		COFFEE = "I love coffee!",
+		COFFEEBEANS_COOKED = "Nice and roasted!",
+		COFFEEBUSH =
+		{
+			BARREN = "It needs nutrients!",
+			WITHERED = "Too hot? I agree, haha!",
+			GENERIC = "Coffee!",
+			PICKED = "Nature takes time!",
+		},
+		COFFEEBOT = "I could start my own cafe, you know!",
+		MUSSEL = "Tasty.",
+		MUSSEL_FARM =
+		{
+			 GENERIC = "Clams!",
+			 STICKPLANTED = "Hopefully I catch something!"
+		},
+
+		MUSSEL_STICK = "I made specially for clam fishing!",
+		LOBSTER = "You make for fancy dinners!",
+		LOBSTERHOLE = "There's lobsters down there!",
+		SEATRAP = "Hopefully I catch something!",
+		SAND_CASTLE =
+		{
+			SAND = "Me and Tracy always make the best sand castles!",
+			GENERIC = "Me and Tracy always make the best sand castles!"
+		},
+		BOATREPAIRKIT = "I could fix my boat with this!",
+
+		BALLPHIN = "Hi!",
+		BOATCANNON = "It's the real deal!",
+		BOTTLELANTERN = "Cool...",
+		BURIEDTREASURE = "Let's hope there's a juicy burger inside!",
+		BUSH_VINE =
+		{
+			BURNING = "Uh oh!",
+			BURNT = "Whoops!",
+			CHOPPED = "I got all the vines I can muster!",
+			GENERIC = "I could use vines for... something!",
+		},
+		CAPTAINHAT = "Time for me to find a kraken!",
+		COCONADE =
+		{
+			BURNING = "Take cover!",
+			GENERIC = "Andonuts is the munitions expert!",
+		},
+		CORAL = "This is pretty cool!",
+		CORALREEF = "Whoa.",
+		CRABHOLE = "Come on out, little guy!",
+		CUTLASS = "I think I'd make a pretty rockin' pirate!",
+		DUBLOON = "Pirate money!",
+		FABRIC = "It'll be useful for patching up my clothes!",
+		FISHINHOLE = "Fish seem to gather here!",
+		GOLDENMACHETE = "I'll cut through Deep Darkness no problem!",
+		JELLYFISH = "I uh. Heard of what to do if you get stung. I think it'd be best if we just avoid that altogether!",
+		JELLYFISH_DEAD = "Aw...",
+		JELLYFISH_COOKED = "I think it's edible...",
+		JELLYFISH_PLANTED = "Um. Yeah.",
+		JELLYJERKY = "It can't be that bad!",
+
+		LIMPETROCK =
+		{
+			GENERIC = "I found Escargo Express HQ, hahahaha!",
+			PICKED = "This boulder rocks!",
+		},
+		LOGRAFT = "I think it'll hold my weight!",
+		MACHETE = "It'll be useful inside the jungle!",
+		MESSAGEBOTTLEEMPTY = "I just need a tiny ship!",
+		MOSQUITO_POISON = "Mosquitos carry disease!",
+		OBSIDIANCOCONADE = "It's much more powerful than the bombs Jeff used!",
+		OBSIDIANFIREPIT =
+		{
+			EMBERS = "From embers to ash...",
+			GENERIC = "It gives off plenty of heat.",
+			HIGH = "The fires of Fire Spring!!",
+			LOW = "Even low it's so hot!",
+			NORMAL = "It gives off plenty of heat!",
+			OUT = "All ashes now!",
+		},
+		OX = "Hi big guy!",
+		PIRATEHAT = "Haha, I look so goofy!",
+		RAFT = "Hopefully it holds up in open sea!.",
+		ROWBOAT = "I think I can get somewhere in this!",
+		SAIL = "Sailing can't be too hard!",
+		SANDBAG_ITEM = "They keep the water out!",
+		SANDBAG = "They keep the water out!",
+		SEASACK = "Salt is a great preservative!",
+		SEASHELL_BEACHED = "It's good luck!",
+		SEAWEED = "It's real yucky in my hair!",
+
+		SEAWEED_PLANTED = "Look at it grow!",
+		SLOTMACHINE = "I think I prefer the Sanchez brothers.",
+		SNAKE_POISON = "Looks dangerous!",
+		SNAKESKIN = "It's a fashion statement... somewhere.",
+		SNAKESKINHAT = "The skin is actually waterproof!",
+		SOLOFISH = "Haha, what a funny fish!",
+		SPEARGUN = "It's little too on the dangerous side for me!",
+		--SPOILED_FISH = "I'm not terribly curious about the smell.",
+		SWORDFISH = "It's an angry fish! I'll tame it!",
+		TRIDENT = "Haha, I'm like a god of the sea!",
+		--TRINKET_13 = "What is this substance?",
+		--TRINKET_14 = "This thing gives me the creeps...",
+		--TRINKET_15 = "Incredible! This guitar has undergone shrinkification!",
+		--TRINKET_16 = "How did this get all the way out here?",
+		--TRINKET_17 = "Where's the other one?",
+		--TRINKET_18 = "A relic of a bygone era!",
+		--TRINKET_19 = "Clouding of the brain. Never heard of it...",
+		TURBINE_BLADES = "So that's what was causing all that mess!",
+		TURF_BEACH = "Sandy.",
+		TURF_JUNGLE = "Some ground.",
+		VOLCANO_ALTAR =
+		{
+			GENERIC = "Looks like it's happy!",
+			OPEN = "Should I give it something?",
+		},
+		VOLCANO_ALTAR_BROKEN = "I don't think I did that!",
+		WHALE_BLUE = "A blue whale? Haha!",
+		WHALE_CARCASS_BLUE = "Sorry.",
+		WHALE_CARCASS_WHITE = "Sorry.",
+
+		ARMOR_SNAKESKIN = "It'll keep me dry when the weather gets rough!",
+		CLOTHSAIL = "It'll make travel much much better!",
+		DUG_COFFEEBUSH = "You're coming with me!",
+		LAVAPOOL = "Hot! Hot lava!",
+		BAMBOO = "Bamboo is pretty awesome!",
+		AERODYNAMICHAT = "Reminds me of the Sharks!",
+		POISONHOLE = "That's bad gas. The uh, real bad kind, haha!",
+		BOAT_LANTERN = "It'll help me find my way in the dark!",
+		DEAD_SWORDFISH = "Phew, I won!",
+		LIMPETS = "They're not that bad, you know!",
+		OBSIDIANAXE = "It's real good at chopping!",
+		COCONUT = 
+		{
+		    GENERIC = "It's too heavy for baseball!",
+		    PLANTED = "I planted it.",
+		},
+		COCONUT_COOKED = "Mmmm!",
+		BERMUDATRIANGLE = "Huh.",
+		SNAKE = "I've bashed plenty of mean snakes in my days, you know!",
+		SNAKEOIL = "I thought this stuff was a myth!",
+		ARMORSEASHELL = "It's not sturdy, but it should protect my organs a little bit, haha!",
+		SNAKE_FIRE = "Is that snake smoldering?", --idk if this is implemented
+		MUSSEL_COOKED = "I think it's cooked!",
+
+		PACKIM_FISHBONE = "Smells... less than pleasant...",
+		PACKIM = "Thanks for holding my stuff!",
+
+		ARMORLIMESTONE = "It's not TOO heavy!",
+		TIGERSHARK = "Don't make me bash you!",
+		WOODLEGS_KEY1 = "A key!",
+		WOODLEGS_KEY2 = "Maybe it'll unlock something good!",
+		WOODLEGS_KEY3 = "I got a key!",
+		WOODLEGS_CAGE = "I'll free you!",
+		OBSIDIAN_WORKBENCH = "Hmmm, what to make?",
+
+		NEEDLESPEAR = "Haha, watch where you poke that thing!",
+		LIMESTONE = "Limestone!",
+		DRAGOON = "Someone's got a fiery temper!",
+
+		ICEMAKER = 
+		{
+			OUT = "It needs fuel!",
+			VERYLOW = "It needs fuel!",
+			LOW = "Power's getting low.",
+			NORMAL = "My very own ice machine!",
+			HIGH = "Ready to rock!",
+		},
+
+		DUG_BAMBOOTREE = "Let's find you a new home!",
+		BAMBOOTREE =
+		{
+			BURNING = "It's a fire! A fire!",
+			BURNT = "Oops.",
+			CHOPPED = "All chopped up!",
+			GENERIC = "Real bamboo!",
+		},
+		JUNGLETREE =
+		{
+			BURNING = "It's all burning!",
+			BURNT = "Sigh...",
+			CHOPPED = "I chopped it!",
+			GENERIC = "It's got nothing on Deep Darkness!",
+		},
+		SHARK_GILLS = "Fish gills?",
+		TREEGUARD = "A moving palm tree?",
+		OBSIDIAN = "Cooled lava.",
+		BABYOX = "Aren't you just precious!",
+		STUNGRAY = "YEESH, that smell!",
+		SHARK_FIN = "I dunno what I'm doing with it, but I have it!",
+		FROG_POISON = "I should be careful with these frogs.",
+		ARMOUREDBOAT = "SS Ness, ready to sail!",
+		ARMOROBSIDIAN = "It's a little heavy... and hot!",
+		BIOLUMINESCENCE = "Reminds me of Lumine Hall...",
+		SPEAR_POISON = "I gave it an extra kick!",
+		SPEAR_OBSIDIAN = "Obsidian is much more sturdy than flint!",
+		SNAKEDEN =
+		{
+			BURNING = "Uh oh!",
+			BURNT = "Whoops!",
+			CHOPPED = "I got all the vines I can muster!",
+			GENERIC = "I could use vines for... something!",
+		},
+		TOUCAN = "What vibrant colors!",
+		--MESSAGEBOTTLE = "Maybe it's a treasure map!",
+		SAND = "I got sand!",
+		SANDHILL = "Piles and piles of sand!",
+		PEACOCK = "Peacocks are so pretty!",
+		VINE = "It might have SOME use!",
+		SUPERTELESCOPE = "I can see for miles and miles!",
+		SEAGULL = "They're almost as spiteful as crows!",
+		SEAGULL_WATER = "They're almost as spiteful as crows!",
+		PARROT = "Big fan of your feathers, little guy!",
+		ARMOR_LIFEJACKET = "Safety first!",
+		WHALE_BUBBLES = "What's with the bubbles?",
+		EARRING = "It's missing an ear!",
+		ARMOR_WINDBREAKER = "No PK Hurricane can stop me now!",
+		SEAWEED_COOKED = "It's fine, I guess!",
+		CARGOBOAT = "I can carry so much with it!",
+		GASHAT = "I'll need if I go anywhere really dangerous!",
+		ELEPHANTCACTUS = "A territorial cactus!",
+		DUG_ELEPHANTCACTUS = "You think it'll make for good defenses?",
+		ELEPHANTCACTUS_ACTIVE = "It's armed!!",
+		ELEPHANTCACTUS_STUMP = "Will it grow back?",
+		FEATHERSAIL = "Light as a feather, free as a bird!",
+		WALL_LIMESTONE_ITEM = "I should place these.",
+		JUNGLETREESEED =
+        {
+            GENERIC = "A jungle seed!",
+            PLANTED = "It's just a baby.",
+        },
+		VOLCANO = "It's just like Fire Spring!",
+		IRONWIND = "I can make a proper speed boat, haha!",
+		SEAWEED_DRIED = "Dried kelp.",
+		TELESCOPE = "I can found my way now!",
+		
+		DOYDOY = "This really is the Lost Underworld!",
+		DOYDOYBABY = "Adorable.",
+		DOYDOYEGG = "There's life inside!",
+		DOYDOYEGG_CRACKED = "That's not good.",
+		DOYDOYFEATHER = "What pretty colors!",
+
+		PALMTREE =
+		{
+			BURNING = "Oh no!",
+			BURNT = "Awww...",
+			CHOPPED = "I chopped it!",
+			GENERIC = "It's very fitting for a paradise.",
+		},
+		PALMLEAF = "What massive leaves!",
+		CHIMINEA = "How tropical.",
+		DOUBLE_UMBRELLAHAT = "Nice, it keeps my head dry and my hands free!",
+		CRAB = 
+		{
+			GENERIC = "It's a tinee crab!",
+			HIDDEN = "Sorry I scared ya, haha!",
+		},
+		TRAWLNET = "Looks like its time to sea fish!",
+		TRAWLNETDROPPED = 
+		{
+			SOON = "Oh no, it's sinking!",
+			SOONISH = "I better empty it fast!",
+			GENERIC = "Take a gander at my catches!",
+		},
+		VOLCANO_EXIT = "That's the way back down!",
+		SHARX = "You don't scare me!",
+		SEASHELL = "Sea shells!",
+		WHALE_BUBBLES = "What's with the bubbles?",
+		MAGMAROCK = "Pretty rockin,' haha!",
+		MAGMAROCK_GOLD = "Rockin' pretty, haha!",
+		CORAL_BRAIN_ROCK = "It makes my brain pulse all funny, hehe!",
+		CORAL_BRAIN = "I feel your power!",
+		SHARKITTEN = "D'awww!",
+		SHARKITTENSPAWNER = 
+		{
+			GENERIC = "I guess those kittens live here!",
+			INACTIVE = "Anyone home?",
+		},
+		LIVINGJUNGLETREE = "That's not your average tree!",
+		WALLYINTRO_DEBRIS = "I really need someone to stop me and my dumb ideas, haha!",
+		MERMFISHER = "They're not too fond of humans!",
+        PRIMEAPE = "Do you know how to teleport?",
+        PRIMEAPEBARREL = "Much less confusing than Monkey Cave!",
+        REDBARREL = "If only Jeff were here!",
+        PORTAL_SHIPWRECKED = "Seems like it doesn't do anythign.",
+		MARSH_PLANT_TROPICAL = "Swampy!",
+		TELEPORTATO_SW_POTATO = "It's a fake potato.",
+		PIKE_SKULL = "Oh.",
+		PALMLEAF_HUT = "Perfect.",
+		FISH_RAW_SMALL_COOKED = "This'll never fill a growing boy like me, haha!",
+		LOBSTER_DEAD = "I hear it tastes great!",
+		MERMHOUSE_FISHER = "Someone really oughta clean this place up!",
+		WILDBORE = "You're all muddy!",
+		PIRATEPACK = "It prints money!",
+		TUNACAN = "I don't mind tuna!",
+		MOSQUITOSACK_YELLOW = "It smells less than pleasant.",
+		SANDBAGSMALL = "Now I can keep the water out!",
+		FLUP = "Nice ambush!",
+		OCTOPUSKING = "I think it wants something!",
+		OCTOPUSCHEST = "No need to thank me!",
+		GRASS_WATER = "Some sea grass!",
+		WILDBOREHOUSE = "I like your home!",
+		FISH_RAW_SMALL = "It's so tiny!",
+		TURF_SWAMP = "Turf.",
+		FLAMEGEYSER = "Mother Nature is scary!.",
+		KNIGHTBOAT = "I'll bash you!",
+		MANGROVETREE_BURNT = "Oh.",
+		TIDAL_PLANT = "Sea plants.",
+		WALL_LIMESTONE = "Now I'm sorta... safe!",
+		FISH_RAW = "Tasty fish.",
+		LOBSTER_DEAD_COOKED = "I'm ready to eat!",
+		BLUBBERSUIT = "Haha, that's silly!",
+		BLOWDART_FLUP = "Hey, you dropped something!",
+		TURF_MEADOW = "Turf.",
+		TURF_VOLCANO = "Turf.",
+		SWEET_POTATO = "I love sweet potato!",
+		SWEET_POTATO_COOKED = "This place is gonna fatten me up, haha!",
+		SWEET_POTATO_PLANTED = "Is that a sweet potato?",
+		SWEET_POTATO_SEEDS = "Sweet potato seeds!",
+		BLUBBER = "It's all... weird!",
+		TELEPORTATO_SW_RING = "A part of the Phase Distorter!",
+		TELEPORTATO_SW_BOX = "It's some sort of Phase Distorter part!",
+		TELEPORTATO_SW_CRANK = "A crank for cranking, of course!",
+		TELEPORTATO_SW_BASE = "It's the Phase Distorter!",
+		VOLCANOSTAFF = "I really shouldn't have this sort of power, haha!",
+		THATCHPACK = "My backpack is better!",
+		TURF_DESERTDIRT = "Turf.",
+		SHARK_TEETHHAT = "I wore something like it in Newport!", --Only novel reference I swear
+ 		TURF_ASH = "Ashy!",
+		TURF_FUNGUS_GREEN = "Mushroom turf!",
+		BOAT_TORCH = "Sailing in the dark would be pretty dangerous without it!",
+		MANGROVETREE = "They seem to only grow in the water!",
+		HAIL_ICE = "Hail?",
+		TROPICAL_FISH = "Pretty.",
+		TIDALPOOL = "So many fish!",
+		WHALE_WHITE = "I found you!",
+		VOLCANO_SHRUB = "Some plants prefer this atmosphere!",
+		ROCK_OBSIDIAN = "I don't even think my PSI could break it!",
+		ROCK_CHARCOAL = "It's massive!",
+		DRAGOONDEN = "Those dragon guys live there!",
+		WILBUR_UNLOCK = "Haha, a monkey king?",
+		WILBUR_CROWN = "It's definitely not meant for my head!",
+		TWISTER = "Take cover... and hold onto something!",
+		TWISTER_SEAL = "Haha, you're a menace!",
+		MAGIC_SEAL = "I can feel the magic!",
+		SAIL_STICK = "It has the power to change the winds!",
+		WIND_CONCH = "You can hear the ocean inside it!",
+		DRAGOONEGG = "Haha, you nearly crushed me!",
+		BUOY = "Look at it float!", 
+		TURF_SNAKESKINFLOOR = "Turf.",
+        DOYDOYNEST = "A prehistoric home!",
+		ARMORCACTUS = "Become the catcus!",
+		BIGFISHINGROD = "I don't think I've ever been sea fishing!",
+		BRAINJELLYHAT = "It might make my PSI a little TOO potent!",
+		COCONUT_HALVED = "It cracked under the pressure!",
+		CRATE = "Someone's missing some supplies!",
+		DEPLETED_BAMBOOTREE = "All gone!",
+		DEPLETED_BUSH_VINE = "All gone!",
+		DEPLETED_GRASS_WATER = "All gone!",
+		DOYDOYEGG_COOKED = "Sorry but I gotta eat!",
+		DRAGOONHEART = "Who knows what I'm doing with it, haha!",
+		DRAGOONSPIT = "Someone's angry!",
+		DUG_BUSH_VINE = "I'll find it a nice home!",
+		--FRESHFRUITCREPES = "Sugary fruit! Part of a balanced breakfast.",
+		KRAKEN = "You're uh. Much bigger than the last Kraken I beat. Haha!",
+		KRAKENCHEST = "Nothing's no match for me!",
+		KRAKEN_TENTACLE = "Show no fear!",
+		MAGMAROCK_FULL = "Pretty rockin', haha!",
+		MAGMAROCK_GOLD_FULL = "Rockin' pretty, haha!",
+		MONKEYBALL = "Wee, haha!",
+		--MONSTERTARTARE = "There's got to be something else to eat around here.",
+		MUSSELBOUILLABAISE = "Mmmm, I'll never say no to a good meal!",
+		MYSTERYMEAT = "Is it safe?",
+		OXHAT = "I became the ox!",
+		OX_FLUTE = "I invoke the power of Mother Nature!",
+		OX_HORN = "I like it!",
+		PARROT_PIRATE = "Haha, you're rude!",
+		PEG_LEG = "Mmmmm. Not a bad baseball bat, actually!",
+		PIRATEGHOST = "It must be lonely out here.",
+		SANDBAGSMALL_ITEM = "Now I can separate me from the rain!",
+		SHADOWSKITTISH_WATER = "That's big trouble.",
+		SHIPWRECKED_ENTRANCE = "I can't say no!",
+		SHIPWRECKED_EXIT = "I've had enough paradise.",
+		SNAKESKINSAIL = "Snake skin is pretty useful, it turns out, haha!",
+		SPEAR_LAUNCHER = "Seems like something Jeff would use!",
+		SWEETPOTATOSOUFFLE = "It's not bad!",
+		SWIMMINGHORROR = "Eek!",
+		TIGEREYE = "Got your eye!",
+		--TRINKET_20 = "I'm not sure what it is, but it makes me feel smarter!",
+		--TRINKET_21 = "I ought to measure it to ensure it's to scale.",
+		--TRINKET_22 = "I'm sure someone would like this.",
+		TURF_FUNGUS_RED = "Fungal flooring!",
+		TURF_MAGMAFIELD = "Huh.",
+		TURF_TIDALMARSH = "Soggy turf.",
+		VOLCANO_ALTAR_TOWER = "Who built this?",
+		WATERYGRAVE = "It must be awful to die out here...",
+		WHALE_TRACK = "You can't hide forever down there!",
+		WILDBOREHEAD = "Oh my.",
+		WOODLEGSBOAT = "What a nice ship!",
+		WOODLEGSHAT = "Do I look the part?",
+		WOODLEGSSAIL = "It's all in the sail!",
+		WRECK = "I really gotta be careful out here.",
+		INVENTORYGRAVE = "Huh?",
+        INVENTORYMOUND = "Huh?",
+		LIMPETS_COOKED = "Don't knock it until you try it.",
+		RAWLING = "Haha! What a good friend.",
+		--CALIFORNIAROLL = "But I don't have chopsticks.",
+
+
+
+	--- 5C DLC ------------------------------------------------------------------------------------------------
+
+        ENCRUSTEDBOAT = "I'm not a physics guy, so I'm not gonna question it!",
+        BABYOX = "Aren't you precious!",
+        BALLPHINHOUSE = "Majestic!",
+        DORSALFIN = "Oops!",
+        NUBBIN = "The start of something magical!",
+        CORALLARVE = "Baby coral.",
+        RAINBOWJELLYFISH = "So vibrant!",
+        RAINBOWJELLYFISH_PLANTED = "Don't ask.",
+        RAINBOWJELLYFISH_DEAD = "Poor thing.",
+        RAINBOWJELLYFISH_COOKED = "It can't be that bad.",
+        RAINBOWJELLYJERKY = "Hmmmm, I'm sure it's edible!",
+        WALL_ENFORCEDLIMESTONE = "I made it sturdy!",
+        WALL_ENFORCEDLIMESTONE_ITEM = "I made it sturdy!",
+        CROCODOG = "Well aren't you angry!",
+        POISONCROCODOG = "It's not just its personality that's poisonous!",
+        WATERCROCODOG = "I'm gonna bash you!",
+        QUACKENBEAK = "Haha, take that!",
+        QUACKERINGRAM = "Ramming speeeeeed!!",
+    
+    --- DLC ------------------------------------------------------------------------------------------------    
+
+        CAVIAR = "Mmmm, I'm never one to say no to seafood, but...",
+        CORMORANT = "Hiya!",
+
+        --FISH3 = "Surf and turf, hold the turf.",
+        FISH4 = "Fish are so pretty!", --Pierrot Fish
+        FISH5 = "Fish are so pretty!", --Neon Quattro
+
+        FISH3_COOKED = "Time to eat!",
+        FISH4_COOKED = "Time to eat!",
+        FISH5_COOKED = "Time to eat!",
+
+        FISH_FARM = 
+        {
+        	EMPTY = "Hmmm, I'm gonna need some eggs!",
+			STOCKED = "Now we wait!",
+			ONEFISH = "The fish are here!",
+			TWOFISH = "Look at all of them!",
+			REDFISH = "My very own fish farm!",
+			BLUEFISH  = "My ver own fish farm!",
+        },
+
+        ROE = "Fish eggs.",
+        ROE_COOKED = "It's not very filling.",
+        
+        SEA_YARD =
+       	{
+            ON = "I can repair my boat!",
+            OFF = "Needs fuel!",
+            LOWFUEL = "Power's running out!",
+        },
+
+        SEA_CHIMINEA = 
+        {
+            EMBERS = "It won't be much longer!",
+			GENERIC = "Ahhh, that feels nice.",
+			HIGH = "So much fire!",
+			LOW = "Maybe a little fuel wouldn't hurt!",
+			NORMAL = "Ahhh, that feels nice.",
+			OUT = "No fire left!",
+        }, 
+
+        TAR = "It's super sticky, haha!",
+        TAR_EXTRACTOR =
+        {
+            ON = "Extracting tar!",
+            OFF = "Out of fuel!",
+            LOWFUEL = "It's running out of fuel!",
+        },
+        TAR_POOL = "Hmmmm, what's this stuff?",
+
+        TARLAMP = "Now I can light my way!",
+        TARSUIT = "I'm all bouncy wearing it, haha!",
+        TAR_TRAP = "One of my more genius ideas! I think.",
+
+        TROPICALBOUILLABAISSE = "Yummy soup!",
+
+        RESEARCHLAB5 = "This is more Jeff's forte.",
+        WATERCHEST = "I'll be needing it!",
+
+		--PORKLAND SPEECH STARTS HERE
+
+		PIG_PALACE = "I'd make a cool prince.",
+		PIGMAN_QUEEN = "She's no Queen Mary.",
+        PIG_SCEPTER = "It's very royal.",
+        PIGCROWNHAT = "Prince Ninten, at your service.",
+		PIGMAN_BEAUTICIAN = 
+		{
+			GENERIC = "Getting hair styled as nice as mine takes talent!",
+			SLEEPING = "I'll bother them later.",
+		},
+		PIGMAN_ROYALGUARD = 
+		{
+			GENERIC = "Ye olde copper.",
+			SLEEPING = "Sleeping on the job.",
+		},
+		PIGMAN_COLLECTOR = 
+		{
+			GENERIC = "Got anything cool?",
+			SLEEPING = "I'll bother them later.",
+		},
+		PIGMAN_MAYOR = 
+		{
+			GENERIC = "Saving zoos and lost children is at the top of my resume, between you and me, heh.",
+			SLEEPING = "Telling other people to do your job gets tiring.",
+		},
+		PIGMAN_BANKER = 
+		{
+			GENERIC = "He is very rich.",
+			SLEEPING = "Hope your money is secured dude.",
+		},
+		PIGMAN_MINER = 
+		{
+			GENERIC = "Looking for truffles?",
+			SLEEPING = "They look tired.",
+		},
+		PIGMAN_MECHANIC = 
+		{
+			GENERIC = "Hello!",
+			SLEEPING = "I'll bother them another time.",
+		},
+		PIGMAN_FARMER = 
+		{
+			GENERIC = "Looking forward to good harvests!",
+			SLEEPING = "Must be hard work.",
+		},
+		PIGMAN_FLORIST = 
+		{
+			GENERIC = "Hey, hey, flower-gal!",
+			SLEEPING = "Ah, good night...",
+		},
+		PIGMAN_STOREOWNER = 
+		{
+			GENERIC = "Sup?",
+			SLEEPING = "I'll leave them alone.",
+		},
+		PIGMAN_ERUDITE = 
+		{
+			GENERIC = "I'm not quite in my goth phase yet.",
+			SLEEPING = "Don't let the bed bugs bite.",
+		},
+		PIGMAN_HATMAKER = 
+		{
+			GENERIC = "Note quite as cool as my baseball cap.",
+			SLEEPING = "Someone should get you a sleeping cap.",
+		},
+		PIGMAN_PROFESSOR = 
+		{
+			GENERIC = "Ugh. I thought I escaped school...",
+			SLEEPING = "I'll leave them alone.",
+		},
+		PIGMAN_HUNTER =
+		{
+			GENERIC = "Happy hunting!",
+			SLEEPING = "Night night.",
+		},
+		RECONSTRUCTION_PROJECT = 
+		{
+			SCAFFOLD = "We're building something tubular, just you wait!",
+			RUBBLE = "What a dump.",
+		},
+		PIG_SHOP_FLORIST = 
+		{
+			GENERIC = "Perfect for Mother's Day.",
+			BURNING = "This place needs a fire department!",
+		},
+        PIG_SHOP_GENERAL = 
+        {
+        	GENERIC = "It's kinda like convenience strores of the time.",
+        	BURNING = "This place needs a fire department!",
+		},
+        PIG_SHOP_HOOFSPA = 
+        {
+        	GENERIC = "I've never been to a spa before.",
+        	BURNING = "Well that's not good.",
+		},
+        PIG_SHOP_PRODUCE = 
+        {
+        	GENERIC = "It's like a department store.",
+        	BURNING = "Oh boy.",
+		},
+        PIG_SHOP_ARCANE = 
+        {
+        	GENERIC = "My PSI is bit like the occult, I think.",
+        	BURNING = "Looks like someone put out a hex.",
+        },
+        PIG_SHOP_WEAPONS = 
+        {
+        	GENERIC = "A baseball bat is all I need.",
+        	BURNING = "We could really use a fire department.",
+        },
+        PIG_SHOP_HATSHOP = 
+        {
+        	GENERIC = "Let's see if there's anything fashionable.",
+        	BURNING = "Well that's not good.",
+        },
+        PIG_SHOP_ACADEMY = 
+        {
+        	GENERIC = "Ugh. Learning...",
+        	BURNING = "Oh nooooo, it's on fire...",
+        },
+        TREE_PILLAR = "It's like that one story with the beans!",
+        PIGHOUSE_CITY = 
+        {
+        	GENERIC = "Very homely.",
+        	BURNING = "Oh no!",
+		},
+        PIGHOUSE_FARM = 
+        {
+        	GENERIC = "I've never been the farmer type, despite my rural upbringing.",
+        	BURNING = "That's not good!",
+		},
+		PIGHOUSE_MINE = 
+        {
+        	GENERIC = "Hopefully we dig up some gold!",
+        	BURNING = "We really oughta invest in a fire department...",
+		},
+        PIG_GUARD_TOWER = 
+        {
+        	GENERIC = "Think of it like a police station.",   
+        	BURNING = "We're under siege!",
+		},     
+        CITY_LAMP = 
+        {
+        	GENERIC = "Gets the job done.",
+        	ON = "Gets the job done.", --off
+    	},
+        DUNGBEETLE = 
+        {
+        	GENERIC = "Oh, I've heard of these guys before.",
+        	UNDUNGED = "It's missing something...",
+        	SLEEPING = "It's asleep.",
+        	DEAD = "Circle of life my dude.",
+        },
+        DUNGBALL = "Gross.",
+        DUNGPILE = 
+		{
+			GENERIC = "Yuck.",
+			PICKED = "Okay, why'd I do that?",
+		},
+        PIGEON = 
+        {
+        	GENERIC = "Ah, a city bird.",
+        	SLEEPING = "It's sleeping.",
+        	DEAD = "It's sleeping forever.",
+        },
+        SPIDER_MONKEY = 
+        {
+        	GENERIC = "NOPE.",
+        	SLEEPING = "Eh heh heh, get me out of heeeere duuuuuude!!",
+        	DEAD = "Please be dead...",
+        },
+
+        SPIDER_MONKEY_TREE = "It's those thing's now, and they can keep it!",
+        SPIDER_MONKEY_NEST = "I'll keep my distance, thanks.",
+        TOPIARY = "Fancy.",
+        LAWNORNAMENT = 
+        {
+        	GENERIC = "It makes your lawn feel special.",
+        	BURNING = "Well that seems a little much.",
+        	BURNT = "I guess charred is in.",
+        },
+        HEDGE = 
+        {
+        	GENERIC = "Nature's wall.",
+        	SHAVEABLE = "We both could use a haircut.",
+        	BURNING = "Oh that's on fire.",
+        	BURNT = "So it's a no on hedges? Noted.",
+        },
+        RAINFORESTTREE = 
+        {
+        	GENERIC = "It's so vibrant!",
+        	CHOPPED = "I chopped it.",
+        	BURNING = "Someone should do something about that.",
+        	BURNT = "Fire's out.",
+        },
+        RAINFORESTTREE_ROT = "Must be the poison.",
+        
+        FLOWER_RAINFOREST = "Ah... my allergies... don't like thaa-choo!",
+        HALBERD = "Seems dangerous.",
+        CHICKEN = 
+        {
+        	GENERIC = "Baak baak baaaak!",
+        	SLEEPING = "Sleep tight.",
+        	DEAD = "Well. Anyone for dinner?",
+        },
+        RUIN_GIANT_HEAD = "Someone let their ego get to them.",
+        RUINS_ARTICHOKE = "...Why?",
+        PIG_RUINS_ENTRANCE = 
+        {
+        	GENERIC = "Only one way to find out what waits.",
+        	LOCKED = "I wonder what's inside",
+        },
+        PIG_RUINS_EXIT = "Freedom!",
+        PIG_COIN = "Money.",
+        GRASS_TALL = 
+        {
+        	GENERIC = "My hands are too stubby to pick this.",
+        	PICKED = "There we go.",
+        	BURNING = "Well.",
+        },
+        GLOWFLY = 
+        {
+        	GENERIC = "Whoa.",
+        	SLEEPING = "Even bugs need sleep.",
+        	DEAD = "Aw.",
+        },
+        GLOWFLY_COCOON = "It's turning into something horrible.",
+        CHITIN = "It's bug skin.",
+        HANGING_VINE = "I wanna swing on it!",
+        GRABBING_VINE = "I wanna swing on it!",
+        VENUS_STALK = "What can I do with this?",
+        WALKINGSTICK = "It makes for a very nice cane. My gramps would love it.",
+        ADULT_FLYTRAP = 
+        {
+        	GENERIC = "What big teeth you have!",
+        	SLEEPING = "Better asleep.",
+        	DEAD = "Much better dead.",
+        },
+        MEAN_FLYTRAP = 
+        {
+        	GENERIC = "Stay away, stay away, I don't wanna be your next meal!",
+        	SLEEPING = "Let's not disturb it.",
+        	DEAD = "Thank God...",
+        },
+        SNAPDRAGON = 
+        {
+        	GENERIC = "It looks like it hates human boys!",
+        	SLEEPING = "I should be careful not to disturb.",
+        	DEAD = "It's better that way.",
+        },
+        LILYPAD = "Pretty neat.",
+
+        ZEB = 
+        {
+        	GENERIC = "Oh, hello!",
+        	SLEEPING = "Sleep well.",
+        	DEAD = "Oh, I'm sorry.",
+        },
+        SCORPION = 
+        {
+        	GENERIC = "Hey man, what the stinger!",
+        	SLEEPING = "As long as it's not trying to kill me, we're cool.",
+        	DEAD = "I think I got it.",
+        },
+
+        PEAGAWK = 
+        {
+        	GENERIC = "Um, hi! It's looking at me. A lot.", 
+        	SLEEPING = "So long as it's not staring, we're cool.",
+        	DEAD = "Dead.",
+        },
+        PEEKHEN = 
+        {
+        	GENERIC = "Um, hi! It's looking at me. A lot.", 
+        	SLEEPING = "So long as it's not staring, we're cool.",
+        	DEAD = "Dead.",
+        }, 
+        PEAGAWKFEATHERHAT = "Now I have extra eyesight!",
+        PEAGAWK_BUSH = "Weird...",
+        PEAGAWKFEATHER = "What're you looking at?",
+        PEAGAWKFEATHER_PRISM = "What're you looking at?",
+        ANTMAN = 
+        {
+        	GENERIC = "Man, what do they feed this things out here!",
+        	SLEEPING = "Good night.",
+        	DEAD = "Sorry, no pests.",
+        },
+        ANTHILL = "A giant ant's home.",
+        ANTMASKHAT = "I am NOT putting that on my face.",
+        ANTSUIT = "Nah, I don't desperately need to be a bug.",
+        ANTMAN_WARRIOR = "This one is extra mean.",
+ 		ANTCHEST = "It's feeling to the brim with delicous honey!",
+ 		NECTAR_POD = "I wonder if I could make honey out of this.",
+        
+        PHEROMONESTONE = "I can understand those ant guys with this.",
+        PIKO = 
+        {
+        	GENERIC = "Hey little squirrel guy.",
+        	SLEEPING = "Sleep tight.",
+        	DEAD = "Oh...",
+        },
+        
+        RELIC_1 = {
+        	GENERIC = "It's some sort of old relic.",
+        	SUNKEN = "Old junk.",
+        },
+        RELIC_2 = {
+        	GENERIC = "I'm like an archaeologist!",
+        	SUNKEN = "There's something there.",
+        },
+        RELIC_3 = {
+         	GENERIC = "It belongs in a museum.",
+         	SUNKEN = "What's down there?",
+        },
+        RELIC_4 = {
+        	GENERIC = "Looks old, but fancy.",
+        	SUNKEN = "What's this?",
+        },
+        RELIC_5 = {
+         	GENERIC = "Old  treasure, I think.",
+         	SUNKEN = "I got something!",
+        },
+
+        REEDS_WATER = "Reeds.",
+        LOTUS = "It's in bloom!", 
+
+		LOTUS_FLOWER ="Pretty.",
+        LOTUS_FLOWER_COOKED ="I wonder how it tastes.",
+
+        VAMPIREBAT = 
+        {
+        	GENERIC = "First zombies, now vampires?!",
+        	SLEEPING = "Please stay alseep.",
+        	DEAD = "Phew.",
+        },
+        VAMPIREBATCAVE = "I'd like to stay human, thanks.",  
+
+        FROGLEGS_POISON = "Cool, they're twitching still.",
+        FROGLEGS_POISON_COOKED = "I probably shouldn't eat this.",
+		FROG_POISON =
+		{
+        	GENERIC = "Hmmm, bright colors are usually bad, right?",
+        	SLEEPING = "Sleeping.",
+        	DEAD = "It's dead.",
+        },
+
+        PIG_RUINS_TORCH_WALL = "Very ancient looking.",
+        PIG_RUINS_TORCH = "Very ancient looking.",
+        PIG_RUINS_HEAD = "I could climb it no problem!",
+        PIG_RUINS_ARTICHOKE = "...Intersting.",
+
+        OINC = "Money.",
+        OINC10 = "I could probably buy something nice!",
+        OINC100 = "I'm a bit of an entrepreneur.",
+
+        RABID_BEETLE = 
+		{
+        	GENERIC = "I should probably stay away.",
+        	SLEEPING = "Let's not test it.",
+        	DEAD = "A good bug is a dead bug.",
+        },
+
+        PARROT_BLUE = 
+		{
+        	GENERIC = "Hello blue bird.",
+        	SLEEPING = "Get some rest.",
+        	DEAD = "Poor thing.",
+        },
+        KINGFISHER = 
+		{
+        	GENERIC = "That could poke an eye out!",
+        	SLEEPING = "It's asleep.",
+        	DEAD = "Poor thing.",
+        },
+
+        BURR = "It's a jungle tree seed.",   
+        BURR_SAPLING = "Grow, you can do it!",
+        {
+			BURNING = "Oops!",
+			WITHERED = "It doesn't look right.",
+			GENERIC = "Grow!",
+			PICKED = "A boy has needs, sorry.",
+		},        	
+
+        PIG_LATIN_1 = "It says \"Ightlay iresfay\"", -- light fires in pig latin
+
+		DECO_RUINS_BEAM_ROOM ="Looks like foundation.",
+		DECO_CAVE_BEAM_ROOM = "Looks like foundation.",
+        DECO_CAVE_BAT_BURROW = "I'd prefer the bats of South Cemetary over this.",
+        DECO_RUINS_BEAM_ROOM_BLUE = "Looks like foundation.",        		
+
+        SMASHINGPOT = "I'll break it good!",
+
+        HIPPOPOTAMOOSE ="Nice antlers you got.",
+		PIGGHOST = "Ah! Sorry about all the times I've had bacon!",        
+
+        ANTCOMBHOME = "Bugs live here.",        
+        SECURITYCONTRACT = "I can use it to hire some guards!",
+        
+        PLAYERHOUSE_CITY = {
+        	BURNT = "Well looks like I'm homeless.",
+        	FORSALE = "Looks like it's for sale.",
+        	SOLD = "Homeowner at 12. Not bad, Ninten."
+        },
+
+        JELLYBUG = "Time to never eat jellybeans again.",
+        JELLYBUG_COOKED = "I really don't want to.",
+        SLUGBUG = "Ewwww...",
+        SLUGBUG_COOKED = "Is living worth it if it comes to this?",
+
+        PLAYER_HOUSE_COTTAGE_CRAFT = "I could make a cozy little cottage with this.",
+        PLAYER_HOUSE_VILLA_CRAFT = "Supplies for a villa.",           
+		PLAYER_HOUSE_TUDOR_CRAFT = "I could build a decent home now.",
+        PLAYER_HOUSE_GOTHIC_CRAFT = "It's very European.",           
+		PLAYER_HOUSE_TURRET_CRAFT = "Supplies for a home.",
+        PLAYER_HOUSE_BRICK_CRAFT = "Supplies for a brick home.",
+		PLAYER_HOUSE_MANOR_CRAFT = "Now we're talking.",        
+
+        CLIPPINGS = "Remains of shaved hedge. Someone should take care of that.",
+
+        CUTNETTLE = "It keeps my sinuses clear.",
+
+        NETTLE =
+        {
+        	WITHERED = "It's not going great.",
+        	MOIST = "Nice and nurished.",
+        	EMPTY = "It'll grow back.",
+        	DEFAULT = "It helps with allergies.",
+        },
+
+        DECO_RUINS_FOUNTAIN = "Make a wish!", -- this is a "wishing well". You throw coins in it and it might randomly heal you. 
+        PUGALISK = "Oh. That's not good.",        
+        SNAKE_BONE = "Snake remains.", 
+        SNAKEBONESOUP = "Ooh, fancy.", 
+
+        BANDITMAP = "Stupid bandit. Now I know where your goodies are!", 
+        BANDITTREASURE = "YES! It's mine, all mine!", 
+
+        BLUNDERBUSS = "It packs a punch!", 
+
+        PUGALISK_FOUNTAIN = "Fancy.", 
+        PUGALISK_RUINS_PILLAR = "What waits inside?", 
+        PUGALISK_TRAP_DOOR = "I don't trust that.",  
+
+        TEA = "I've never really had tea before!",      
+        TEATREE = "It grows tea!",    
+        TEATREE_SAPLING = "Grow!!",    
+        TEATREE_NUT = "I can make more tea trees now.",    
+
+        WALL_PIG_RUINS = "It's an old wall.", 
+
+        PIG_RUINS_DART_TRAP = "That's not cool, dude.", 
+        PIG_RUINS_SPEAR_TRAP = "Yeah that's not suspicious.", 
+        PIG_RUINS_SPEAR_TRAP_TRIGGERED = "I knew it!", 
+        PIG_RUINS_SPEAR_TRAP_BROKEN = "No more traps here!", 
+        PIG_RUINS_PRESSURE_PLATE = "Wouldn't be fullfilling my Indiana Jones fantasy without booby traps...",
+        PIG_RUINS_DART_STATUE = "You're not fooling me.",                                           
+        
+        DISARMING_KIT = "I can take apart those stupid booby traps now!", 
+
+        BALLPEIN_HAMMER = "For hammering.",
+
+        GOLD_DUST = "My asthma doesn't like it.",
+
+        ALOE = "It's more useful than it looks.", 
+        ALOE_COOKED = "I'll be honest: I have no idea what do with it.", 
+        ALOE_PLANTED = "I've heard of these.",
+
+        --ASPARAGUS = "A vegetable.", 
+        --ASPARAGUS_COOKED = "Science says it's good for me.", 
+        --ASPARAGUS_PLANTED = "I should pick those!", 
+
+        RADISH = "A radish.", 
+        RADISH_COOKED = "Still bitter.",
+        RADISH_PLANTED = "It's a radish.", 
+
+        SNAKE_AMPHIBIOUS = "Don't even think about biting me!", 
+        
+        GASMASKHAT = "This'll come in handy!",
+        PITHHAT = "Now I can be an explorer!", 
+        
+        BILL = 
+        {
+        	GENERIC = "It's adorable. Just watch those spines, buddy.",
+        	SLEEPING = "Sleep well.",
+        	DEAD = "It's dead.",
+        },
+        
+        ROCK_ANTCAVE = "It's some sort of rock.",
+        ANT_CAVE_LANTERN = "Useful for planting lights.",
+        PROP_DOOR = "Doors, doors.",
+
+        PIKO_ORANGE = "A cute little squirrel.",
+
+        TURF_PIGRUINS = "Old rock.",
+        TURF_RAINFOREST = "It comes from the rainforest.",
+        TURF_DEEPRAINFOREST = "It comes from the rainforest.",
+        TURF_LAWN = "Get off my lawn!",
+        TURF_GASJUNGLE = "It comes from the rainforest.",
+        TURF_MOSS = "It's mossy.",
+        TURF_FIELDS = "It's a chunk of ground.",
+        TURF_FOUNDATION = "Nice foundation.",
+        TURF_COBBLEROAD = "Makes for good roads.",
+
+        MANDRAKEMAN = "Gah, shut up!",
+        MANDRAKEHOUSE = "Great, they're civilizing.",
+
+         -- HOME DECO ITEMS
+        INTERIOR_FLOOR_MARBLE = "Fancy fancy.",
+        INTERIOR_FLOOR_CHECK = "I'm not normally into this sort of deco.",
+        INTERIOR_FLOOR_PLAID_TILE = "Fancy fancy.",
+        INTERIOR_FLOOR_SHEET_METAL = "Not the most comfortable.",
+        INTERIOR_FLOOR_WOOD = "You can never go wrong with hardwood.",
+        INTERIOR_FLOOR_GARDENSTONE = "It's not exactly home-y.",        
+        INTERIOR_FLOOR_GEOMETRICTILES = "It has personality.",
+        INTERIOR_FLOOR_SHAG_CARPET = "Just like home.",
+        INTERIOR_FLOOR_TRANSITIONAL = "Needs finish.",
+        INTERIOR_FLOOR_WOODPANELS = "You can never go wrong with hardwood.",
+        INTERIOR_FLOOR_HERRINGBONE = "It's cold.",
+        INTERIOR_FLOOR_HEXAGON = "It has personality.",
+        INTERIOR_FLOOR_HOOF_CURVY = "Fancy fancy.",
+        INTERIOR_FLOOR_OCTAGON = "It has personality.",
+
+        INTERIOR_WALL_WOOD = "It's basic, but basic is good.",
+        INTERIOR_WALL_CHECKERED = "Looks like a fast food joint.",
+        INTERIOR_WALL_FLORAL = "It's not my taste.",
+        INTERIOR_WALL_SUNFLOWER = "It's not my taste.",
+        INTERIOR_WALL_HARLEQUIN = "It's not my taste.",
+        INTERIOR_WALL_PEAGAWK = "It's not my taste.",
+        INTERIOR_WALL_PLAIN_DS = "You can never go wrong with simple.",
+        INTERIOR_WALL_PLAIN_ROG = "You can never go wrong with simple.",
+        INTERIOR_WALL_ROPE = "Intersting.",
+        INTERIOR_WALL_CIRCLES = "Fancy fancy.",
+        INTERIOR_WALL_MARBLE = "'Fancy fancy.",
+        INTERIOR_WALL_MAYORSOFFICE = "It's has that bureaucratic feel to it.",
+        INTERIOR_WALL_FULLWALL_MOULDING = "It'll do.",
+        INTERIOR_WALL_UPHOLSTERED = "It's a wall.",   
+
+        DECO_CHAIR_CLASSIC = "Just a chair.",
+        DECO_CHAIR_CORNER = "Just a chair.",
+        DECO_CHAIR_BENCH = "It's a bench.",
+        DECO_CHAIR_HORNED = "It has personality.",
+        DECO_CHAIR_FOOTREST = "Ah, kick back... and relax.",
+        DECO_CHAIR_LOUNGE = "Looks comfy.",
+        DECO_CHAIR_MASSAGER = "I've seen this in malls before.",
+        DECO_CHAIR_STUFFED = "I could totally chillax to some tunes in this.",
+        DECO_CHAIR_ROCKING = "Gramps has one of these!",
+        DECO_CHAIR_OTTOMAN = "Pretty nice.",
+
+        DECO_LAMP_FRINGE = "Fancy fancy.",
+        DECO_LAMP_STAINGLASS = "Ooooh, I like this.",
+        DECO_LAMP_DOWNBRIDGE = "Fancy fancy.",
+        DECO_LAMP_2EMBROIDERED = "Fancy fancy.",
+        DECO_LAMP_CERAMIC = "Made from hardend clay.",
+        DECO_LAMP_GLASS = "Oooh, classy glassy.",
+        DECO_LAMP_2FRINGES = "Very fancy.",
+        DECO_LAMP_CANDELABRA = "Fancy fancy.",
+        DECO_LAMP_ELIZABETHAN = "It has personality.",
+        DECO_LAMP_GOTHIC = "It has personality.",
+        DECO_LAMP_ORB = "Fancy fancy.",
+        DECO_LAMP_BELLSHADE = "A nice little lamp.",
+        DECO_LAMP_CRYSTALS = "Cool.",
+        DECO_LAMP_UPTURN = "Fancy fancy.",
+        DECO_LAMP_2UPTURNS = "Nice and fancy.",
+        DECO_LAMP_SPOOL = "A little plain.",
+        DECO_LAMP_EDISON = "Primitive.",
+        DECO_LAMP_ADJUSTABLE = "It has utility.",
+        DECO_LAMP_RIGHTANGLES = "Fancy fancy.",
+        DECO_LAMP_HOOFSPA = "Fancy fancy.",
+
+        DECO_CHAISE = "It's nice.",
+
+        DECO_PLANTHOLDER_BASIC = "Plants spice up the room.",
+        DECO_PLANTHOLDER_WIP = "Not quite ready.",
+        DECO_PLANTHOLDER_FANCY = "Fancy fancy.",
+        DECO_PLANTHOLDER_BONSAI = "Ah, reminds me of my trap of Japan.",
+        DECO_PLANTHOLDER_DISHGARDEN = "Plants always spice up the room.",
+        DECO_PLANTHOLDER_PHILODENDRON = "Fancy fancy.",
+        DECO_PLANTHOLDER_ORCHID = "It colors up the room.",
+        DECO_PLANTHOLDER_DRACEANA = "Fancy fancy.",
+        DECO_PLANTHOLDER_XEROGRAPHICA = "Fancy fancy.",
+        DECO_PLANTHOLDER_BIRDCAGE = "It has personality.",
+        DECO_PLANTHOLDER_PALM = "Tropical!",
+        DECO_PLANTHOLDER_ZZ = "A holder for a fancy plant.",
+        DECO_PLANTHOLDER_FERNSTAND = "You can never go wrong with ferns.",
+        DECO_PLANTHOLDER_FERN = "You can never go wrong with ferns.",
+        DECO_PLANTHOLDER_TERRARIUM = "Exotic.",
+        DECO_PLANTHOLDER_PLANTPET = "Better than pet rocks.",
+        DECO_PLANTHOLDER_TRAPS = "Cool!",
+        DECO_PLANTHOLDER_PITCHERS = "Fancy fancy.",
+        DECO_PLANTHOLDER_MARBLE = "Fancy fancy.",
+
+        DECO_PLANTHOLDER_WINTERFEASTTREEOFSADNESS = "That's depressing.",  
+        DECO_PLANTHOLDER_WINTERFEASTTREE = "I miss Christmas...",
+
+        DECO_TABLE_ROUND = "A table.",
+        DECO_TABLE_BANKER = "It's a good studying desk.",
+        DECO_TABLE_DIY = "Simple enough.",
+        DECO_TABLE_RAW = "Well, it's a table.",
+        DECO_TABLE_CRATE = "It works I guess.",
+        DECO_TABLE_CHESS = "I've never been good at chess.",
+
+        DECO_ANTIQUITIES_WALLFISH = "Seems like something dad would like.",        
+        DECO_ANTIQUITIES_BEEFALO = "Creepy.",
+        DECO_WALLORNAMENT_PHOTO = "Too bad I don't have photos out here.",
+        DECO_WALLORNAMENT_FULLLENGTH_MIRROR = "Lookin' handsome.",
+        DECO_WALLORNAMENT_EMBROIDERY_HOOP = "Cozy.",
+        DECO_WALLORNAMENT_MOSAIC = "It makes me almost forget about all of this.",
+        DECO_WALLORNAMENT_WREATH = "It looks good.",
+        DECO_WALLORNAMENT_AXE = "I've never been the lumberjack type, but doesn't hurt to give that impression.",
+        DECO_WALLORNAMENT_HUNT = "Well, it adds personality.",
+        DECO_WALLORNAMENT_PERIODIC_TABLE = "Ugh. No thanks...",
+        DECO_WALLORNAMENT_GEARS_ART = "Mmph.",
+        DECO_WALLORNAMENT_CAPE = "Cool.",
+        DECO_WALLORNAMENT_NO_SMOKING = "Now that wouldn't be good for my asthma.",
+        DECO_WALLORNAMENT_BLACK_CAT = "I'm more of a dog person?",
+
+        WINDOW_ROUND_CURTAINS_NAILS = "Looks nice.",
+        WINDOW_ROUND_BURLAP = "It lets me see the outside world.",
+        WINDOW_SMALL_PEAKED = "It's not the best view.",
+        WINDOW_LARGE_SQUARE = "It doesn't offer the best view, but it'll do.",
+        WINDOW_TALL = "It offers a great view!",
+        WINDOW_LARGE_SQUARE_CURTAIN = "Privacy when I want it, good views when I don't.",
+        WINDOW_TALL_CURTAIN = "It offers a great view!",
+        WINDOW_SMALL_PEAKED_CURTAIN = "Nice and cozy.",
+        WINDOW_GREENHOUSE = "I could get used to this.",
+        WINDOW_ROUND = "I can't say no to a good view.",
+
+        DECO_WOOD_CORNERBEAM = "It keeps the house stable.",
+        DECO_MARBLE_CORNERBEAM = "Fancy fancy.",
+        DECO_WOOD       = "It keeps the house stable.",
+        DECO_MILLINERY  = "It keeps the house stable.",
+        DECO_ROUND      = "It keeps the house stable.",
+        DECO_MARBLE     = "Fancy fancy.",
+
+        SWINGING_LIGHT_BASIC_BULB = "A light bulb.",
+        SWINGING_LIGHT_FLORAL_BLOOMER = "Fancy fancy.",
+        SWINGING_LIGHT_CHANDALIER_CANDLES = "Fancy fancy.",
+        SWINGING_LIGHT_ROPE_1 = "It gives me light.",
+        SWINGING_LIGHT_ROPE_2 = "It gives me light.",
+        SWINGING_LIGHT_FLORAL_BULB = "Looks cool.",
+        SWINGING_LIGHT_PENDANT_CHERRIES = "Fancy fancy.",
+        SWINGING_LIGHT_FLORAL_SCALLOP = "Cool.",
+        SWINGING_LIGHT_FLORAL_BLOOMER = "Cool.",
+        SWINGING_LIGHT_BASIC_METAL = "Looks good.",
+        SWINGING_LIGHT_TOPHAT = "Huh.",
+        SWINGING_LIGHT_DERBY = "Huh.",
+        SWINGING_LIGHT1 = "Good enough.",
+
+        RUG_ROUND = "It gives a more home-y feel.",
+        RUG_SQUARE = "It helps bring the room together.",
+        RUG_OVAL = "Nothing special.",
+        RUG_RECTANGLE = "Just your normal rug.",
+        RUG_FUR = "It's so soft.",
+        RUG_HEDGEHOG = "That feels nice!",
+        RUG_PORCUPUSS = "It has a nice feel to it.",
+        RUG_HOOFPRINT = "Stylish.",
+        RUG_OCTAGON = "Just your normal rug.",
+        RUG_SWIRL = "It really brings the room together.",
+        RUG_CATCOON = "It's so soft.",
+        RUG_RUBBERMAT = "I'm not a fan.",
+        RUG_WEB = "Silky.",
+        RUG_METAL = "Well that's not very comfy.",
+        RUG_WORMHOLE = "Why'd I do this?",
+        RUG_BRAID = "It's got a stylish texture.",
+        RUG_BEARD = "Gross!",
+        RUG_NAILBED = "Well... it's unique.",
+        RUG_CRIME = "I dunno what I was thinking.",
+        RUG_TILES = "Fancy fancy.",
+
+        SHELVES_WOOD = "It's a shelf.",
+        SHELVES_CINDERBLOCKS = "I never claimed to be good at this stuff.",
+        SHELVES_MARBLE = "Real fancy, for a shelf.",
+        SHELVES_MIDCENTURY = "A shelf.",
+        SHELVES_GLASS = "Careful, it's fragile.",
+        SHELVES_LADDER = "Well I mean. That works.",
+        SHELVES_HUTCH = "A shelf.",
+        SHELVES_INDUSTRIAL = "Totally clashes with my style, but a shelf is a shelf.",
+        SHELVES_ADJUSTABLE = "Now ol' five foot Ninten can reach!",
+        SHELVES_WALLMOUNT = "Goes on the wall, holds my stuff. Simple.",
+        SHELVES_AFRAME = "It's a shelf.",
+        SHELVES_CRATES = "Well, I tried.",
+        SHELVES_FRIDGE = "That's not right.",
+        SHELVES_HOOKS = "Someone to keep my baseball cap safe.",
+        SHELVES_PIPE = "Well. It does hang stuff.",
+        SHELVES_HATTREE = "If only I had my baseball cap collection.",
+        SHELVES_PALLET = "Looks tacky.",
+        SHELVES_BASIC = "It holds things.",
+        SHELVES_FLOATING = "A place to put stuff.",
+        SHELVES_METAL = "It's a shelf.",
+
+        WOOD_DOOR = "A door.",
+		STONE_DOOR = "Heavy.",
+		ORGANIC_DOOR = "Hmmmm.",
+		IRON_DOOR = "Very clinical.",
+		PILLAR_DOOR = "Weird.",
+		CURTAIN_DOOR = "It's a bit of a statement.",
+		ROUND_DOOR = "Weird.",
+		PLATE_DOOR = "A door.",
+
+        ROCK_FLIPPABLE = "I used to love flipping rocks when I was little.",
+
+        PLAYER_HOUSE_COTTAGE = "I could make a cozy little cottage with this.",
+        PLAYER_HOUSE_VILLA = "Supplies for a villa.",  
+        PLAYER_HOUSE_TUDOR = "I could build a decent home now.",
+        PLAYER_HOUSE_MANOR = "Now we're talking.",              
+        PLAYER_HOUSE_GOTHIC = "It's very European",                
+        PLAYER_HOUSE_BRICK = "Supplies for a brick home.",  
+        PLAYER_HOUSE_TURRET = "Supplies for a home.",
+        
+        BRAMBLESPIKE = "Those thorns look painful.",
+
+		SUNKEN_RELIC = "It's belongs to the fish now, I guess.",  
+
+        IRON = "Raw iron? What do I do with this?",
+        
+        CLAWPALMTREE = "It looks like hands.",  
+        DUG_NETTLE = "I should plant it.", 
+
+        THUNDERBIRD = "Don't worry, I'll be keeping my distance.", 
+        THUNDERBIRDNEST = "Those bird, electric... thingies live here.",
+
+        FEATHER_THUNDER = "The static messes with my hair.", 
+        THUNDERHAT = "Pretty cool!",
+
+        WEEVOLE = "Hey, watch it!",
+        WEEVOLE_CARAPACE = "Whoa.",
+        ARMOR_WEEVOLE = "No thanks.",
+        
+        TUBERTREE = "What kind of tree is this?",
+        CORK = "If only I had a bottle.",
+
+        CANDLEHAT = "Not bad. Just hopefully it doesn't get my hair all ashy.", 
+        CORK_BAT = "Batter up!",
+
+        LEATHER = "You can use leather for all sorts of stuff.",
+        BAT_HIDE = "I don't know what I'm doing with it.",
+
+        ANCIENT_ROBOT_RIBS = "Whoa.",
+        ANCIENT_ROBOT_CLAW = "Who built you?",
+        ANCIENT_ROBOT_LEG = "This isn't my first rodeo with robots!",    
+        ANCIENT_ROBOT_HEAD = "Reminds me of EVE.", 
+
+        TEATREE_NUT_COOKED = "A nice little snack",
+
+        DEED = "Officially a landowner! I'm pretty talented, I know, heh heh.",
+        CONSTRUCTION_PERMIT = "Time to build a home!",
+        DEMOLITION_PERMIT = "Destruction sounds like fun!",
+		
+		CLAWPALMTREE_SAPLING = "It's groing.",
+
+        CORKBOAT = "Cork is pretty floaty, after all.",
+        CORKCHEST = "It keeps my stuff extra safe.",
+
+        BANDITHAT = "I look like an old school gangster in it.",
+        PIGBANDIT = "I don't the way you're eyeing my pockets.",
+
+        PIG_RUINS_CREEPING_VINES = "That's a lot of vines.", 
+
+        MAGNIFYING_GLASS = "I'm a detective!",
+
+        SEDIMENTPUDDLE = "Sparkly.",
+        GOLDPAN = "Now I can be a prospector!",
+
+        PORKLAND_ENTRANCE = "Looks like fun.",
+        PORKLAND_EXIT = "Looks like fun.",
+
+        POG = 
+        {
+        	GENERIC = "Awwwww, it's so cute!",
+        	FOLLOWER = "You remind me of Mick.",
+        	SLEEPING = "Sleep well little guy.",
+        	APORKALYPSE = "Not cute, not cute!",
+        },
+
+        PANGOLDEN = "It eats gold.",
+
+        ROC_LEG = "It's massive!",
+        ROC_HEAD = "Creepy!",
+        ROC_TAIL = "How'd you get so big?",
+
+        GNATMOUND = "Gnats...",
+        GNAT = "Gnats..",
+        
+        PORKLAND_INTRO = "Whatever, jerk.",
+
+        ROC_NEST_TREE1 = "It's a little tree.",
+        ROC_NEST_TREE2 = "Just a small tree.",
+        ROC_NEST_BUSH = "It's a bush.",
+        ROC_NEST_BRANCH1 = "Might be useful. Might not be.",
+        ROC_NEST_BRANCH2 = "Looks brittle.",
+        ROC_NEST_TRUNK = "Something tore this tree clean out.",
+        ROC_NEST_HOUSE = "Creepy...",
+        ROC_NEST_RUSTY_LAMP = "It's been here a while.",
+
+        ROC_NEST_EGG1 = "Is this... rock?",
+        ROC_NEST_EGG2 = "Is this... rock?",
+        ROC_NEST_EGG3 = "Is this... rock?",
+        ROC_NEST_EGG4 = "Is this... rock?",
+
+        ROC_ROBIN_EGG = "It's very durable.",
+
+        TUBER_CROP = "Doesn't look apetizing.",
+        TUBER_BLOOM_CROP = "Not very apetizing, but safe to eat at least.",
+        TUBER_CROP_COOKED = "I don't think I should.",
+        TUBER_BLOOM_CROP_COOKED = "Nice and roasted.",
+
+        ALLOY = "It's an ingot, and... heavy... too!",
+
+        ARMOR_METALPLATE = "What am I, the Tin Man?",
+        METALPLATEHAT = "Way too heavy and it'll mess up my hair. No thank you.",
+
+        SMELTER = "Sup?",
+
+        BUGREPELLENT = "I'll be needing for sure.",
+        
+        HOGUSPORKUSATOR = "Pigs and magic. Sounds like an awful idea.",
+
+        GASCLOUD = "Definitely don't want to breathe that in.",
+
+        SHEARS = "A gardener's best friend.",
+    	BATHAT = "The things I do to survive.",
+    	
+    	WATERDROP = "This is no ordinary water.",
+
+    	LIFEPLANT = "It's kinda like literal life insurance.",
+
+    	TRINKET_GIFTSHOP_1 = "Eh, what's this? Whatever.",
+    	TRINKET_GIFTSHOP_3 = "Cool. Ana would like it.",        
+
+	    KEY_TO_CITY = "Heh, yeah, yeah, I'm a hero, no need to gloat.",
+
+    	PEDESTAL_KEY = "It's very important.",
+
+    	ROYAL_GALLERY = "Looks... er... boring.",
+
+    	APORKALYPSE_CLOCK = "That's concerning.",
+    	ANCIENT_HERALD = "What do you want from me?!",
+
+    	--ASPARAGUSSOUP = "Smells like it tastes.",
+    	SPICYVEGSTINGER = "It's got a nice kick to it.",
+    	FEIJOADA = "Is this really all we have?",
+    	HARDSHELL_TACOS = "Yup. Totally tacos... heh heh... gross...",
+    	GUMMY_CAKE = "Well... food is food.",
+    	STEAMEDHAMSANDWICH = "I haven't had a burger in forever... Don't mind if I do!",
+
+    	ROC_NEST_DEBRIS1 = "Looks really brittle.",
+    	ROC_NEST_DEBRIS2 = "I could snap it no problem.",
+    	ROC_NEST_DEBRIS3 = "It's a stick.",
+    	ROC_NEST_DEBRIS4 = "It's a stick.",
+
+    	ANTQUEEN = "That must be the queen.",
+    	ANTQUEEN_CHAMBERS = "The queen resides here.",
+    	ANTQUEEN_THRONE = "For royalty. Bug royalty.",
+    	ANTMAN_WARRIOR_EGG = "I'd better leave those alone.",
+		
+		PIG_SHOP_DELI =
+        {
+            GENERIC = "I could get a nice meal here.",
+            BURNING = "Someone call the fire department!",
+        },
+
+        PIG_SHOP_CITYHALL =
+         {
+            GENERIC = "City hall.",
+            BURNING = "Well that might be a problem.",
+        },
+        PIG_SHOP_CITYHALL_PLAYER = 
+         {
+            GENERIC = "Mayor Ninten. I like the sound of that.",
+            BURNING = "My power! Up in smokes!",
+        },
+        PIG_GUARD_TOWER_PALACE =
+        {
+            GENERIC = "The royal guards stay here.",   
+            BURNING = "Well!",
+        },
+
+        PIG_RUINS_PIG = "This one looks a lot harder to climb.",
+        PIG_RUINS_IDOL = "Coooool.",
+        PIG_RUINS_PLAQUE = "It's got some markings on it. I can't really make it out.",
+
+        BASEFAN = "It helps with the fevers.",
+        SPRINKLER = "Summer memories.",
+
+        NETTLELOSANGE = "A snack that helps my sinuses. Win win.",
+
+        ICEDTEA = "I love iced tea!",
+
+        TRINKET_GIFTSHOP_4 = "It's fun when you're not the one cleaning up the mess.",
+
+        WALLCRACK_RUINS = "Hmmmm, what's this?",
+
+        DEFLATED_BALLOON = "It's not gonna be useful anytime soon.",
+		DEFLATED_BALLOON_BASKET = "It's just a stupid basket now.",
+
+		--SNAKE_FIRE = "Ugh! Stay away!",
+
+		DISGUISEHAT = "It tricks the pigs.",
+
+		ALOE_SEEDS = "It's an aloe seed.",
+		--ASPARAGUS_SEEDS = "It's asparagus seeds.",
+		RADISH_SEEDS = "It's a radish seed.",
+
+		CAVE_EXIT_ROC = "There's something behind this.",
+
+        PORKLAND_INTRO_BASKET = "It's just a stupid basket now.",
+        PORKLAND_INTRO_BALLOON = "It's doing a whole lot of nothing now.",
+        PORKLAND_INTRO_TRUNK = "Stupid trunk...",
+        PORKLAND_INTRO_SUITCASE = "Stupid suitcase!",
+        PORKLAND_INTRO_FLAGS = "Stupid everything!",
+        PORKLAND_INTRO_SANDBAG = "Ugh.",
+
+        TURF_BEARD_HAIR = "Why??", 
+
+        HIPPO_ANTLER = "I'll hold to it, don't worry.",
+        BILL_QUILL = "So sharp yet so delicate!",
+
+        ANTLER = "Birds seem to like it.",
+
+        PUGALISK_SKULL = "Man.",
+        PUGALISK_CORPSE = "I did not enjoy that.",
+        BONESTAFF = "Now I'm a wizard!",
+        CITY_HAMMER = "Order in the court!",
+        TURF_PAINTED = "It's a chunk of ground.", 
+		TURF_PLAINS = "It's a chunk of ground.", 
+
+		PIG_SHOP_BANK = 
+        {
+          GENERIC = "We keep the money there.",
+          BURNING = "We kept the money there.",
+        },
+ 	    PIGMAN_USHER = 
+        {
+          GENERIC = "What's up pig guy?",
+          SLEEPING = "What's he dreaming about?.",
+        },
+        PIGMAN_ROYALGUARD_2 = 
+        {
+          GENERIC = "Ye olde copper.",
+          SLEEPING = "Lazy.",
+        },
+        PIG_SHOP_ANTIQUITIES = 
+        {
+          GENERIC = "An antique store. You know. For grandmas.",
+          BURNING = "Someone should do something about that.",
+        },
+
+        PIG_RUINS_ENTRANCE2 = "It's screaming to be explored.",
+        PIG_RUINS_EXIT2 = "Don't forget the way out now.",
+        PIG_RUINS_ENTRANCE3 = "Adventure awaits.",   
+        PIG_RUINS_ENTRANCE4 = "Should I take a look?",           
+        PIG_RUINS_EXIT4 = "This is the way out.",
+        PIG_RUINS_ENTRANCE5 = "I wonder wait goodies await.",           
+        PIG_RUINS_ENTRANCE_SMALL = "Seems safe for a small child.",
+
+        RO_BIN = "It's kinda cute.",
+        RO_BIN_GIZZARD_STONE = "That bird thing seems to follow it.",
+        GIANTGRUB = "That is some nightmare fuel!",
+        MUSSEL_BED = "Mussels grow here.",
+        SEAWEED_STALK = "I can plant seaweed now.",
+        HARPOON = "Man the harpoons!",
+
+		DECO_RUINS_ENDSWELL = "I don't like the looks of that.",
+		QUACKENDRILL = "It might be useful for drilling tar.",
+		-------rewards update-------
+
+		TURF_DEEPRAINFOREST_NOCANOPY = "It's a chunk of ground.",
+
+		BRAMBLE_CORE = "Don't let its looks deceive you.",
+        BRAMBLE_BULB = "You're mine now.",
+        ROOTTRUNK_CHILD = "It's connected to other roots. That's pretty neat.",
+
+		PIG_SHOP_TINKER =
+        {
+            GENERIC = "Get tinkering!",
+            BURNING = "That is not tinkering, in fact.",
+        },
+        ARMORVORTEXCLOAK = "Too... emo.",    
+        ANCIENT_REMNANT = "Mine now.",
+
+        GOGGLESNORMALHAT = "I tried on Lloyd's glasses before. They don't work for me.",
+        GOGGLESHEATHAT = "I didn't wanna wear them, glasses are for nerds anyways!",
+        GOGGLESARMORHAT = "Tackyyyyyyy.",
+        GOGGLESSHOOTHAT = "I don't need them.",     
+        THUMPER = "It's a little earthquake machine.",
+        TELEBRELLA = "Looks useful. If you're not Ninten, HAH!",
+        TELIPAD = "4D slip for normies.",
+        TRUSTY_SHOOTER = "I dunno how it works but thank God it does.",
+        WHEELER_TRACKER = "It's great for finding things you all ready have. Wait.",
+
+        ANCIENT_HULK = "It is NOT friendly!",
+        ROCK_BASALT = "Basalt.",
+        LIVING_ARTIFACT = "I'm like Iron Man with it!",
+        INFUSED_IRON = "Looks very alien.",
+
+        TELEPORTATO_HAMLET_POTATO = "It's a fake potato.",
+        TELEPORTATO_HAMLET_RING = "A ring for that thingy. You know.",
+        TELEPORTATO_HAMLET_BOX = "What's with this junk?",
+        TELEPORTATO_HAMLET_CRANK = "Some crank.",
+        TELEPORTATO_HAMLET_BASE = "There's a world on the other side.",
+
+        ANCIENT_ROBOTS_ASSEMBLY = "Build-your-own-robot kit patent pending.",
+
+        HEDGE_BLOCK_ITEM = "For hedges.",
+        HEDGE_CONE_ITEM = "Topiary, huh?",
+        HEDGE_LAYERED_ITEM = "Where to plant?",							 
         --Arena Event
         LAVAARENA_BOARLORD = "That's the guy in charge here.",
         BOARRIOR = "You sure are big!",
@@ -4759,7 +6380,7 @@ return {
     DESCRIBE_PLANTSTRESSOROVERCROWDING = "There's not enough room to go around!",
     DESCRIBE_PLANTSTRESSORSEASON = "The weather isn't good for this plant...",
     DESCRIBE_PLANTSTRESSORMOISTURE = "The soil is too dry!",
-    DESCRIBE_PLANTSTRESSORNUTRIENTS = "The soil is lacking nutriends...",
+    DESCRIBE_PLANTSTRESSORNUTRIENTS = "The soil is lacking nutrients...",
     DESCRIBE_PLANTSTRESSORHAPPINESS = "Let's talk to it!",
 
     EAT_FOOD =
