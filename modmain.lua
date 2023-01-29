@@ -153,7 +153,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["stalker"] = {"nightmarefuel"},
 	["stalker_atrium"] = {"nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "armorskeleton"},
 	["toadstool"] = {"blue_mushroomhat", "green_mushroomhat", "red_mushroomhat"},
-	
+
 	["twister"] = {"turbine_blades", "gears", "gears", "gears"},
 	["tigershark"] = {"tigereye", "shark_gills", "shark_gills"},
 	["pugalisk"] = {"redgem", "bluegem"},
@@ -382,6 +382,7 @@ local flashBrains = {
 	["pikobrain"] = true,
 	["pogbrain"] = true,
 	["primeapebrain"] = true,
+	["rabid_beetlebrain"] = true,
 	["rabbitbrain"] = true,
 	["rainbowjellyfishbrain"] = true,
 	["rockybrain"] = true,
