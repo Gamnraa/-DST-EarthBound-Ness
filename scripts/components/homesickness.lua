@@ -160,10 +160,11 @@ local Homesickness = Class(function(self, inst)
 	self.favoritefoodbuff = nil
 	self.foodbuff = nil
 	self.offenseupbuff = nil
+	self.firstSpawn = true
 	
 	self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
 
-	if self.inst.firstSpawn == false then
+	if self.firstSpawn then
 		--onload(inst)
 		self.inst:DoTaskInTime(.1, function() 
 			for _, v in pairs(self.inst.components.inventory.itemslots) do
@@ -174,7 +175,7 @@ local Homesickness = Class(function(self, inst)
 		end)
 			
 		self.inst.components.inventory:Equip(SpawnPrefab("backpack"))
-		self.inst.firstSpawn = true
+		self.inst.firstSpawn = false
 	end
 end, nil, {})
 
@@ -205,7 +206,8 @@ function Homesickness:OnSave()
 		favoritefoodbuff = self.favoritefoodbuff or false,
 		foodbuff = self.foodbuff or false,
 		offenseupbuff = self.offenseupbuff or false,
-		workfulness = self.workfulness
+		workfulness = self.workfulness,
+		firstSpawn = self.firstSpawn
 	}
 end
 
@@ -225,6 +227,7 @@ function Homesickness:OnLoad(data)
 		self.foodbuff = self.inst:DoTaskInTime(data.foodbuff, function() self.inst.components.talker:Say("Sigh... guess I could eat more, haha!") self.foodbuff = nil end)
 	end
 	self.offenseupbuff = data.offenseupbuff
+	self.firstSpawn = data.firstSpawn
 
 end
 

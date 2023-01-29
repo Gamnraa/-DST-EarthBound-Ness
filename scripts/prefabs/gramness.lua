@@ -211,8 +211,6 @@ local fn = function(inst)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
 	
 	inst:AddComponent("homesickness")
-	
-	inst.firstSpawn = false
 
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon( "gramness.tex" )

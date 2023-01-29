@@ -177,8 +177,10 @@ return {
             GENERIC = "I don't have any better ideas for what to write.",
             INUSE = "They'll write something much nicer than I could!",
         },
-		REPAIRBOAT =		
-			GENERIC = "There's nothing to patch up, haha!								 
+		REPAIRBOAT =	
+		{
+			GENERIC = "There's nothing to patch up, haha1",
+		},
         DRAW =
         {
             NOIMAGE = "I'm not artist: I need a reference!",
@@ -2313,7 +2315,7 @@ return {
 		GOATMILK = "Delicious!",
 		LITTLE_WALRUS = "Your dad sures love to hunt!",
 		LIVINGLOG = "It just mumbling gibberish in my head.",
-		LOCKEDWES = "Someone really hates mimes, haha!,													 
+		LOCKEDWES = "Someone really hates mimes, haha!",													 
 		LOG =
 		{
 			BURNING = "Our supplies!",
