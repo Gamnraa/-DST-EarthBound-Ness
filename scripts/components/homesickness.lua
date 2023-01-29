@@ -175,7 +175,7 @@ local Homesickness = Class(function(self, inst)
 		end)
 			
 		self.inst.components.inventory:Equip(SpawnPrefab("backpack"))
-		self.inst.firstSpawn = false
+		self.firstSpawn = false
 	end
 end, nil, {})
 
