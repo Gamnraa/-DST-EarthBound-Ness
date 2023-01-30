@@ -229,18 +229,18 @@ local fn = function(inst)
 	local baseball_bat_ness_recipe = Recipe("baseball_bat_ness",
 		{Ingredient("log", 4),
 	 	Ingredient("rope", 1)},
-	 	RECIPETABS.MAGIC, TECH.SCIENCE_ONE, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
+	 	RECIPETABS.WAR, TECH.SCIENCE_ONE, nil, nil, nil, nil, 1)
 	baseball_bat_ness_recipe.atlas= "images/inventoryimages/baseball_bat_ness.xml"
 
 	local pk_flash_o_recipe = Recipe("pk_flash_o",
 		{Ingredient("purplegem", 2),
 	 	Ingredient("pk_flash", 1, "images/inventoryimages/pk_flash.xml", nil, "pk_flash.tex")},
-	 	RECIPETABS.MAGIC, TECH.MAGIC_THREE, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
+	 	RECIPETABS.MAGIC, TECH.MAGIC_THREE, nil, nil, nil, nil, 1)
 	pk_flash_o_recipe.atlas= "images/inventoryimages/pk_flash_o.xml"
 
 	local pk_flash_recipe = Recipe("pk_flash",
 		{Ingredient("purplegem", 1)},
-		RECIPETABS.MAGIC, TECH.MAGIC_TWO, {RECIPE_GAME_TYPE.VANILLA, RECIPE_GAME_TYPE.ROG, RECIPE_GAME_TYPE.HAMLET}, nil, nil, nil, 1)
+		RECIPETABS.MAGIC, TECH.MAGIC_TWO, nil, nil, nil, nil, 1)
 	pk_flash_recipe.atlas = "images/inventoryimages/pk_flash.xml"
 	
 end
