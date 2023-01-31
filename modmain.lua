@@ -167,6 +167,11 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["moon_altar_rock_glass"] = {"rocks"},
 	["moon_altar_rock_idol"] = {"rocks"},
 	["moon_altar_rock_seed"] = {"rocks"},
+
+	["rainforesttree"] = {"log", "log", "foliage", "foliage", "bird_egg"},
+	["rainforesttree_normal"] = {"log", "log", "foliage", "foliage", "bird_egg"},
+	["rainforesttree_tall"] = {"log", "log", "foliage", "foliage", "foliage", "bird_egg"},
+	["rainforesttree_short"] = {"log", "log", "foliage", "bird_egg"},
 	
 	--Objects that should not drop extra loot
 	["evergreen_stump"] = {},
