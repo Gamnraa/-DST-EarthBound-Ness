@@ -249,6 +249,7 @@ local knockback = State{
     }
 	
 local function BaseballKnockbackEvent(inst, data)
+	if inst:HasTag("sneaky") and inst:HasTag("pig") then return end
 	inst.sg:GoToState("baseballknockback", {knocker = data.knocker, radius = data.radius, strengthmult = data.strengthmult})
 end
 
