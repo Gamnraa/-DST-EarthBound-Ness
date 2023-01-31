@@ -97,7 +97,7 @@ local Vector3 = GLOBAL.Vector3
 -- The character select screen lines
 STRINGS.CHARACTER_TITLES.gramness = "The Chosen Boy"
 STRINGS.CHARACTER_NAMES.gramness = "Ness"
-STRINGS.CHARACTER_DESCRIPTIONS.gramness = "*Gifted with Powers\n*Packs an extra punch\n*Resourceful\n*Gets homesick often"
+STRINGS.CHARACTER_DESCRIPTIONS.gramness = "*Gifted with Powers, packs an extra punch\n*Resourceful\n*Gets homesick often"
 STRINGS.CHARACTER_QUOTES.gramness = "\"Fuzzy Pickles!\""
 
 -- Custom speech strings
