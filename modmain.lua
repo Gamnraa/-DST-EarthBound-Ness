@@ -236,7 +236,13 @@ local homesick_interrupt = State({
 --We MIGHT be able to get away with using this for both server and client...
 --I'm not an expert on stategraphs. First time writing them in DST
 AddStategraphState("wilson",  homesick_interrupt)
-AddStategraphState("wilsonboating", homesick_interrupt)
+
+--We need the boating tag for wilsonboating
+local homesick_interrupt_boat = homesick_interrupt
+print(homesick_interrupt_boat.tags)
+homesick_interrupt_boat.tags = {"busy", "doing", "canrotate", "nopredict", "boating"}
+for k, v in pairs(homesick_interrupt_boat) do print(k, v) end
+AddStategraphState("wilsonboating", homesick_interrupt_boat)
 
 modimport "scripts/baseball_bat_ness_common.lua"
 
