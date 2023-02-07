@@ -23,7 +23,7 @@ local function onattack(inst, attacker, target)
 			
 			if not isdead then isdead = target.components.health:IsDead() end
 			if isdead then
-				if target:HasTag("epic") then
+				if target:HasTag("epic") and GRAMNESS_SPECIALDROPS[target.prefab] then
 					print("killed a boss with a critical hit, extra special drop")
 					local lootdropper = target.components.lootdropper
 					--if math.random(2) == 1 then
