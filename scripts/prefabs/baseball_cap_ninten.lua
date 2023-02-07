@@ -78,7 +78,7 @@ local function fn()
 
     inst:AddTag("hat")
 	inst:AddTag("waterproofer")
-    if IsDLCEnabled(2) then MakeInventoryFloatable(inst) end
+    if IsDLCEnabled(2) then MakeInventoryFloatable(inst, "idle", "idle") end
 
 
     inst:AddComponent("inventoryitem")
