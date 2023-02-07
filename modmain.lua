@@ -142,6 +142,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["lordfruitfly"] = {"dragonfruit_seeds"},
 	["klaus"] = {"amulet"},
 	["leif"] = {"livinglog"},
+	["leif_sparse"] = {"livinglog"},
 	["malbatross"] = {"malbatross_beak", "malbatross_beak", "bluegem", "bluegem", "bluegem", "yellowgem"},
 	["minotaur"] = {"minotaurhorn"},
 	["moose"] = {"goose_feather", "goose_feather", "turkeydinner"},
@@ -154,6 +155,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["stalker_atrium"] = {"nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "armorskeleton"},
 	["toadstool"] = {"blue_mushroomhat", "green_mushroomhat", "red_mushroomhat"},
 
+	["treeguard"] = {"livinglog"},
 	["twister"] = {"turbine_blades", "gears", "gears", "gears"},
 	["tigershark"] = {"tigereye", "shark_gills", "shark_gills"},
 	["pugalisk"] = {"redgem", "bluegem"},
