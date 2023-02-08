@@ -13,6 +13,7 @@ local function fn()
     inst.AnimState:SetBuild("offense_up_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/offenseup") end)
 	inst.AnimState:PlayAnimation("anim")
+    inst:AddTag("FX")
 	
     return inst
 end
