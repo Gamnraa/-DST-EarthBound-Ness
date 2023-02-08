@@ -460,7 +460,21 @@ AddComponentPostInit("combat", function(combat)
 	combat.DropTarget = function(self, hasnexttarget)
 		if self.target then
 			--self:SetLastTarget(self.target)
-			self:StopTrackingTarget(self.target)
+			if self.StopTrackingTarget then
+				self:StopTrackingTarget(self.target)
+			else
+				if self.losetargetcallback then
+					self.inst:RemoveEventCallback("enterlimbo", self.losetargetcallback, target)
+					self.inst:RemoveEventCallback("onremove", self.losetargetcallback, target)
+				else
+					print("*** Warning: Stopped tracking target without it being explicitly set")
+					print("    target:",target)
+					print("    from entity:",self.inst)
+					print(debugstack())
+				end
+				self.losetargetcallback = nil
+			end
+
 			self.inst:StopUpdatingComponent(self)
 			local oldtarget = self.target
 			self.target = nil
