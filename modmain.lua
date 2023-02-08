@@ -170,6 +170,9 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["moon_altar_rock_idol"] = {"rocks"},
 	["moon_altar_rock_seed"] = {"rocks"},
 
+	["sandhill"] = {"sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand", 
+		"seashell", "rock", "feather_crow", "feather_robin", "feather_robin_winter", "venomgland", "coconut", 
+		"gears", "redgem", "dubloon", "purplegem", "sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand", "sand",},
 	["rainforesttree"] = {"log", "log", "foliage", "foliage", "bird_egg"},
 	["rainforesttree_normal"] = {"log", "log", "foliage", "foliage", "bird_egg"},
 	["rainforesttree_tall"] = {"log", "log", "foliage", "foliage", "foliage", "bird_egg"},
