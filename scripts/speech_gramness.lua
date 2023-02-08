@@ -2314,7 +2314,7 @@ return {
 		LIGHTNINGGOATHORN = "I can feel the static electricity.",
 		GOATMILK = "Delicious!",
 		LITTLE_WALRUS = "Your dad sures love to hunt!",
-		LIVINGLOG = "It just mumbling gibberish in my head.",
+		LIVINGLOG = "It's just mumbling gibberish in my head.",
 		LOCKEDWES = "Someone really hates mimes, haha!",													 
 		LOG =
 		{
@@ -5334,7 +5334,7 @@ return {
 
 		CALIFORNIAROLL = "I'll have some!",
 		SEAFOODGUMBO = "Don't mind if I do!",
-		SURFNTURF = "The fin gives personality!",
+		SURFNTURF = "A mini steak is still steak!",
 
         WOBSTER_SHELLER = "Rockin' Rock Lobster!",
         WOBSTER_DEN = "Rockin' Rock Lobsters!",
