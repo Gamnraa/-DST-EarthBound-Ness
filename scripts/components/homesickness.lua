@@ -183,17 +183,19 @@ end, nil, {})
 
 function Homesickness:OnSave()
 	local interruptTimeLeft = false
+	local favoriteFoodTimeLeft = false
+	local foodTimeLeft = false
 
 	if self.actioninterrupt then
 		interruptTimeLeft = GetTaskRemaining(self.actioninterrupt)
 	end
 	
 	if self.favoritefoodbuff then
-		self.favoritefoodbuff = GetTaskRemaining(self.favoritefoodbuff)
+		favoriteFoodTimeLeft = GetTaskRemaining(self.favoritefoodbuff)
 	end
 	
 	if self.foodbuff then
-		self.foodbuff = GetTaskRemaining(self.foodbuff)
+		foodTimeLeft = GetTaskRemaining(self.foodbuff)
 	end
 	
 	--if self.offenseupbuff then
@@ -205,8 +207,8 @@ function Homesickness:OnSave()
 		level = self.level,
 		--guts = self.guts,
 		actioninterrupt = interruptTimeLeft,
-		favoritefoodbuff = self.favoritefoodbuff or false,
-		foodbuff = self.foodbuff or false,
+		favoritefoodbuff = favoriteFoodTimeLeft,
+		foodbuff = foodTimeLeft,
 		offenseupbuff = self.offenseupbuff or false,
 		workfulness = self.workfulness,
 		firstSpawn = self.firstSpawn
