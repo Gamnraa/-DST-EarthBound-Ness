@@ -470,7 +470,7 @@ AddComponentPostInit("combat", function(combat)
 					print("*** Warning: Stopped tracking target without it being explicitly set")
 					print("    target:",target)
 					print("    from entity:",self.inst)
-					print(debugstack())
+					--print(debugstack())
 				end
 				self.losetargetcallback = nil
 			end
