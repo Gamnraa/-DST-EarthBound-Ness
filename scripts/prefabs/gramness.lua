@@ -165,6 +165,11 @@ local function oneatfood(inst, data)
 	local dialog = nil
 	if data.food.components.edible:GetHunger(inst) >= 75 then
 		print("reduced homesickness by 1 level for 90 seconds")
+		
+		if inst.components.homesickness.foodbuff then
+			inst.components.homesickness.foodbuff:Cancel()
+		end	
+
 		inst.components.homesickness.foodbuff = inst:DoTaskInTime(90, function() ontimerdone(inst, false) end)
 		inst:PushEvent("sanitydelta", {oldpercent = sanity, newpercent = sanity})
 		dialog = "Filling my stomach always makes me feel a little better..."
@@ -177,9 +182,16 @@ local function oneatfood(inst, data)
 
 		--Steamed Sandwich or Surf 'n' Turf
 		if not(dialog) then
-			print("reduced homesickness by 1 level for 90 seconds") 
+			print("reduced homesickness by 1 level for 90 seconds")
+			if inst.components.homesickness.foodbuff then
+				inst.components.homesickness.foodbuff:Cancel()
+			end	
 			inst.components.homesickness.foodbuff = inst:DoTaskInTime(90, function() ontimerdone(inst, false) end)
 		end
+
+		if inst.components.homesickness.favoritefoodbuff then
+			inst.components.homesickness.favoritefoodbuff:Cancel()
+		end	
 
 		inst.components.homesickness.favoritefoodbuff = inst:DoTaskInTime(420, function() ontimerdone(inst, true) end)
 		inst:PushEvent("sanitydelta", {oldpercent = sanity, newpercent = sanity})
