@@ -5,8 +5,6 @@ local assets =
 {
     Asset("ANIM", "anim/swap_offense_up_ness.zip"),
     Asset("ANIM", "anim/ground_offense_up.zip"),
-	Asset("ANIM", "anim/ground_four_d_slip_o.zip"),
-	Asset("ANIM", "anim/swap_four_d_slip_o.zip"),
 }
 
 local psiLines = {
