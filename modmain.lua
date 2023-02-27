@@ -9,8 +9,6 @@ PrefabFiles = {
 	"crit_fx",
 	"offense_up_fx",
 	"pk_flash_fx",
-	
-	"withered_bun_spiked"
 }
 
 Assets = {
