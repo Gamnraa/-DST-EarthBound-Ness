@@ -64,16 +64,15 @@ local function doPsi(inst, target, pos)
 			local damage = 0
 			if inst.prefab == "pk_flash" then
 				damage = math.random(0, 30)
-				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_alpha") end)
+				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_alpha") v.pkflashfx:kill_fx() end)
 			else
 				damage = math.random(30, 200)
-				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_omega") end)
+				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_omega") v.pkflashfx:kill_fx() end)
 			end
 			if v.components.heatlh then
 				v.components.health:DoDelta(-damage)
 			end
 		end
-		v:DoTaskInTime(2, function() v.pkflashfx = nil end)
 	end
 end
 

@@ -2,6 +2,9 @@ local assets =
 {
     Asset("ANIM", "anim/pk_flash_fx.zip")
 }
+local function killFX(inst)
+	inst:DoTaskInTime(2, inst.Remove)
+end
 
 local function fn()
     local inst = CreateEntity()
@@ -20,7 +23,8 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
+
+    inst.kill_fx = killFX
     return inst
 end
 
