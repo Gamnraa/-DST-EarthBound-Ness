@@ -69,7 +69,7 @@ local function doPsi(inst, target, pos)
 				damage = math.random(30, 200)
 				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_omega") v.pkflashfx:kill_fx() end)
 			end
-			if v.components.heatlh then
+			if v.components.health then
 				v.components.health:DoDelta(-damage)
 			end
 		end
