@@ -18,6 +18,7 @@ local function fn()
     inst.AnimState:SetBuild("crit_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/crithit") end)
 	inst.AnimState:PlayAnimation("anim")
+    inst:AddTag("FX")
 
     inst.entity:SetPristine()
 
