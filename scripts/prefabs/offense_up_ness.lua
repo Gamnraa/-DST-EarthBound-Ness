@@ -35,7 +35,7 @@ local function removePsi(inst, target)
 		target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
 	end
 	
-	target.components.combat.externaldamagemultipliers:RemoveModifier(inst, "offenseup")
+	target.components.combat.externaldamagemultipliers:RemoveModifier(target, "offenseup")
 	if target.components.talker then	
 		target.components.talker:Say("It was fun while it lasted.")
 	end
