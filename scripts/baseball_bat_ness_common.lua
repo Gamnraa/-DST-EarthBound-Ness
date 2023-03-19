@@ -158,10 +158,11 @@ AddStategraphState("wilson_client",  baseball_swing_client)
 AddStategraphPostInit("wilson", function(sg)
 	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
 	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		inst.sg.mem.localchainattack = not action.forced or nil
+		
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or inst.components.health:IsDead()) then
             local weapon = inst.components.combat ~= nil and inst.components.combat:GetWeapon() or nil
 			if weapon and weapon.prefab == "baseball_bat_ness" then
+				inst.sg.mem.localchainattack = not action.forced or nil
 				return "swing_bat"
 			else return oldattackhandler.deststate(inst, action)
 			end
@@ -172,10 +173,11 @@ end)
 AddStategraphPostInit("wilson_client", function(sg)
 	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
 	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		inst.sg.mem.localchainattack = not action.forced or nil
+
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or GLOBAL.IsEntityDead(inst)) then
             local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
 			if equip and equip.prefab == "baseball_bat_ness" then
+				inst.sg.mem.localchainattack = not action.forced or nil
 				return "swing_bat"
 			else return oldattackhandler.deststate(inst, action)
 			end
