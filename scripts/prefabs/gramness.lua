@@ -73,8 +73,6 @@ local function doresourcefulattempt(inst, data)
 		if not loots then 
 			loots = {}
 			if lootdropper.chanceloottable then
-				print("chanceloottable")
-				print(lootdropper.chanceloottable)
 				local t = LootTables[lootdropper.chanceloottable]
 				if t then
 					for k, v in pairs(LootTables[lootdropper.chanceloottable]) do
@@ -84,14 +82,12 @@ local function doresourcefulattempt(inst, data)
 			end
 			
 			if lootdropper.randomloot then
-				print("randomloot")
 				for k, v in pairs(lootdropper.randomloot) do
 					table.insert(loots, v.prefab)
 				end
 			end
 			
 			if lootdropper.loot then
-				print("loot")
 				print(lootdropper.loot)
 				for k, v in pairs(lootdropper.loot) do
 					print(k, v)
@@ -100,7 +96,6 @@ local function doresourcefulattempt(inst, data)
 			end
 		end
 		
-		print(#loots)
 		if #loots < 1 then return end
 		--If it proves too inconsistent, simply creating a 'master table' that combines all them will do
 		for i =1, numDrops, 1 do
