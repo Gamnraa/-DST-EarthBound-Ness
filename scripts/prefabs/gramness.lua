@@ -8,6 +8,7 @@ local assets = {
 local prefabs = {
 }
 
+local favoritefood = "leafymeatburger"
 
 -- Custom starting inventory
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.GRAMNESS = {
@@ -169,8 +170,9 @@ local function oneatfood(inst, data)
 		dialog = "Filling my stomach always makes me feel a little better..."
 	end
 	
-	if data.food.prefab == "trunk_cooked" then
+	if data.food.prefab == favoritefood then
 		print("reduced homesickness by 1 level for 420 seconds")
+		inst.components.homesickness.foodbuff = inst:DoTaskInTime(90, function() ontimerdone(inst, false) end)
 		inst.components.homesickness.favoritefoodbuff = inst:DoTaskInTime(420, function() ontimerdone(inst, true) end)
 		inst:PushEvent("sanitydelta", {oldpercent = sanity, newpercent = sanity})
 		dialog = "It almost reminds me of home..."
@@ -227,7 +229,7 @@ local master_postinit = function(inst)
 	-- Uncomment if "wathgrithr"(Wigfrid) or "webber" voice is used
     --inst.talker_path_override = "dontstarve_DLC001/characters/"
 	
-	inst.components.foodaffinity:AddPrefabAffinity("trunk_cooked", TUNING.AFFINITY_15_CALORIES_MED)
+	inst.components.foodaffinity:AddPrefabAffinity(favoritefood, TUNING.AFFINITY_15_CALORIES_MED)
 	
 	-- Stats	
 	inst.components.health:SetMaxHealth(TUNING.GRAMNESS_HEALTH)
