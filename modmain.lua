@@ -141,6 +141,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["lordfruitfly"] = {"dragonfruit_seeds"},
 	["klaus"] = {"amulet"},
 	["leif"] = {"livinglog"},
+	["leif_sparse"] = {"livinglog"},
 	["malbatross"] = {"malbatross_beak", "malbatross_beak", "bluegem", "bluegem", "bluegem", "yellowgem"},
 	["minotaur"] = {"minotaurhorn"},
 	["moose"] = {"goose_feather", "goose_feather", "turkeydinner"},
