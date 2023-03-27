@@ -163,6 +163,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	
 	--Objects that should not drop extra loot
 	["evergreen_stump"] = {},
+	["lureplant"] = {},
 	
 }
 --Stategraph fun!
