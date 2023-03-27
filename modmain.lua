@@ -153,6 +153,7 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	["stalker"] = {"nightmarefuel"},
 	["stalker_atrium"] = {"nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "nightmarefuel", "armorskeleton"},
 	["toadstool"] = {"blue_mushroomhat", "green_mushroomhat", "red_mushroomhat"},
+	["daywalker"] = {"horrorfuel", "horrorfuel", "nightmarefuel"},
 	
 	--World objects that can be worked for loot
 	["rock_ice"] = {"ice"},
