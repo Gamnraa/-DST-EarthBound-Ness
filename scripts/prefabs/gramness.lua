@@ -134,9 +134,11 @@ local function docritattempt(inst, data)
 					local baseball = SpawnPrefab("baseball_cap_ninten")
 					lootdropper:FlingItem(baseball)
 				--end
-				local index = math.random(#GRAMNESS_SPECIALDROPS[data.target.prefab])
-				local loot = SpawnPrefab(GRAMNESS_SPECIALDROPS[data.target.prefab][index])
-				lootdropper:FlingItem(loot)	
+				if GRAMNESS_SPECIALDROPS[data.target.prefab] then
+					local index = math.random(#GRAMNESS_SPECIALDROPS[data.target.prefab])
+					local loot = SpawnPrefab(GRAMNESS_SPECIALDROPS[data.target.prefab][index])
+					lootdropper:FlingItem(loot)	
+				end
 			else
 				doresourcefulattempt(inst, {victim = data.target})
 			end
