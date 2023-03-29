@@ -34,7 +34,7 @@ end
 local exemptiontags = {"stump"}
 
 local function doresourcefulattempt(inst, data)
-	if data.victim and (data.victim:HasTag("epic") or not data.victim.components.lootdropper) then return end
+	if (data.victim and (data.victim:HasTag("epic") or not data.victim.components.lootdropper)) or data.action == ACTIONS.NET then return end
 
 	local homesickness = inst.components.homesickness
 	if homesickness.resourcefulness[1] < 1 then return end
