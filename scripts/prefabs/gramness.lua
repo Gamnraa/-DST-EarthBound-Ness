@@ -51,7 +51,17 @@ local function doresourcefulattempt(inst, data)
 	end
 	
 	if numDrops == 0 then return end
-	local target = data.victim or data.target	
+
+	if data.object then
+		local item = data.loot
+
+		for i = 1, numDrops, 1 do
+			inst:DoTaskInTime(.3, function() inst.components.inventory:GiveItem(SpawnPrefab(item.prefab)) end)
+		end
+		return
+	end
+
+	local target = data.victim or data.target
 	
 	if target then
 		--for _, v in pairs(exemptiontags) do
@@ -261,6 +271,7 @@ local master_postinit = function(inst)
 	
 	inst:ListenForEvent("killed", doresourcefulattempt)
 	inst:ListenForEvent("finishedwork", doresourcefulattempt)
+	inst:ListenForEvent("picksomething", doresourcefulattempt)
 	inst:ListenForEvent("onhitother", docritattempt)
 	inst:ListenForEvent("oneat", oneatfood)
 	
