@@ -164,20 +164,14 @@ GLOBAL.GRAMNESS_SPECIALDROPS = {
 	--Objects that should not drop extra loot
 	["evergreen_stump"] = {},
 	["lureplant"] = {},
+
+	--All things random
+	["koalefant_summer"] = {"meat", "meat", "trunk_summer", "trunk_summer", "trunk_summer"},
+	["koalefant_winter"] = {"meat", "meat", "trunk_winter", "trunk_winter", "trunk_winter"},
 	
 }
 --Stategraph fun!
 local State = GLOBAL.State
-
---Frames is 1/30
---For anyone that needs it, here is how to convert from spriter's millisecond measurements to stategraph frames
---x/y = 1000/30
---Where x is the milliseconds of your animation in spriter
---And y is the frames conversion you want
---PRESERVE 1000/30 AS A FRACTION, multiply x by 30, y by 1000
---So you get you 30x = 1000y
---(x should all ready be known since ideally you know how long the animation is if you made it)
---So determine y by doing 30x/1000 to figure out how long the timeline in the State should be
 local FRAMES = GLOBAL.FRAMES
 local TimeEvent = GLOBAL.TimeEvent
 local EventHandler = GLOBAL.EventHandler
