@@ -78,38 +78,6 @@ local function onTimerDone(inst, data)
 		inst.components.debuff:Stop()
 	end
 end
-	
-
-----------------------------------------
--- Function that is called when the player successfully performs PSI Shield
--- inst - the object instance (The PSI Shield item)
--- target - the target the player is casting the spell on
-----------------------------------------
-local function doPsi(inst, target, isOwner) 
-	if isOwner then
-		target.components.combat.externaldamagemultipliers:SetModifier(target, psiVars["self"][inst.prefab], "offenseup")
-	else
-		target.components.combat.externaldamagemultipliers:SetModifier(target, psiVars["other"][inst.prefab], "offenseup")
-	end
-	
-	local duration = psiVars["time"][inst.prefab]
-	psiInsts[target] = target:DoTaskInTime(duration, function() removePsi(target) end)
-	
-	if target.components.homesickness then
-		target:AddTag("gutsy")
-		--[[target.components.homesickness.offenseupbuff = target:DoTaskInTime(duration, function() 
-			target.components.homesickness.offenseupbuff = nil
-			target:RemoveTag("gutsy")
-			target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
-		end)]]
-	end
-	
-	psiTypes[target] = "offense_up"
-	target.psifx = SpawnPrefab("shield_fx")
-
-	target.psifx.entity:SetParent(target.entity)
-
-end
 
 -----------------------------------------
 -- Function that calls when the player attempts to cast a spell with PSI Shield
