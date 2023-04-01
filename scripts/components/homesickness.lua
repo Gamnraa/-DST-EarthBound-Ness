@@ -87,10 +87,10 @@ local function OnSanityUpdated(inst, data)
 	local gutsOffset = 0
 	local guts = 10
 	if inst:HasTag("homerunner") then
-		gutsOffset = 25
+		gutsOffset = 15
 	end
 	if inst:HasTag("gutsy") then
-		gutsOffset = gutsOffset + 7
+		gutsOffset = gutsOffset + 12
 	end
 	
 	local level = 0
