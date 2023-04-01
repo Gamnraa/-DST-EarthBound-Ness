@@ -55,9 +55,9 @@ local function doresourcefulattempt(inst, data)
 	if data.object then
 		local item = data.loot
 
-		for i = 1, numDrops, 1 do
+		--for i = 1, numDrops, 1 do
 			inst:DoTaskInTime(.3, function() inst.components.inventory:GiveItem(SpawnPrefab(item.prefab)) end)
-		end
+		--end
 		return
 	end
 
