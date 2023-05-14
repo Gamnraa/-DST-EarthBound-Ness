@@ -123,6 +123,7 @@ end
 		inst:AddComponent("spellcaster")	
 		inst.components.spellcaster:SetSpellFn(canPsi)
 		inst.components.spellcaster.canuseontargets = true	
+		inst.components.spellcaster.canonlyuseoncombat = true
 		inst.components.spellcaster.canonlyuseonlocomotors = true
 		--inst.components.spellcaster.quickcast = true
 		--inst.OnLoad = onLoad
