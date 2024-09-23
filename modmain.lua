@@ -112,6 +112,8 @@ TUNING.GRAMNESS_HUNGER = GetModConfigData("GRAMNESS_HUNGER")
 TUNING.GRAMNESS_PK_FLASH_SANITY = GetModConfigData("GRAMNESS_PK_FLASH_SANITY")
 TUNING.GRAMNESS_OFFENSE_UP_SANITY = GetModConfigData("GRAMNESS_OFFENSE_UP_SANITY")
 TUNING.BASEBALL_BAT_NESS_DAMAGE = GetModConfigData("BASEBALL_BAT_NESS_DAMAGE")
+
+TUNING.ENABLE_GRAMNESS_HOMESICKNESS = GetModConfigData("GRAMNESS_HOMESICKNESS")
 -- The skins shown in the cycle view window on the character select screen.
 -- A good place to see what you can put in here is in skinutils.lua, in the function GetSkinModes
 local skin_modes = {

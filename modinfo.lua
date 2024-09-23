@@ -141,4 +141,16 @@ configuration_options = {
 		},
 		default = 24,
 	},
+	{
+		name = "GRAMNESS_HOMESICKNESS",
+		label = "Toggle Homesickness",
+		hover = "If disabled, Ness will not deal with the effects of homesickness",
+		options = 
+		{
+			{description = "Enabled (default)", data = true},
+			{description = "Disabled", data = false}
+		},
+		default = true,
+	},
+
 }

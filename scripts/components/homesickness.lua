@@ -77,6 +77,8 @@ local homesickLines = {
 	"Why me?",
 	"I didn't ask for any of this.",
 	"What if I never get out of here?",
+	"I wonder what Mom is up to...",
+	"I just want to go home."
 }
 	
 
@@ -147,7 +149,7 @@ local function OnSanityUpdated(inst, data)
 	end
 end
 
-local Homesickness = Class(function(self, inst)
+local Homesickness = Class(function(self, inst, enable)
     self.inst = inst
 	self.level = 0
 	self.guts = 10
@@ -158,7 +160,10 @@ local Homesickness = Class(function(self, inst)
 	self.foodbuff = nil
 	self.offenseupbuff = nil
 	
-	self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
+	enable = enable or TUNING.ENABLE_GRAMNESS_HOMESICKNESS
+	if enable then
+		self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
+	end
 end, nil, {})
 
 function Homesickness:OnSave()
@@ -218,7 +223,9 @@ function Homesickness:DoNextInterrupt()
 end
 
 function Homesickness:Enable()
-	self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
+	if TUNING.ENABLE_GRAMNESS_HOMESICKNESS then
+		self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
+	end
 end
 
 function Homesickness:Disable()
