@@ -199,7 +199,7 @@ end
 
 local function ontimerdone(inst, data)
 	if data.name == "nesssanityregenover" then
-		if inst.ness_sanity_regen then inst.ness_sanity_regen:Stop() end
+		if inst.ness_sanity_regen then inst.ness_sanity_regen:Cancel() end
 		inst.ness_sanity_regen = nil
 	end
 end
@@ -207,8 +207,8 @@ end
 local function oncastpsi(inst, data)
 	if data.cost then
 		inst:DoTaskInTime(2, function() 
-			inst.ness_sanity_regen = inst:DoPeriodicTask(1, function() inst.components.sanity:DoDelta(1) end, nil, inst)
-			inst.components.timer:StartTimer("nesssanityregenover")
+			inst.ness_sanity_regen = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
+			inst.components.timer:StartTimer("nesssanityregenover", data.cost / 4)
 		end)
 	end
 end
