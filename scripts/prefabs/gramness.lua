@@ -205,15 +205,18 @@ local function ontimerdone(inst, data)
 	end
 end
 
+local function kill_task(inst)
+	inst.sanity_tasks[#inst.sanity_tasks][1]:Cancel()
+	table.remove(inst.sanity_tasks, #inst.sanity_tasks)
+end
+
 local function oncastpsi(inst, data)
 	if data.cost then
 		inst:DoTaskInTime(1.5, function()
-			table.insert(inst.sanity_tasks, inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end))
-
-			local timer = inst.components.timer
-			local t = timer:TimerExists("nesssanityregenover") and timer:GetTimeLeft("nesssanityregenover") or 0
-			timer:StopTimer("nesssanityregenover")
-			inst.components.timer:StartTimer("nesssanityregenover", (data.cost / 4) + t)
+			table.insert(inst.sanity_tasks, {
+				[0] = inst:DoTaskInTime(data.cost / 4, kill_task), 
+				[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
+			})
 		end)
 	end
 end
@@ -231,6 +234,14 @@ local function onbecameghost(inst)
    inst.components.homesickness:Disable()
 end
 
+local function onsave(inst, data)
+	data.sanity_tasks = {}
+	for k, v in pairs(inst.sanity_tasks) do
+		table.insert(data.sanity_tasks, k:GetTaskRemaining())
+	end
+end
+
+
 -- When loading or spawning the character
 local function onload(inst, data)
     inst.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED)
@@ -243,6 +254,14 @@ local function onload(inst, data)
     else
         onbecamehuman(inst)
     end
+
+	for k, v in pairs(data.sanity_tasks) do
+		table.insert(inst.sanity_tasks, {
+			[0] = inst:DoTaskInTime(v, kill_task), 
+			[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
+		})
+	end
+
 end
 
 -- This initializes for both the server and client. Tags can be added here.
