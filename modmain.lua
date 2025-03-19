@@ -224,6 +224,7 @@ AddStategraphState("wilson",  homesick_interrupt)
 AddStategraphState("wilson_client", homesick_interrupt)
 
 modimport "scripts/baseball_bat_ness_common"
+modimport "scripts/strings"
 
 AddCharacterRecipe("pk_flash",
 	{Ingredient("purplegem", 1),
