@@ -197,6 +197,22 @@ local function oneatfood(inst, data)
 	end
 end
 
+local function ontimerdone(inst, data)
+	if data.name == "nesssanityregenover" then
+		if inst.ness_sanity_regen then inst.ness_sanity_regen:Stop() end
+		inst.ness_sanity_regen = nil
+	end
+end
+
+local function oncastpsi(inst, data)
+	if data.cost then
+		inst:DoTaskInTime(2, function() 
+			inst.ness_sanity_regen = inst:DoPeriodicTask(1, function() inst.components.sanity:DoDelta(1) end, nil, inst)
+			inst.components.timer:StartTimer("nesssanityregenover")
+		end)
+	end
+end
+
 -- When the character is revived from human
 local function onbecamehuman(inst)
 	-- Set speed when not a ghost (optional)
@@ -276,6 +292,9 @@ local master_postinit = function(inst)
 	inst:ListenForEvent("picksomething", doresourcefulattempt)
 	inst:ListenForEvent("onhitother", docritattempt)
 	inst:ListenForEvent("oneat", oneatfood)
+
+	inst:ListenForEvent("timerdone", ontimerdone)
+	inst:ListenForEvent("castpsi", oncastpsi)
 	
 end
 

@@ -22,6 +22,14 @@ local function onunequip(inst, owner)
     owner.AnimState:Show("ARM_normal")
 end
 
+--Inst is a different context so we need a second timerdone function
+local function onSanityRegenDone(inst, data)
+	if data.name == "nesssanityregenover" then
+		if inst.ness_sanity_regen then inst.ness_sanity_regen:Stop() end
+		inst.ness_sanity_regen = nil
+	end
+end
+
 ----------------------------------------
 -- Function that is called when the player successfully performs PSI Shield
 -- inst - the object instance (The PSI Shield item)
@@ -88,6 +96,9 @@ local function canPsi(inst, target)
 		caster.components.talker:Say(psiLines[math.random(#psiLines)])
 		--.SoundEmitter:PlaySound("psifx/psifx/" .. inst.prefab)
 		doPsi(inst, target, caster:GetPosition())
+
+
+		caster:PushEvent("castpsi", {doer = caster, cost = TUNING.GRAMNESS_PK_FLASH_SANITY})
 	else 
 		caster.components.talker:Say("No can do!")	  
     end

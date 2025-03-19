@@ -98,6 +98,9 @@ local function canPsi(inst, target)
 		caster.components.talker:Say(psiLines[math.random(#psiLines)])
 		caster.components.sanity:DoDelta(-TUNING.GRAMNESS_OFFENSE_UP_SANITY)
 		target:AddDebuff("buff_" .. inst.prefab, "buff_" .. inst.prefab)
+		if target ~= caster then target.components.talker:Say(GetString(inst, "ANNOUNCE_OFFENSE_UP_NESS_START")) end
+
+		caster:PushEvent("castpsi", {doer = caster, cost = TUNING.GRAMNESS_OFFENSE_UP_SANITY})
 	else 
 		caster.components.talker:Say("No can do!")	  
     end
