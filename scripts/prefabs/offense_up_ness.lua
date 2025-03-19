@@ -37,13 +37,14 @@ local function removePsi(inst, target)
 	
 	target.components.combat.externaldamagemultipliers:RemoveModifier(target, "offenseup")
 	if target.components.talker then	
-		target.components.talker:Say("It was fun while it lasted.")
+		target.components.talker:Say(GetString(target, "ANNOUNCE_OFFENSE_UP_NESS_END"))
 	end
 	inst:RemoveEventCallback("onhitother", onAttack, target)
 	inst:Remove()
 	target:DoTaskInTime(0, function()
 		target.offenseupfx = nil
 	end)
+
 	
 	if target.components.homesickness then
 		print("End of homesickness buff")
