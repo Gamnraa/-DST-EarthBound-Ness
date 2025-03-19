@@ -237,7 +237,7 @@ end
 local function onsave(inst, data)
 	data.sanity_tasks = {}
 	for k, v in pairs(inst.sanity_tasks) do
-		table.insert(data.sanity_tasks, k:GetTaskRemaining())
+		table.insert(data.sanity_tasks, GetTaskRemaining(v[0]))
 	end
 end
 
@@ -255,7 +255,12 @@ local function onload(inst, data)
         onbecamehuman(inst)
     end
 
+	print(data, data.sanity_tasks)
+
+	if not(data and data.sanity_tasks) then return end
+	print("why") 
 	for k, v in pairs(data.sanity_tasks) do
+		print(k, v)
 		table.insert(inst.sanity_tasks, {
 			[0] = inst:DoTaskInTime(v, kill_task), 
 			[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
@@ -298,7 +303,8 @@ local master_postinit = function(inst)
 	inst.components.hunger.hungerrate = 1 * TUNING.WILSON_HUNGER_RATE
 	
 	inst:AddComponent("homesickness")
-	
+
+	inst.OnSave = onsave
 	inst.OnLoad = onload
     inst.OnNewSpawn = function()
 		onload(inst)
