@@ -91,8 +91,8 @@ end
 -----------------------------------------
 local function canPsi(inst, target)
 	local caster = inst.components.inventoryitem.owner	
-    if caster.components.sanity.current >= TUNING.GRAMNESS_OFFENSE_UP_SANITY then
-		caster.components.sanity:DoDelta(-TUNING.GRAMNESS_OFFENSE_UP_SANITY)
+    if caster.components.sanity.current >= TUNING.GRAMNESS_PK_FLASH_SANITY then
+		caster.components.sanity:DoDelta(-TUNING.GRAMNESS_PK_FLASH_SANITY)
 		caster.components.talker:Say(psiLines[math.random(#psiLines)])
 		--.SoundEmitter:PlaySound("psifx/psifx/" .. inst.prefab)
 		doPsi(inst, target, caster:GetPosition())
