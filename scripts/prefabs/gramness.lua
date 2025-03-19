@@ -199,16 +199,21 @@ end
 
 local function ontimerdone(inst, data)
 	if data.name == "nesssanityregenover" then
-		if inst.ness_sanity_regen then inst.ness_sanity_regen:Cancel() end
-		inst.ness_sanity_regen = nil
+		for i = 1, #inst.sanity_tasks + 1, 1 do
+			table.remove(inst.sanity_tasks, i)
+		end
 	end
 end
 
 local function oncastpsi(inst, data)
 	if data.cost then
-		inst:DoTaskInTime(2, function() 
-			inst.ness_sanity_regen = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
-			inst.components.timer:StartTimer("nesssanityregenover", data.cost / 4)
+		inst:DoTaskInTime(1.5, function()
+			table.insert(inst.sanity_tasks, inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end))
+
+			local timer = inst.components.timer
+			local t = timer:TimerExists("nesssanityregenover") and timer:GetTimeLeft("nesssanityregenover") or 0
+			timer:StopTimer("nesssanityregenover")
+			inst.components.timer:StartTimer("nesssanityregenover", (data.cost / 4) + t)
 		end)
 	end
 end
@@ -293,6 +298,7 @@ local master_postinit = function(inst)
 	inst:ListenForEvent("onhitother", docritattempt)
 	inst:ListenForEvent("oneat", oneatfood)
 
+	inst.sanity_tasks = {}
 	inst:ListenForEvent("timerdone", ontimerdone)
 	inst:ListenForEvent("castpsi", oncastpsi)
 	
