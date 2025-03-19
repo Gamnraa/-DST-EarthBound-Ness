@@ -214,7 +214,7 @@ local function oncastpsi(inst, data)
 	if data.cost then
 		inst:DoTaskInTime(1.5, function()
 			table.insert(inst.sanity_tasks, {
-				[0] = inst:DoTaskInTime(data.cost / 4, kill_task), 
+				[0] = inst:DoTaskInTime((data.cost / 4) + .1, kill_task), 
 				[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
 			})
 		end)
@@ -262,7 +262,7 @@ local function onload(inst, data)
 	for k, v in pairs(data.sanity_tasks) do
 		print(k, v)
 		table.insert(inst.sanity_tasks, {
-			[0] = inst:DoTaskInTime(v, kill_task), 
+			[0] = inst:DoTaskInTime(v + .1, kill_task), 
 			[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
 		})
 	end
