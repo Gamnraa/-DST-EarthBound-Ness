@@ -226,6 +226,40 @@ AddStategraphState("wilson_client", homesick_interrupt)
 modimport "scripts/baseball_bat_ness_common"
 modimport "scripts/strings"
 
+local Ness_ParalyzedEvent = function(inst, data)
+    inst.sg:GoToState("paraylzed", {duration = data.duration})
+end
+
+local Ness_Paralyzed = State{
+    name = "paralyzed",
+    tags = {"busy", "frozen"},
+
+    onenter = function(inst, data)
+        if inst.components.locomotor ~= nil then
+            inst.components.locomotor:StopMoving()
+        end
+        inst.AnimState:PlayAnimation("frozen_loop_pst", true)
+        --inst.SoundEmitter:PlaySound("dontstarve/common/freezecreature")
+        --TODO lightning fx
+
+        inst.sg:SetTimeout(data.duration or 6 * FRAMES)
+    end,
+
+    ontimeout = function(inst)
+        inst.sg:GoToState(inst.sg.sg.states.hit ~= nil and "hit" or "idle")
+        inst:PushEvent("exitparalysis")
+    end
+}
+
+AddPrefabPostInitAny(function(inst) 
+	AddStategraphState(inst.sg.sg.name, "paralyzed")
+
+	AddStategraphEvent(inst.sg.sg.name, EventHandler("enterparalysis", function(inst, data)
+		inst.sg:GoToState("paralyzed", {duration = data.duration})
+	end))
+end)
+
+
 AddCharacterRecipe("pk_flash",
 	{Ingredient("purplegem", 1),
 	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
