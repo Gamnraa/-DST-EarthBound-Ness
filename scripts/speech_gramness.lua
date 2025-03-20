@@ -1222,7 +1222,7 @@ return {
         {
             GENERIC = "Are you a psychic monkey? Could you teach me teleport again?",
             ATTACKER = "Hey! Don't hit others!",
-            MURDERER = "Don't make me base you!",
+            MURDERER = "Don't make me bash you!",
             REVIVER = "Haha! Thanks, monkey!",
             GHOST = "Maybe I should help them.",
             FIRESTARTER = "Fire is bad, bad!",
