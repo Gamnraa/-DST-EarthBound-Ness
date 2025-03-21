@@ -76,6 +76,7 @@ local RECIPETABS = GLOBAL.RECIPETABS
 local Ingredient = GLOBAL.Ingredient
 local TECH = GLOBAL.TECH
 local Vector3 = GLOBAL.Vector3
+local TheWorld = GLOBAL.TheWorld
 
 
 --if TUNING.GRAMNESS_VOICE == "gramness" then
@@ -253,6 +254,10 @@ local Ness_Paralyzed = State{
 }
 
 AddPrefabPostInitAny(function(inst) 
+	
+	if not TheWorld.ismastersim then return end
+	if not inst.sg then return end
+
 	AddStategraphState(inst.sg.sg.name, "paralyzed")
 
 	AddStategraphEvent(inst.sg.sg.name, EventHandler("enterparalysis", function(inst, data)
