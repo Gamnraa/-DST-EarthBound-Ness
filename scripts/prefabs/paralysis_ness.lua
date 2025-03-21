@@ -40,6 +40,7 @@ end
 
 local function exitParalysis(inst, target)
     
+	print("exit_paralysis", inst, target)
     if target:HasTag("Paralyzed") and math.random(100) > 49 then
         target:DoTaskInTime(math.random(2,5), function() 
             target:AddDebuff("buff_paralysis", "buff_paralysis") 
@@ -87,7 +88,7 @@ end
 local function canPsi(inst, target)
 	local caster = inst.components.inventoryitem.owner	
     if caster.components.sanity.current >= TUNING.GRAMNESS_PARALYSIS_SANITY then
-		if target:HasTag("player") and not GLOBAL.TheNet:GetPVPEnabled() then
+		if target:HasTag("player") and caster ~= target and not TheNet:GetPVPEnabled() then
             caster.components.talker:Say(GetActionFailString("CAST_PSI", "CANT_CAST_FRIEND"))
             return
 		end
