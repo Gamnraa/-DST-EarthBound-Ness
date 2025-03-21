@@ -78,7 +78,6 @@ local RECIPETABS = GLOBAL.RECIPETABS
 local Ingredient = GLOBAL.Ingredient
 local TECH = GLOBAL.TECH
 local Vector3 = GLOBAL.Vector3
-local TheWorld = GLOBAL.TheWorld
 
 
 --if TUNING.GRAMNESS_VOICE == "gramness" then
@@ -239,6 +238,7 @@ local Ness_Paralyzed = State{
     tags = {"busy", "frozen"},
 
     onenter = function(inst, data)
+		print("paralyzed")
         if inst.components.locomotor ~= nil then
             inst.components.locomotor:StopMoving()
         end
@@ -246,7 +246,7 @@ local Ness_Paralyzed = State{
         --inst.SoundEmitter:PlaySound("dontstarve/common/freezecreature")
         --TODO lightning fx
 
-        inst.sg:SetTimeout(data.duration or 6 * FRAMES)
+        inst.sg:SetTimeout((data.duration or 6) * FRAMES)
     end,
 
     ontimeout = function(inst)
@@ -256,16 +256,11 @@ local Ness_Paralyzed = State{
 }
 
 AddPrefabPostInitAny(function(inst) 
-	
-	if not TheWorld then return end
-	if not TheWorld.ismastersim then return end
+	if not GLOBAL.TheWorld.ismastersim then return end
 	if not inst.sg then return end
 
-	AddStategraphState(inst.sg.sg.name, "paralyzed")
-
-	AddStategraphEvent(inst.sg.sg.name, EventHandler("enterparalysis", function(inst, data)
-		inst.sg:GoToState("paralyzed", {duration = data.duration})
-	end))
+	inst.sg.sg.states.paralyzed = Ness_Paralyzed
+	table.insert(inst.sg.sg.events, EventHandler("enterparalysis", Ness_ParalyzedEvent))
 end)
 
 
