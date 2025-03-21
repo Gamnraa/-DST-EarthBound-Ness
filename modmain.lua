@@ -235,7 +235,7 @@ end
 
 local Ness_Paralyzed = State{
     name = "paralyzed",
-    tags = {"busy", "frozen"},
+    tags = {"busy", "frozen", "nointerrupt"},
 
     onenter = function(inst, data)
 		print("paralyzed")
@@ -250,6 +250,7 @@ local Ness_Paralyzed = State{
     end,
 
     ontimeout = function(inst)
+		inst.sg:RemoveStateTag("nointerrupt")
         inst.sg:GoToState(inst.sg.sg.states.hit ~= nil and "hit" or "idle")
         inst:PushEvent("exitparalysis")
     end
@@ -260,7 +261,7 @@ AddPrefabPostInitAny(function(inst)
 	if not inst.sg then return end
 
 	inst.sg.sg.states.paralyzed = Ness_Paralyzed
-	table.insert(inst.sg.sg.events, EventHandler("enterparalysis", Ness_ParalyzedEvent))
+	inst.sg.sg.events.enterparalysis = EventHandler("enterparalysis", Ness_ParalyzedEvent)
 end)
 
 --AddStategraphEvent("spider", EventHandler("enterparalysis", Ness_ParalyzedEvent))
