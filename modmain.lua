@@ -230,7 +230,7 @@ modimport "scripts/baseball_bat_ness_common"
 modimport "scripts/strings"
 
 local Ness_ParalyzedEvent = function(inst, data)
-    inst.sg:GoToState("paraylzed", {duration = data.duration})
+    inst.sg:GoToState("paralyzed", {duration = data.duration})
 end
 
 local Ness_Paralyzed = State{
@@ -246,7 +246,7 @@ local Ness_Paralyzed = State{
         --inst.SoundEmitter:PlaySound("dontstarve/common/freezecreature")
         --TODO lightning fx
 
-        inst.sg:SetTimeout((data.duration or 6) * FRAMES)
+        inst.sg:SetTimeout((data.duration or 6))
     end,
 
     ontimeout = function(inst)
@@ -262,6 +262,9 @@ AddPrefabPostInitAny(function(inst)
 	inst.sg.sg.states.paralyzed = Ness_Paralyzed
 	table.insert(inst.sg.sg.events, EventHandler("enterparalysis", Ness_ParalyzedEvent))
 end)
+
+--AddStategraphEvent("spider", EventHandler("enterparalysis", Ness_ParalyzedEvent))
+--AddStategraphState("spider", Ness_Paralyzed)
 
 
 AddCharacterRecipe("pk_flash",
