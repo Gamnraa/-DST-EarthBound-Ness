@@ -41,7 +41,7 @@ end
 local function exitParalysis(inst, target)
     
     if target:HasTag("Paralyzed") and math.random(100) > 49 then
-        target:DoTaskInTime(math.random(4,7), function() 
+        target:DoTaskInTime(math.random(2,5), function() 
             target:AddDebuff("buff_paralysis", "buff_paralysis") 
             target:PushEvent("enterparalysis", {duration = 3})
             if target:HasTag("SuperGutsy") then
