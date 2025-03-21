@@ -68,7 +68,6 @@ local function onAttached(inst, target)
 	
 	if target.components.combat then
 		target.components.combat.externaldamagetakenmultipliers:SetModifier(target, 1.25, "paralysis_ness")
-		inst:ListenForEvent("onhitother", onAttack, target)
 		target.paralysisfx = SpawnPrefab("moonstorm_ground_lightning_fx")
 		target.paralysisfx.entity:SetParent(target.entity)
 	end
