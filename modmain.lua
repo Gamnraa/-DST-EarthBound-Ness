@@ -252,8 +252,13 @@ local Ness_Paralyzed = State{
     ontimeout = function(inst)
 		inst.sg:RemoveStateTag("nointerrupt")
         inst.sg:GoToState(inst.sg.sg.states.hit ~= nil and "hit" or "idle")
-        inst:PushEvent("exitparalysis")
-    end
+        --inst:PushEvent("exitparalysis")
+    end,
+
+	--This needs to be a catch-all
+	onexit = function(inst)
+		inst:PushEvent("exitparalysis")
+	end
 }
 
 AddPrefabPostInitAny(function(inst) 
