@@ -53,7 +53,7 @@ local function exitParalysis(inst, target)
 
     target:RemoveTag("Paralyzed")
     target.components.combat.externaldamagetakenmultipliers:RemoveModifier(target, "paralysis_ness")
-    inst.Remove()
+    inst:Remove()
     target:DoTaskInTime(0, function() target.paralysisfx = nil end)
 end
 
