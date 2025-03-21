@@ -6,6 +6,8 @@ PrefabFiles = {
 	"baseball_bat_ness",
 	"baseball_cap_ninten",
 	
+	"paralysis_ness",
+	
 	"crit_fx",
 	"offense_up_fx",
 	"pk_flash_fx",
@@ -255,6 +257,7 @@ local Ness_Paralyzed = State{
 
 AddPrefabPostInitAny(function(inst) 
 	
+	if not TheWorld then return end
 	if not TheWorld.ismastersim then return end
 	if not inst.sg then return end
 
