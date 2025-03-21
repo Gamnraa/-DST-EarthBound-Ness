@@ -126,6 +126,27 @@ configuration_options = {
 		},
 		default = 50,
 	},
+
+	{
+		name = "GRAMNESS_PARALYSIS_SANITY",
+		label = "Paralysis Sanity Cost",
+		options =
+		{
+			{description = "0", data = 0},
+			{description = "20", data = 20},
+			{description = "40", data = 40},
+			{description = "60", data = 60},
+			{description = "80", data = 80},
+			{description = "100 (default)", data = 100},
+			{description = "120", data = 120},
+			{description = "140", data = 140},
+			{description = "160", data = 160},
+			{description = "180", data = 180},
+			{description = "200", data = 200},
+		},
+		default = 100,
+	},
+
 	{
 		name = "BASEBALL_BAT_NESS_DAMAGE",
 		label = "Baseball Bat Damage",
