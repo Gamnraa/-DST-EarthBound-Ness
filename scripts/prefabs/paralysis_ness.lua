@@ -89,12 +89,12 @@ local function canPsi(inst, target)
 	local caster = inst.components.inventoryitem.owner	
     if caster.components.sanity.current >= TUNING.GRAMNESS_PARALYSIS_SANITY then
 		if target:HasTag("player") and caster ~= target and not TheNet:GetPVPEnabled() then
-            caster.components.talker:Say(GetActionFailString("CAST_PSI", "CANT_CAST_FRIEND"))
+            caster.components.talker:Say(GetActionFailString(caster, "CAST_PSI", "CANT_CAST_FRIEND"))
             return
 		end
 
         if target:HasTag("paralyzed") then
-            caster.components.talker:Say(GetActionFailString("CAST_PSI", "ALREADY_TARGETTED"))
+            caster.components.talker:Say(GetActionFailString(caster, "CAST_PSI", "ALREADY_TARGETTED"))
             return
         end
 
@@ -111,7 +111,7 @@ local function canPsi(inst, target)
 
 		caster:PushEvent("castpsi", {doer = caster, cost = TUNING.GRAMNESS_PARALYSIS_SANITY})
 	else 
-		caster.components.talker:Say(GetActionFailString("CAST_PSI", "NOT_ENOUGH_SANITY")) 
+		caster.components.talker:Say(GetActionFailString(caster, "CAST_PSI", "NOT_ENOUGH_SANITY")) 
     end
  
 end
