@@ -52,25 +52,24 @@ local function exitParalysis(inst, target)
 		end)
 	end
     
-    if target:HasTag("Paralyzed") and math.random(100) > 49 then
-        reparalyze(3)
-	elseif target:HasTag("Paralyzed_o_1") and math.random(100) > 65 then
-		reparalyze(5, "Paralyzed_o_2")
-	elseif target:HasTag("Paralyzed_o_2") and math.random(100) > 32 then
-		reparalyze(3)
+    if target:HasTag("Paralyzed") then 
+		if math.random(100) > 49 then
+        	reparalyze(3)
+		end
+		target:RemoveTag("Paralyzed")
+	elseif target:HasTag("Paralyzed_o_1") then
+		if math.random(100) > 65 then
+			reparalyze(5, "Paralyzed_o_2")
+		end
+		target:RemoveTag("Paralyzed_o_1")
+	elseif target:HasTag("Paralyzed_o_2") then 
+		if math.random(100) > 32 then
+			reparalyze(3)
+		end
+		target:RemoveTag("Paralyzed_o_2")
 	end
-
-	if target:HasTag("Paralyzed") and math.random(100) > 49 then
-        target:DoTaskInTime(math.random(2,5), function() 
-            target:AddDebuff("buff_paralysis", "buff_paralysis") 
-            target:PushEvent("enterparalysis", {duration = 3})
-            if target:HasTag("SuperGutsy") then
-                target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
-            end 
-        end)
-    end
-
-    target:RemoveTag("Paralyzed")
+	
+    
     target.components.combat.externaldamagetakenmultipliers:RemoveModifier(target, "paralysis_ness")
     inst:Remove()
     target:DoTaskInTime(0, function() target.paralysisfx = nil end)
