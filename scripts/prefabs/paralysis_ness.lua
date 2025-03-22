@@ -39,9 +39,28 @@ local function removeSelfBuff(inst, target)
 end
 
 local function exitParalysis(inst, target)
+
+	local function reparalyze(newtime, newtag)
+		target:DoTaskInTime(math.random(2,5), function() 
+			target:AddDebuff("buff_paralysis", "buff_paralysis") 
+			target:PushEvent("enterparalysis", {duration = 3})
+			if newtag then target:AddTag(newtag) end
+
+			if target:HasTag("SuperGutsy") then
+				target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
+			end
+		end)
+	end
     
-	print("exit_paralysis", inst, target)
     if target:HasTag("Paralyzed") and math.random(100) > 49 then
+        reparalyze(3)
+	elseif target:HasTag("Paralyzed_o_1") and math.random(100) > 65 then
+		reparalyze(5, "Paralyzed_o_2")
+	elseif target:HasTag("Paralyzed_o_2") and math.random(100) > 32 then
+		reparalyze(3)
+	end
+
+	if target:HasTag("Paralyzed") and math.random(100) > 49 then
         target:DoTaskInTime(math.random(2,5), function() 
             target:AddDebuff("buff_paralysis", "buff_paralysis") 
             target:PushEvent("enterparalysis", {duration = 3})
@@ -58,7 +77,6 @@ local function exitParalysis(inst, target)
 end
 
 local function onAttached(inst, target)
-    target:AddTag("Paralyzed")
 	inst.entity:SetParent(target.entity)
 	inst.Transform:SetPosition(0, 0, 0)
 	inst:ListenForEvent("death", function()
@@ -93,7 +111,7 @@ local function canPsi(inst, target)
             return
 		end
 
-        if target:HasTag("paralyzed") then
+        if target:HasTag("Paralyzed") or target:HasTag("Paralyzed_o_1") or target:HasTag("Paralyzed_o_2") then
             caster.components.talker:Say(GetActionFailString(caster, "CAST_PSI", "ALREADY_TARGETTED"))
             return
         end
@@ -108,6 +126,12 @@ local function canPsi(inst, target)
 
 		target:AddDebuff("buff_paralysis", "buff_paralysis")
         --target:ListenForEvent("exitparalysis", exitParalysis, target)
+
+		if inst.prefab == "paralysis_ness" then
+			target:AddTag("Paralyzed")
+		else
+			target:AddTag("Paralyzed_o_1")
+		end
 
 		caster:PushEvent("castpsi", {doer = caster, cost = TUNING.GRAMNESS_PARALYSIS_SANITY})
 	else 
