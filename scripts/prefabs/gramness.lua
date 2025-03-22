@@ -255,12 +255,8 @@ local function onload(inst, data)
         onbecamehuman(inst)
     end
 
-	print(data, data.sanity_tasks)
-
 	if not(data and data.sanity_tasks) then return end
-	print("why") 
 	for k, v in pairs(data.sanity_tasks) do
-		print(k, v)
 		table.insert(inst.sanity_tasks, {
 			[0] = inst:DoTaskInTime(v + .1, kill_task), 
 			[1] = inst:DoPeriodicTask(.5, function() inst.components.sanity:DoDelta(1) end)
