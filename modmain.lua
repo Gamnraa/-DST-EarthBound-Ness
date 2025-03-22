@@ -235,13 +235,16 @@ end
 
 local Ness_Paralyzed = State{
     name = "paralyzed",
-    tags = {"busy", "frozen", "nointerrupt", "nosleep"},
+    tags = {"busy"},
 
     onenter = function(inst, data)
-		print("paralyzed")
+
         if inst.components.locomotor ~= nil then
             inst.components.locomotor:StopMoving()
         end
+
+		if inst.brain then inst.brain:Stop() end
+
         inst.AnimState:PlayAnimation("frozen_loop_pst", true)
         --inst.SoundEmitter:PlaySound("dontstarve/common/freezecreature")
         --TODO lightning fx
@@ -250,13 +253,14 @@ local Ness_Paralyzed = State{
     end,
 
     ontimeout = function(inst)
-		inst.sg:RemoveStateTag("nointerrupt")
+		--inst.sg:RemoveStateTag("nointerrupt")
         inst.sg:GoToState(inst.sg.sg.states.hit ~= nil and "hit" or "idle")
         --inst:PushEvent("exitparalysis")
     end,
 
 	--This needs to be a catch-all
 	onexit = function(inst)
+		if inst.brain then inst.brain:Start() end
 		inst:PushEvent("exitparalysis")
 	end
 }
