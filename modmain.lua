@@ -235,7 +235,7 @@ end
 
 local Ness_Paralyzed = State{
     name = "paralyzed",
-    tags = {"busy", "frozen", "nointerrupt"},
+    tags = {"busy", "frozen", "nointerrupt", "nosleep"},
 
     onenter = function(inst, data)
 		print("paralyzed")
