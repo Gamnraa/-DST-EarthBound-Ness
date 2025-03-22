@@ -46,7 +46,7 @@ local function exitParalysis(inst, target)
             target:AddDebuff("buff_paralysis", "buff_paralysis") 
             target:PushEvent("enterparalysis", {duration = 3})
             if target:HasTag("SuperGutsy") then
-                target.components.locomotortargetSetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
+                target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
             end 
         end)
     end
