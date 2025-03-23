@@ -265,12 +265,25 @@ local Ness_Paralyzed = State{
 	end
 }
 
+require("stategraphs/commonstates")
+local csoa = GLOBAL.CommonHandlers.OnAttacked()
+
 AddPrefabPostInitAny(function(inst) 
 	if not GLOBAL.TheWorld.ismastersim then return end
 	if not inst.sg then return end
 
 	inst.sg.sg.states.paralyzed = Ness_Paralyzed
 	inst.sg.sg.events.enterparalysis = EventHandler("enterparalysis", Ness_ParalyzedEvent)
+
+	local old_onattacked = inst.sg.sg.events.attacked
+	if not old_onattacked then return end
+	inst.sg.sg.events.attacked:Remove()
+	inst.sg.sg.events.attacked = EventHandler("attacked", function(inst)
+		if inst:HasTag("Paralyzed") then
+			return csoa.fn(inst)
+		end
+		return old_onattacked.fn(inst)
+	end)
 end)
 
 --AddStategraphEvent("spider", EventHandler("enterparalysis", Ness_ParalyzedEvent))
