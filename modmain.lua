@@ -277,12 +277,11 @@ AddPrefabPostInitAny(function(inst)
 
 	local old_onattacked = inst.sg.sg.events.attacked
 	if not old_onattacked then return end
-	inst.sg.sg.events.attacked:Remove()
-	inst.sg.sg.events.attacked = EventHandler("attacked", function(inst)
+	inst.sg.sg.events.attacked = EventHandler("attacked", function(inst, ...)
 		if inst:HasTag("Paralyzed") then
-			return csoa.fn(inst)
+			return csoa.fn(inst, ...)
 		end
-		return old_onattacked.fn(inst)
+		return old_onattacked.fn(inst, ...)
 	end)
 end)
 
