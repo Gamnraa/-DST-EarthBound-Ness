@@ -27,7 +27,7 @@ STRINGS.CHARACTERS.GRAMNESS.CAST_PARALYSIS = {
         "Haha, you're not going anywhere!",
     }
 }
-
+--Lines by DimondTimbs
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Good day, %s!",
