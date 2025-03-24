@@ -62,7 +62,7 @@ local function doPsi(inst, target, pos)
 				if v.components.health.maxhealth < 10000 then
 					v.components.health:Kill()
 				else
-					v.components.health:DoDelta(math.random(1000, 5000))
+					v.components.health:DoDelta(math.random(1000, 5000) * (v:HasTag("Paralyzed") and 20 or 1))
 				end
 			end
 			local damage = math.random(30, 200)
@@ -78,7 +78,7 @@ local function doPsi(inst, target, pos)
 				v:DoTaskInTime(.15, function() v.pkflashfx.AnimState:PlayAnimation("anim_omega") v.pkflashfx:kill_fx() end)
 			end
 			if v.components.health then
-				v.components.health:DoDelta(-damage)
+				v.components.health:DoDelta(-damage * (v:HasTag("Paralyzed") and 20 or 1))
 			end
 		end
 	end
