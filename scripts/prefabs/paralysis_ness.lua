@@ -59,6 +59,10 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed = nil
 		end
+		if target:HasTag("SuperGutsy") then
+			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF"))
+		end
+
 	elseif target.paralyzed_state == 2 then
 		if math.random(100) > 65 then
 			reparalyze(5, 3)
@@ -71,8 +75,10 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed_state = nil
 		end
+		if target:HasTag("SuperGutsy") then
+			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA"))
+		end
 	end
-	
     
     target.components.combat.externaldamagetakenmultipliers:RemoveModifier(target, "paralysis_ness")
     inst:Remove()
@@ -121,6 +127,7 @@ local function canPsi(inst, target)
         end
 
 		caster.components.talker:Say(psiLines[math.random(#psiLines)])
+		caster.components.talker:Say(GetString(caster, "CAST_PARALYSIS", (caster == target and "SELF") or "OTHER"))
 		caster.components.sanity:DoDelta(-TUNING.GRAMNESS_PARALYSIS_SANITY)
 
         target:PushEvent("enterparalysis", {inst.prefab == "paralysis_ness" and 6 or 8})

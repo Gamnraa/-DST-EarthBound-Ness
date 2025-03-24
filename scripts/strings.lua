@@ -2,6 +2,10 @@ STRINGS = GLOBAL.STRINGS
 
 STRINGS.CHARACTERS.GENERIC.ANNOUNCE_OFFENSE_UP_NESS_START = "I feel like I pack a punch!"
 STRINGS.CHARACTERS.GENERIC.ANNOUNCE_OFFENSE_UP_NESS_END = "It was fun while it lasted."
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_OFFENSE_UP_NESS_END = "My Offense Up's outta juice!"
+
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF = "That wasn't my brightest idea, but maybe the adrenaline rush will help, haha!"
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA = "Youch! Yeah, not my brightest idea at all!"
 
 STRINGS.CHARACTERS.GRAMNESS.ACTIONFAIL.CAST_PSI = {
     CANT_CAST_FRIEND = "It wouldn't be nice to target my friend like that!",
@@ -9,6 +13,19 @@ STRINGS.CHARACTERS.GRAMNESS.ACTIONFAIL.CAST_PSI = {
     SELF_HAS_BUFF = "I've already covered myself!",
     TARGET_HAS_BUFF = "I just gave them a helping hand!",
     ALREADY_TARGETTED = "I got them already!"
+}
+
+STRINGS.CHARACTERS.GRAMNESS.CAST_PARALYSIS = {
+    SELF = {
+        "Oops!",
+        "That... wasn't-!",
+        "Guh! M-misszz-zt-zt-zt-ztt!",
+    },
+    OTHER = {
+        "Paralysis!",
+        "Not so fast!",
+        "Haha, you're not going anywhere!",
+    }
 }
 
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.GRAMNESS =
