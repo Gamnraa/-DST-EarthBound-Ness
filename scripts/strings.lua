@@ -6,6 +6,7 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_OFFENSE_UP_NESS_END = "My Offense Up's outt
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF = "That wasn't my brightest idea, but maybe the adrenaline rush will help, haha!"
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA = "Youch! Yeah, not my brightest idea at all!"
+STRINGS.CHARACTERS.ANNOUNCE_PARALYSIS_SELF_BUFF_OVER = "All that adrenaline from paralyzing myself is starting to wear off!"
 
 STRINGS.CHARACTERS.GRAMNESS.ACTIONFAIL.CAST_PSI = {
     CANT_CAST_FRIEND = "It wouldn't be nice to target my friend like that!",

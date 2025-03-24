@@ -36,6 +36,7 @@ end
 local function removeSelfBuff(inst, target)
     target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.00)
     target:RemoveTag("supergutsy")
+	target.components.talker:Say(GetString(target, "ANNOUNCE_PARALYSIS_SELF_BUFF_OVER"))
 end
 
 local function exitParalysis(inst, target)
