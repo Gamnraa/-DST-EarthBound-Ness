@@ -30,7 +30,7 @@ end
 
 local function onAttachedSelf(inst, target)
     --SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
-    inst:AddTag("SuperGutsy")
+    target:AddTag("SuperGutsy")
 end
 
 local function removeSelfBuff(inst, target)
@@ -69,12 +69,19 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed_state = nil
 		end
+		if target:HasTag("SuperGutsy") then
+			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF"))
+		end
 	elseif target.paralyzed_state == 3 then 
 		if math.random(100) > 32 then
 			reparalyze(3)
 		else
 			target.paralyzed_state = nil
 		end
+		if target:HasTag("SuperGutsy") then
+			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA"))
+		end
+	else
 		if target:HasTag("SuperGutsy") then
 			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA"))
 		end
