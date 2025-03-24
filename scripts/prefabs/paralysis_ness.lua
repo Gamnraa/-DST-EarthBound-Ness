@@ -30,12 +30,12 @@ end
 
 local function onAttachedSelf(inst, target)
     --SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
-    target:AddTag("SuperGutsy")
+    target:AddTag("supergutsy")
 end
 
 local function removeSelfBuff(inst, target)
     target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.00)
-    target:RemoveTag("SuperGutsy")
+    target:RemoveTag("supergutsy")
 end
 
 local function exitParalysis(inst, target)
@@ -47,7 +47,7 @@ local function exitParalysis(inst, target)
 			target:PushEvent("enterparalysis", {duration = 3})
 			target.paralyzed_state = newval
 
-			if target:HasTag("SuperGutsy") then
+			if target:HasTag("supergutsy") then
 				target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
 			end
 		end)
@@ -59,7 +59,7 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed = nil
 		end
-		if target:HasTag("SuperGutsy") then
+		if target:HasTag("supergutsy") then
 			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF"))
 		end
 
@@ -69,7 +69,7 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed_state = nil
 		end
-		if target:HasTag("SuperGutsy") then
+		if target:HasTag("supergutsy") then
 			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF"))
 		end
 	elseif target.paralyzed_state == 3 then 
@@ -78,11 +78,11 @@ local function exitParalysis(inst, target)
 		else
 			target.paralyzed_state = nil
 		end
-		if target:HasTag("SuperGutsy") then
+		if target:HasTag("supergutsy") then
 			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA"))
 		end
 	else
-		if target:HasTag("SuperGutsy") then
+		if target:HasTag("supergutsy") then
 			target.components.talker:Say(GetString(target, "ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA"))
 		end
 	end

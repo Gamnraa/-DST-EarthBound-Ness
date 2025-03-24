@@ -94,6 +94,9 @@ local function OnSanityUpdated(inst, data)
 	if inst:HasTag("gutsy") then
 		gutsOffset = gutsOffset + 12
 	end
+	if inst:HasTag("supergutsy") then
+		gutsOffset = gutsOffset + 30
+	end
 	
 	local level = 0
 
