@@ -39,12 +39,13 @@ local function removeSelfBuff(inst, target)
 end
 
 local function exitParalysis(inst, target)
+	target:RemoveTag("Paralyzed")
 
-	local function reparalyze(newtime, newtag)
+	local function reparalyze(newtime, newval)
 		target:DoTaskInTime(math.random(2,5), function() 
 			target:AddDebuff("buff_paralysis", "buff_paralysis") 
 			target:PushEvent("enterparalysis", {duration = 3})
-			if newtag then target:AddTag(newtag) end
+			target.paralyzed_state = newval
 
 			if target:HasTag("SuperGutsy") then
 				target.components.locomotor:SetExternalSpeedMultiplier(target, "paralysisselfbuff", 1.25)
@@ -52,21 +53,24 @@ local function exitParalysis(inst, target)
 		end)
 	end
     
-    if target:HasTag("Paralyzed") then 
+    if target.paralyzed_state == 1 then 
 		if math.random(100) > 49 then
         	reparalyze(3)
+		else
+			target.paralyzed = nil
 		end
-		target:RemoveTag("Paralyzed")
-	elseif target:HasTag("Paralyzed_o_1") then
+	elseif target.paralyzed_state == 2 then
 		if math.random(100) > 65 then
-			reparalyze(5, "Paralyzed_o_2")
+			reparalyze(5, 3)
+		else
+			target.paralyzed_state = nil
 		end
-		target:RemoveTag("Paralyzed_o_1")
-	elseif target:HasTag("Paralyzed_o_2") then 
+	elseif target.paralyzed_state == 3 then 
 		if math.random(100) > 32 then
 			reparalyze(3)
+		else
+			target.paralyzed_state = nil
 		end
-		target:RemoveTag("Paralyzed_o_2")
 	end
 	
     
@@ -76,6 +80,7 @@ local function exitParalysis(inst, target)
 end
 
 local function onAttached(inst, target)
+	target:AddTag("Paralyzed")
 	inst.entity:SetParent(target.entity)
 	inst.Transform:SetPosition(0, 0, 0)
 	inst:ListenForEvent("death", function()
@@ -110,7 +115,7 @@ local function canPsi(inst, target)
             return
 		end
 
-        if target:HasTag("Paralyzed") or target:HasTag("Paralyzed_o_1") or target:HasTag("Paralyzed_o_2") then
+        if target:HasTag("Paralyzed") then
             caster.components.talker:Say(GetActionFailString(caster, "CAST_PSI", "ALREADY_TARGETTED"))
             return
         end
@@ -127,9 +132,9 @@ local function canPsi(inst, target)
         --target:ListenForEvent("exitparalysis", exitParalysis, target)
 
 		if inst.prefab == "paralysis_ness" then
-			target:AddTag("Paralyzed")
+			target.paralyzed_state = 1
 		else
-			target:AddTag("Paralyzed_o_1")
+			target.paralyzed_state = 2
 		end
 
 		caster:PushEvent("castpsi", {doer = caster, cost = TUNING.GRAMNESS_PARALYSIS_SANITY})
