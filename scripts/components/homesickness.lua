@@ -338,9 +338,9 @@ function Homesickness:OnUpdate(dt)
 		self.conseclowstats = (iscurrentlylowstats and self.islowstats) and (self.conseclowstats + 1) or (iscurrentlylowstats and 1) or 0
 		self.islowstats = iscurrentlylowstats
 		if self.conseclowstats == 4 then
-			local sanitychange = math.floor(1 - self.inst.components.sanity:GetPercentWithPenalty() * 5)
-			local hungerchange = math.floor(1 - self.inst.components.hunger:GetPercent() * 2)
-			local healthchange = math.floor(1 - self.inst.components.health:GetPercentWithPenalty() * 3)
+			local sanitychange = math.floor((1 - self.inst.components.sanity:GetPercentWithPenalty()) * 5)
+			local hungerchange = math.floor((1 - self.inst.components.hunger:GetPercent()) * 2)
+			local healthchange = math.floor((1 - self.inst.components.health:GetPercentWithPenalty()) * 3)
 			print("Homesickness low stats maintained for 4 ticks\n sanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 		end
