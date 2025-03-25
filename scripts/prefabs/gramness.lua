@@ -160,35 +160,16 @@ end
 
 local function oneatfood(inst, data)
 	if not data.food then return end
-	
-	local function ontimerdone(inst, isFavoriteFood)
-		print("End of homesickness buff")
-		if isFavoriteFood then
-			inst.components.homesickness.favoritefoodbuff = nil
-			inst.components.talker:Say("The good feelings never last...")
-		else
-			inst.components.homesickness.foodbuff = nil
-			inst.components.talker:Say("Sigh... guess I could eat more, haha!")
-		end
-		--Fake a change in sanity so the homesickness level updates
-		inst:PushEvent("sanitydelta", {oldpercent = inst.components.sanity:GetPercent(), newpercent = inst.components.sanity:GetPercent()})
-	end
-	
-	local sanity = inst.components.sanity:GetPercent()
-	
+	if not TUNING.ENABLE_GRAMNESS_HOMESICKNESS then return end
+
 	local dialog = nil
-	if data.food.components.edible:GetHunger(inst) >= 75 then
-		print("reduced homesickness by 1 level for 90 seconds")
-		inst.components.homesickness.foodbuff = inst:DoTaskInTime(90, function() ontimerdone(inst, false) end)
-		inst:PushEvent("sanitydelta", {oldpercent = sanity, newpercent = sanity})
+	if data.food.components.edible:GetHunger(inst) >= 75 and math.random(100) < 75 then
+		inst.components.homesickness:DoDelta(-1)
 		dialog = "Filling my stomach always makes me feel a little better..."
 	end
 	
 	if data.food.prefab == favoritefood then
-		print("reduced homesickness by 1 level for 420 seconds")
-		inst.components.homesickness.foodbuff = inst:DoTaskInTime(90, function() ontimerdone(inst, false) end)
-		inst.components.homesickness.favoritefoodbuff = inst:DoTaskInTime(420, function() ontimerdone(inst, true) end)
-		inst:PushEvent("sanitydelta", {oldpercent = sanity, newpercent = sanity})
+		inst.components.homesickness:DoDelta((math.random(2, 4)))
 		dialog = "It almost reminds me of home..."
 	end
 	

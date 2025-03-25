@@ -352,7 +352,7 @@ function Homesickness:OnUpdate(dt)
 			local sanitychange = math.floor((1 - self.inst.components.sanity:GetPercentWithPenalty()) * 5)
 			local hungerchange = math.floor((1 - self.inst.components.hunger:GetPercent()) * 2)
 			local healthchange = math.floor((1 - self.inst.components.health:GetPercentWithPenalty()) * 3)
-			print("Homesickness low stats maintained for 4 ticks\n sanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
+			print("Homesickness low stats maintained for 4 ticks\nsanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 		end
 		if math.random(256) < 2 then
