@@ -88,8 +88,8 @@ STRINGS.CHARACTERS.WOODIE.DESCRIBE.GRAMNESS =
     GENERIC = "%s! Hey little buddy!",
     ATTACKER = "Whoa, calm down with that bat of yours bud!",
     MURDERER = "You’re in for it now kid!",
-    REVIVER = "Hey, I owe ya, %s!",
-    GHOST = "Good work little buddy!",
+    REVIVER = "Good work little buddy!",
+    GHOST = "Don't worry %s, Me n’ Lucy will go fetch you a heart.",
     FIRESTARTER = "Walter oughta teach you some fire saftey!",
 }
 
@@ -153,7 +153,7 @@ STRINGS.CHARACTERS.WARLY.DESCRIBE.GRAMNESS =
     ATTACKER = "I miss my Mama too, there’s no need to get violent about it!",
     MURDERER = "Mon dieu! How could you do such a horrible thing!",
     REVIVER = "Thank you petite monsieur, I’ll make you some burgers later!",
-    GHOST = "I don't think there's any hospitals out here, haha!",
+    GHOST = "I won’t leave you behind, mon amie!",
     FIRESTARTER = "Ah, did willow give you matches, %s?!",
 }
 STRINGS.CHARACTERS.WURT.DESCRIBE.GRAMNESS =
@@ -180,7 +180,7 @@ STRINGS.CHARACTERS.WANDA.DESCRIBE.GRAMNESS =
     ATTACKER = "How strange, most timeless he doesn't do that",
     MURDERER = "That \"Giygas\" fellow must’ve gotten the better of him in this timeline!",
     REVIVER = "Thanks for bringing me back, %s!",
-    GHOST = "I’d expect nothing less of you.",
+    GHOST = "Don't fret, I'll get you back on your feet!",
     FIRESTARTER = "Did he learn PK Fire in this timeline?",
 }
 
