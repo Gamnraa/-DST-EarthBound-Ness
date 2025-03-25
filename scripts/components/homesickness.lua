@@ -307,7 +307,7 @@ function Homesickness:DoDelta(newval)
 end
 
 function Homesickness:OnUpdate(dt)
-	local currentlevel = self.sicknessval % 5
+	local currentlevel = math.floor(5 / self.sicknessval)
 
 	self.maxhomesickness = self.sicknessval == 25
 
