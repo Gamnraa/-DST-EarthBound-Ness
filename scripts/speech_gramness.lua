@@ -4751,7 +4751,7 @@ return {
     DESCRIBE_TOODARK = "I can't see it!",
     DESCRIBE_SMOLDERING = "It's gonna catch on fire!",
 
-    DESCRIBE_PLANTHAPPY = "This plant is well takne care of!",
+    DESCRIBE_PLANTHAPPY = "This plant is well taken care of!",
     DESCRIBE_PLANTVERYSTRESSED = "It's stressed out!",
     DESCRIBE_PLANTSTRESSED = "It's getting stressed.",
     DESCRIBE_PLANTSTRESSORKILLJOYS = "There's too much weeds!",
@@ -4759,7 +4759,7 @@ return {
     DESCRIBE_PLANTSTRESSOROVERCROWDING = "There's not enough room to go around!",
     DESCRIBE_PLANTSTRESSORSEASON = "The weather isn't good for this plant...",
     DESCRIBE_PLANTSTRESSORMOISTURE = "The soil is too dry!",
-    DESCRIBE_PLANTSTRESSORNUTRIENTS = "The soil is lacking nutriends...",
+    DESCRIBE_PLANTSTRESSORNUTRIENTS = "The soil is lacking nutrients...",
     DESCRIBE_PLANTSTRESSORHAPPINESS = "Let's talk to it!",
 
     EAT_FOOD =
