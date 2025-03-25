@@ -181,6 +181,14 @@ local function UpdateHomesicknessStatus(homesickness, inst)
 	end
 end
 
+local function OnNewDay(self)
+	if math.random(100) < 40 and self.level > 0 then
+		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
+		self.level = self.level - 1
+		self.sicknessval = self.level * 5
+	end
+end
+
 local Homesickness = Class(function(self, inst, enable)
     self.inst = inst
 	self.level = 0
@@ -202,6 +210,7 @@ local Homesickness = Class(function(self, inst, enable)
 	if enable then
 		--self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
 		self.inst:StartUpdatingComponent(self)
+		self:WatchWorldState("cycles", OnNewDay)
 	end
 end, nil, {})
 
@@ -274,6 +283,7 @@ end
 function Homesickness:Enable()
 	if TUNING.ENABLE_GRAMNESS_HOMESICKNESS then
 		self.inst:StartUpdatingComponent(self)
+		self:WatchWorldState("cycles", OnNewDay)
 	end
 end
 
@@ -295,6 +305,7 @@ function Homesickness:Disable()
 	
 	self.offenseupbuff = nil
 	self.inst:StopUpdatingComponent(self)
+	self:StopWatchingWorldState("cycles", OnNewDay)
 end
 
 function Homesickness:SetLevel(newlevel)
