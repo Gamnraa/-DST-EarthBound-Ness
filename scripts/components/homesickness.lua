@@ -196,6 +196,7 @@ local Homesickness = Class(function(self, inst, enable)
 	self.conseclowstats = 0
 	self.sicknessval = 0
 	self.nexttick = 15
+	self.maxhomesickness = false
 	
 	enable = enable or TUNING.ENABLE_GRAMNESS_HOMESICKNESS
 	if enable then
@@ -235,6 +236,7 @@ function Homesickness:OnSave()
 		conseclowstats = self.conseclowstats,
 		sicknessval = self.sicknessval,
 		nexttick = self.nexttick,
+		maxhomesickness = self.maxhomesickness
 	}
 end
 
@@ -258,6 +260,7 @@ function Homesickness:OnLoad(data)
 	self.conseclowstats = data.conseclowstats
 	self.sicknessval = data.sicknessval
 	self.nexttick = data.nexttick
+	self.maxhomesickness = data.maxhomesickness
 end
 
 function Homesickness:DoNextInterrupt()
@@ -306,6 +309,8 @@ end
 function Homesickness:OnUpdate(dt)
 	local currentlevel = self.sicknessval % 5
 
+	self.maxhomesickness = self.sicknessval == 25
+
 	local gutsOffset = 0
 	local guts = 10
 	if self.inst:HasTag("homerunner") then
@@ -342,6 +347,11 @@ function Homesickness:OnUpdate(dt)
 		if math.random(256) < 2 then
 			print("Bad roll increase by 1")
 			self.sicknessval = self.sicknessval + 1
+		end
+
+		if self.sicknessval >= 25 then
+			self.maxhomesickness = true
+			self.sicknessval = 25
 		end
 
 		self.nexttick = 15
