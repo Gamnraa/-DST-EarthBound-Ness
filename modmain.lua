@@ -296,9 +296,11 @@ local Ness_ButterflyState = State {
 		inst.components.locomotor:StopMoving()
 
 		local target = data.target
+		print(target)
 		if target then
 			target:PushEvent("nesscaught")
-			target.components.locomotor:StopMoving()
+			--target.components.locomotor:StopMoving()
+			target.Physics:Stop()
 			target.brain:Stop()
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 			target.AnimState:PlayAnimation("idle_flight_loop", true)
@@ -335,7 +337,7 @@ AddPrefabPostInit("butterfly", function(inst)
 
 	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
-		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .35, {"nesscraft"}, {"playerghost"})
+		local ents = GLOBAL.TheSim:FindEntities(pos.x, 0, pos.z, .75, {"nesscraft"}, {"playerghost"})
 		for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) return end
 	end)
 
