@@ -298,6 +298,7 @@ local Ness_CatchButterflyState = State {
 		local target = data.target
 		print(target)
 		if target then
+			print("hel")
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
@@ -327,11 +328,13 @@ local Ness_ButterflyCaughtState = State {
 	name = "magic_fly_away",
 	tags = {"busy"},
 	onenter = function(inst)
+		print("elp")
 		inst:PushEvent("nesscaught")
-		inst.Physics:Stop()
+		inst.components.locomotor:StopMoving()
+		--inst.Physics:Stop()
 		inst.brain:Stop()
 		inst.AnimState:PlayAnimation("flight_cycle", true)
-		inst.Physics:SetMotorVelOverride(0, .15, 0)
+		inst:DoTaskInTime(1 * FRAMES, function() inst.Physics:SetMotorVel(0, .25, 0) end)
 
 		inst.sg:SetTimeout(100 * FRAMES)
 	end,
