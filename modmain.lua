@@ -287,7 +287,7 @@ AddPrefabPostInitAny(function(inst)
 	end)
 end)
 
-local Ness_ButterflyState = State {
+local Ness_CatchButterflyState = State {
 	name = "catch_magic_butterfly",
 	tags = {"busy", "nointerrupt"},
 	onenter = function(inst, data)
@@ -298,13 +298,7 @@ local Ness_ButterflyState = State {
 		local target = data.target
 		print(target)
 		if target then
-			target:PushEvent("nesscaught")
-			--target.components.locomotor:StopMoving()
-			target.Physics:Stop()
-			target.brain:Stop()
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
-			target.AnimState:PlayAnimation("idle_flight_loop", true)
-			target.Physics:SetMotorVelOverride(0, .25, 0)
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
 		--play sfx
@@ -326,8 +320,26 @@ local Ness_ButterflyState = State {
 		inst.components.playercontroller:Enable(true) 
 	end,
 }
-AddStategraphState("wilson",  Ness_ButterflyState)
-AddStategraphState("wilson_client", Ness_ButterflyState)
+AddStategraphState("wilson",  Ness_CatchButterflyState)
+AddStategraphState("wilson_client", Ness_CatchButterflyState)
+
+local Ness_ButterflyCaughtState = State {
+	name = "magic_fly_away",
+	tags = {"busy"},
+	onenter = function(inst)
+		inst:PushEvent("nesscaught")
+		inst.Physics:Stop()
+		inst.brain:Stop()
+		inst.AnimState:PlayAnimation("flight_cycle", true)
+		inst.Physics:SetMotorVelOverride(0, .15, 0)
+
+		inst.sg:SetTimeout(100 * FRAMES)
+	end,
+	ontimeout = function(inst)
+		inst:Remove()
+	end,
+}
+AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
@@ -338,7 +350,7 @@ AddPrefabPostInit("butterfly", function(inst)
 	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
 		local ents = GLOBAL.TheSim:FindEntities(pos.x, 0, pos.z, .75, {"nesscraft"}, {"playerghost"})
-		for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) return end
+		for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) inst.sg:GoToState("magic_fly_away") return end
 	end)
 
 	local function cancel(inst) task:Cancel() end
