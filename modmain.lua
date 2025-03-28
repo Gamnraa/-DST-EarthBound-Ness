@@ -66,6 +66,8 @@ Assets = {
 	Asset("SOUND", "sound/psisfx.fsb"),
 	Asset("SOUNDPACKAGE", "sound/gramness.fev"),
 	Asset("SOUND", "sound/gramness.fsb"),
+
+	Asset("ANIM", "anim/animness.zip")
 	
 }
 
