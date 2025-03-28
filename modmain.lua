@@ -300,7 +300,7 @@ local Ness_ButterflyState = State {
 			target.brain:Stop()
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 			target.AnimState:PlayAnimation("idle_flight_loop", true)
-			target.Physics.SetMotorVelOverride(0, .25, 0)
+			target.Physics:SetMotorVelOverride(0, .25, 0)
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
 		--play sfx
