@@ -325,14 +325,14 @@ local Ness_ButterflyState = State {
 AddStategraphState("wilson",  Ness_ButterflyState)
 AddStategraphState("wilson_client", Ness_ButterflyState)
 
-AddPrefabPostInit("bufferfly", function(inst)
+AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
 
 	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
-		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .25, {"nesscraft"})
-		for _, v in pairs(ents) do v:GoToState("catch_magic_butterfly") return end
+		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .35, {"nesscraft"}, {"playerghost"})
+		for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) return end
 	end)
 
 	local function cancel(inst) task:Cancel() end
