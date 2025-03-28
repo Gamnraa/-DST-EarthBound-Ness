@@ -329,6 +329,8 @@ AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
 
+	if not GLOBAL.TheWorld.ismastersim then return end
+
 	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
 		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .35, {"nesscraft"}, {"playerghost"})
