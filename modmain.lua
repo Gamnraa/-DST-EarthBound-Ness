@@ -285,9 +285,57 @@ AddPrefabPostInitAny(function(inst)
 	end)
 end)
 
---AddStategraphEvent("spider", EventHandler("enterparalysis", Ness_ParalyzedEvent))
---AddStategraphState("spider", Ness_Paralyzed)
+local Ness_ButterflyState = State {
+	name = "catch_magic_butterfly",
+	tags = {"busy", "nointerrupt"},
+	onenter = function(inst, data)
+		inst.components.playercontroller:Enable(false) 
+		inst.components.homesickness:Disable()
+		inst.components.locomotor:StopMoving()
 
+		local target = data.target
+		if target then
+			target.components.locomotor:StopMoving()
+			target.brain:Stop()
+			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
+			target.AnimState:PlayAnimation("idle_flight_loop", true)
+			target.SetMotorVelOverride(0, .25, 0)
+		end
+		inst.AnimState:PlayAnimation("catch_magic_butterfly")
+		--play sfx
+	end,
+	timeline = {
+		TimeEvent(90 * FRAMES, function(inst)
+			GLOBAL.TheNet:Announce(GLOBAL.subfmt("The Magic butterfly made {ness} relax.", {ness = inst.name}))
+		end)
+	},
+	events = {
+		EventHandler("animover", function(inst)
+			inst.sg:GoToState("idle")
+			inst.components.sanity:DoDelta(20)
+			--Add debuff
+		end)
+	},
+	onexit = function(inst)
+		inst.components.homesickness:Enable()
+		inst.components.playercontroller:Enable(true) 
+	end,
+}
+AddStategraphState("wilson",  Ness_ButterflyState)
+AddStategraphState("wilson_client", Ness_ButterflyState)
+
+AddPrefabPostInit("bufferfly", function(inst)
+	--spawn logic and vfx will come later
+	inst:AddTag("magic")
+
+	local task = inst:DoPeriodicTask(0, function()
+		local pos = inst:GetPosition()
+		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .25, {"nesscraft"})
+		for _, v in pairs(ents) do v:GoToState("catch_magic_butterfly") return end
+	end)
+
+	inst:ListenForEvent("death", function() task:Cancel() end)
+end)
 
 AddCharacterRecipe("pk_flash",
 	{Ingredient("purplegem", 1),
