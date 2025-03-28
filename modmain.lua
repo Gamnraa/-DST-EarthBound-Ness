@@ -295,6 +295,7 @@ local Ness_ButterflyState = State {
 
 		local target = data.target
 		if target then
+			target:PushEvent("nesscaught")
 			target.components.locomotor:StopMoving()
 			target.brain:Stop()
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -328,13 +329,16 @@ AddPrefabPostInit("bufferfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
 
-	local task = inst:DoPeriodicTask(0, function()
+	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
 		local ents = GLOBAL.TheSim:FindEntities(pos.x, pos.y, pos.z, .25, {"nesscraft"})
 		for _, v in pairs(ents) do v:GoToState("catch_magic_butterfly") return end
 	end)
 
-	inst:ListenForEvent("death", function() task:Cancel() end)
+	local function cancel(inst) task:Cancel() end
+
+	inst:ListenForEvent("death", cancel)
+	inst:ListenForEvent("nesscaught", cancel)
 end)
 
 AddCharacterRecipe("pk_flash",
