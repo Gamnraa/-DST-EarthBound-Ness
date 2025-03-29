@@ -17,6 +17,7 @@ local function fn()
 	inst.AnimState:SetBank("magicbutterflyfx")
     inst.AnimState:SetBuild("magicbutterflyfx")
 	inst.AnimState:PlayAnimation("anim", true)
+    inst.AnimState:SetDeltaTimeMultiplier(2)
     inst:AddTag("FX")
 
     inst.entity:SetPristine()

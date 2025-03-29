@@ -388,7 +388,7 @@ AddPrefabPostInit("butterfly", function(inst)
 		inst.magicfx = GLOBAL.SpawnPrefab("magicbutterflyfx")
 		inst.magicfx.entity:SetParent(inst.entity)
 		inst.magicfx.entity:AddFollower()
-		inst.magicfx.Follower:FollowSymbol(inst.GUID, "butterfly_body", .145, -.165, 0)
+		inst.magicfx.Follower:FollowSymbol(inst.GUID, "butterfly_body", -7.245, -.165, 0)
 	end)
 
 	local task = inst:DoPeriodicTask(.15, function()
