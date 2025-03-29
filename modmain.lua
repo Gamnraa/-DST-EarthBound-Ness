@@ -336,6 +336,7 @@ local Ness_CatchButterflyState = State {
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
+		inst.AnimState:SetDeltaTimeMultiplier(0.9)
 		inst.SoundEmitter:PlaySound("psisfx/psisfx/magicbutterfly")
 	end,
 	timeline = {
@@ -370,7 +371,7 @@ local Ness_ButterflyCaughtState = State {
 		inst.AnimState:PlayAnimation("flight_cycle", true)
 		--inst:DoTaskInTime(1 * FRAMES, function() inst.Physics:SetMotorVel(0, .25, 0) end)
 
-		inst.sg:SetTimeout(100 * FRAMES)
+		inst.sg:SetTimeout(120 * FRAMES)
 	end,
 	ontimeout = function(inst)
 		inst:Remove()
