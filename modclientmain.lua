@@ -94,11 +94,25 @@ local Vector3 = GLOBAL.Vector3
 -- The character select screen lines
 STRINGS.CHARACTER_TITLES.gramness = "The Chosen Boy"
 STRINGS.CHARACTER_NAMES.gramness = "Ness"
-STRINGS.CHARACTER_DESCRIPTIONS.gramness = "*Gifted with Powers\n*Packs an extra punch\n*Resourceful\n*Gets homesick often"
+STRINGS.CHARACTER_DESCRIPTIONS.gramness = "*PSI Powerhouse\n*Packs an extra punch\n*Resourceful\n*Gets homesick often"
 STRINGS.CHARACTER_QUOTES.gramness = "\"Fuzzy Pickles!\""
 STRINGS.CHARACTER_SURVIVABILITY.gramness = "Slim"
 
-STRINGS.CHARACTER_ABOUTME.gramness = "Ness was once your ordinary Eaglelandian boy, until one fateful night when a crash-landing meteor would change the outlook of his life for good..."
+STRINGS.SKIN_DESCRIPTIONS.gramness_none = "Ness' favorite outfit."
+
+STRINGS.SKIN_NAMES.ms_gramness_batter = "The Star Batter"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_batter = "The offical uniform of the newly renamed Onett Meteors. One of the town's many attempts to capitalize on newly opened tourism ventures following Ness'journey."
+STRINGS.SKIN_QUOTES.ms_gramness_batter = "\"I think I prefer the old name, haha!\""
+
+STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Guest Honor"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_kraken = "Formal celebratory wear of the people of Newport, bestowed upon Ness for defeating the Kraken of the Sea."
+STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Hopefully they really like Papa's cooking!\""
+
+STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_onett = "Onett Meteors Baseball Cap"
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "An Onett Meteors baseball cap to compliement the uniform."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_onett.xml"), "ms_baseball_cap_ninten_onett.tex")
+
+STRINGS.CHARACTER_ABOUTME.gramness = "Ness was once your ordinary Eaglelandian boy, until one fateful night when a crash-landing meteor changed the outlook of his life for good..."
 STRINGS.CHARACTER_BIOS.gramness = {
  { title = "Birthday", desc = "September 10" },
  { title = "Favorite Food", desc = "Veggie Burger" },

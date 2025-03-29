@@ -25,6 +25,15 @@ Assets = {
 
     Asset( "IMAGE", "bigportraits/gramness.tex" ),
     Asset( "ATLAS", "bigportraits/gramness.xml" ),
+
+	Asset( "IMAGE", "bigportraits/gramness_none.tex" ),
+    Asset( "ATLAS", "bigportraits/gramness_none.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramness_batter.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramness_batter.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramness_kraken.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramness_kraken.xml" ),
 	
 	Asset( "IMAGE", "images/map_icons/gramness.tex" ),
 	Asset( "ATLAS", "images/map_icons/gramness.xml" ),
@@ -46,6 +55,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/baseball_cap_ninten.tex" ),
     Asset( "ATLAS", "images/inventoryimages/baseball_cap_ninten.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_onett.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_onett.xml" ),
 	
 	Asset( "IMAGE", "images/inventoryimages/baseball_bat_ness.tex" ),
     Asset( "ATLAS", "images/inventoryimages/baseball_bat_ness.xml" ),
@@ -101,6 +113,28 @@ STRINGS.CHARACTER_NAMES.gramness = "Ness"
 STRINGS.CHARACTER_DESCRIPTIONS.gramness = "*PSI Powerhouse\n*Packs an extra punch\n*Resourceful\n*Gets homesick often"
 STRINGS.CHARACTER_QUOTES.gramness = "\"Fuzzy Pickles!\""
 STRINGS.CHARACTER_SURVIVABILITY.gramness = "Slim"
+
+STRINGS.SKIN_DESCRIPTIONS.gramness_none = "Ness' favorite outfit."
+
+STRINGS.SKIN_NAMES.ms_gramness_batter = "The Star Batter"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_batter = "The offical uniform of the newly renamed Onett Meteors. One of the town's many attempts to capitalize on newly opened tourism ventures following Ness'journey."
+STRINGS.SKIN_QUOTES.ms_gramness_batter = "\"I think I prefer the old name, haha!\""
+
+STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Guest Honor"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_kraken = "Formal celebratory wear of the people of Newport, bestowed upon Ness for defeating the Kraken of the Sea."
+STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Hopefully they really like Papa's cooking!\""
+
+STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_onett = "Onett Meteors Baseball Cap"
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "An Onett Meteors baseball cap to compliement the uniform."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_onett.xml"), "ms_baseball_cap_ninten_onett.tex")
+
+GLOBAL.baseball_cap_ninten_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "baseball_cap_ninten" )
+end
+
+GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
+end
 
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNESS = require "speech_gramness"
@@ -248,7 +282,7 @@ local Ness_Paralyzed = State{
 		if inst.brain then inst.brain:Stop() end
 
         inst.AnimState:PlayAnimation("frozen_loop_pst", true)
-        --inst.SoundEmitter:PlaySound("dontstarve/common/freezecreature")
+        inst.SoundEmitter:PlaySound("psisfx/psisfx/paralysis")
         --TODO lightning fx
 
         inst.sg:SetTimeout((data.duration or 6))
@@ -302,7 +336,7 @@ local Ness_CatchButterflyState = State {
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
-		--play sfx
+		inst.SoundEmitter:PlaySound("psisfx/psisfx/magicbutterfly")
 	end,
 	timeline = {
 		TimeEvent(90 * FRAMES, function(inst)
@@ -334,7 +368,7 @@ local Ness_ButterflyCaughtState = State {
 		--inst.Physics:Stop()
 		inst.brain:Stop()
 		inst.AnimState:PlayAnimation("flight_cycle", true)
-		inst:DoTaskInTime(1 * FRAMES, function() inst.Physics:SetMotorVel(0, .25, 0) end)
+		--inst:DoTaskInTime(1 * FRAMES, function() inst.Physics:SetMotorVel(0, .25, 0) end)
 
 		inst.sg:SetTimeout(100 * FRAMES)
 	end,
