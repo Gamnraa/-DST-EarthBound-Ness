@@ -101,7 +101,7 @@ STRINGS.CHARACTER_SURVIVABILITY.gramness = "Slim"
 STRINGS.SKIN_DESCRIPTIONS.gramness_none = "Ness' favorite outfit."
 
 STRINGS.SKIN_NAMES.ms_gramness_batter = "The Star Batter"
-STRINGS.SKIN_DESCRIPTIONS.ms_gramness_batter = "The offical uniform of the newly renamed Onett Meteors. One of the town's many attempts to capitalize on newly opened tourism ventures following Ness'journey."
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_batter = "The offical uniform of the newly renamed Onett Meteors. One of the town's many attempts to capitalize on newly opened tourism ventures following Ness' journey."
 STRINGS.SKIN_QUOTES.ms_gramness_batter = "\"I think I prefer the old name, haha!\""
 
 STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Guest Honor"
