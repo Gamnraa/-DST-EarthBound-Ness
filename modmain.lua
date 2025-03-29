@@ -381,11 +381,15 @@ AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
-	local fx = GLOBAL.SpawnPrefab("magicbutterflyfx")
-	local pos = inst:GetPosition()
-	fx.Transform:SetPosition(pos.x, pos.y, pos.z)
 
 	if not GLOBAL.TheWorld.ismastersim then return end
+
+	inst:DoTaskInTime(0, function()
+		inst.magicfx = GLOBAL.SpawnPrefab("magicbutterflyfx")
+		inst.magicfx.entity:SetParent(inst.entity)
+		inst.magicfx.entity:AddFollower()
+		inst.magicfx.Follower:FollowSymbol(inst.GUID, "butterfly_body", .145, -.165, 0)
+	end)
 
 	local task = inst:DoPeriodicTask(.15, function()
 		local pos = inst:GetPosition()
