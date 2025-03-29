@@ -22,7 +22,7 @@ local function onequip(inst, owner)
 	
 	local skin_build = inst:GetSkinBuild()
 	print(skin_build)
-	if skin_build and skin_build == "ms_baseball_cap_ninten_halloween" then
+	if skin_build then
 		if owner.prefab == "gramninten" or owner.prefab == "gramness" then
 			owner.AnimState:OverrideItemSkinSymbol("swap_hat", skin_build, "swap_hat_off", inst.GUID, "baseball_cap_ninten")
 		else
