@@ -11,6 +11,7 @@ PrefabFiles = {
 	"crit_fx",
 	"offense_up_fx",
 	"pk_flash_fx",
+	"magicbutterflyfx"
 }
 
 Assets = {
@@ -332,7 +333,6 @@ local Ness_CatchButterflyState = State {
 		local target = data.target
 		print(target)
 		if target then
-			print("hel")
 			target.Transform:SetPosition(inst.Transform:GetWorldPosition())
 		end
 		inst.AnimState:PlayAnimation("catch_magic_butterfly")
@@ -363,7 +363,6 @@ local Ness_ButterflyCaughtState = State {
 	name = "magic_fly_away",
 	tags = {"busy"},
 	onenter = function(inst)
-		print("elp")
 		inst:PushEvent("nesscaught")
 		inst.components.locomotor:StopMoving()
 		--inst.Physics:Stop()
@@ -382,6 +381,9 @@ AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
+	local fx = SpawnPrefab("magicbutterflyfx")
+	local pos = data.target:GetPosition()
+	fx.Transform:SetPosition(pos.x, pos.y, pos.z)
 
 	if not GLOBAL.TheWorld.ismastersim then return end
 
