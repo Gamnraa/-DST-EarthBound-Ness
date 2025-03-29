@@ -380,27 +380,28 @@ AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
-	inst:AddTag("magic")
+	--inst:AddTag("magic")
+	if math.random(1024) == 51 then
+		if not GLOBAL.TheWorld.ismastersim then return end
 
-	if not GLOBAL.TheWorld.ismastersim then return end
+		inst:DoTaskInTime(0, function()
+			inst.magicfx = GLOBAL.SpawnPrefab("magicbutterflyfx")
+			inst.magicfx.entity:SetParent(inst.entity)
+			inst.magicfx.entity:AddFollower()
+			inst.magicfx.Follower:FollowSymbol(inst.GUID, "butterfly_body", -7.245, -.165, 0)
+		end)
 
-	inst:DoTaskInTime(0, function()
-		inst.magicfx = GLOBAL.SpawnPrefab("magicbutterflyfx")
-		inst.magicfx.entity:SetParent(inst.entity)
-		inst.magicfx.entity:AddFollower()
-		inst.magicfx.Follower:FollowSymbol(inst.GUID, "butterfly_body", -7.245, -.165, 0)
-	end)
+		local task = inst:DoPeriodicTask(.15, function()
+			local pos = inst:GetPosition()
+			local ents = GLOBAL.TheSim:FindEntities(pos.x, 0, pos.z, .75, {"nesscraft"}, {"playerghost"})
+			for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) inst.sg:GoToState("magic_fly_away") return end
+		end)
 
-	local task = inst:DoPeriodicTask(.15, function()
-		local pos = inst:GetPosition()
-		local ents = GLOBAL.TheSim:FindEntities(pos.x, 0, pos.z, .75, {"nesscraft"}, {"playerghost"})
-		for _, v in pairs(ents) do v.sg:GoToState("catch_magic_butterfly", {target = inst}) inst.sg:GoToState("magic_fly_away") return end
-	end)
+		local function cancel(inst) task:Cancel() end
 
-	local function cancel(inst) task:Cancel() end
-
-	inst:ListenForEvent("death", cancel)
-	inst:ListenForEvent("nesscaught", cancel)
+		inst:ListenForEvent("death", cancel)
+		inst:ListenForEvent("nesscaught", cancel)
+	end
 end)
 
 AddCharacterRecipe("pk_flash",
