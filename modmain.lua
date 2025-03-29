@@ -412,6 +412,23 @@ AddCharacterRecipe("pk_flash",
 		"MAGIC",
 	})
 
+AddCharacterRecipe("paralysis_ness",
+	{Ingredient("purplegem", 1),
+	 Ingredient("orangegem", 1),
+	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 100),
+	 GLOBAL.TECH.MAGIC_THREE,
+	 {
+		product = "paralysis_ness",
+		builder_tag = "nesscraft",
+		numtogive = 1,
+		atlas = "images/inventoryimages/offense_up.xml",
+		image = "offense_up.tex"
+	 },
+	 {
+		"MAGIC",
+	 }
+})
+
 local pk_flash_o_recipe = AddRecipe("pk_flash_o",
 	{Ingredient("purplegem", 1),
 	 Ingredient("pk_flash", 1, "images/inventoryimages/pk_flash.xml", nil, "pk_flash.tex"),
