@@ -11,7 +11,7 @@ PrefabFiles = {
 	"crit_fx",
 	"offense_up_fx",
 	"pk_flash_fx",
-	"magicbutterflyfx"
+	"magicbutterflyfx",
 }
 
 Assets = {
@@ -381,8 +381,8 @@ AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	inst:AddTag("magic")
-	local fx = SpawnPrefab("magicbutterflyfx")
-	local pos = data.target:GetPosition()
+	local fx = GLOBAL.SpawnPrefab("magicbutterflyfx")
+	local pos = inst:GetPosition()
 	fx.Transform:SetPosition(pos.x, pos.y, pos.z)
 
 	if not GLOBAL.TheWorld.ismastersim then return end
