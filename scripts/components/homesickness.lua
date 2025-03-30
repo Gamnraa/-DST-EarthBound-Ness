@@ -250,7 +250,7 @@ function Homesickness:OnSave()
 end
 
 function Homesickness:OnLoad(data)
-	self.level = data.level
+	self:SetLevel(data.level)
 	if data.actioninterrupt then 
 		print("Scheduling next interrupt in... " .. data.actioninterrupt .. " seconds")
 		self.actioninterrupt = self.inst:DoTaskInTime(data.actioninterrupt, function() self:DoNextInterrupt() end)
@@ -310,7 +310,7 @@ end
 
 function Homesickness:SetLevel(newlevel)
 	self.level = newlevel
-	UpdateHomesicknessStatus()
+	UpdateHomesicknessStatus(self,  self.inst)
 end
 
 function Homesickness:DoDelta(newval)
