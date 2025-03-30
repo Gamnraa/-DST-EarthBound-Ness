@@ -423,6 +423,7 @@ AddCharacterRecipe("paralysis_ness",
 	{Ingredient("purplegem", 1),
 	 Ingredient("orangegem", 1),
 	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 100),
+	},
 	 GLOBAL.TECH.MAGIC_THREE,
 	 {
 		product = "paralysis_ness",
@@ -433,8 +434,7 @@ AddCharacterRecipe("paralysis_ness",
 	 },
 	 {
 		"MAGIC",
-	 }
-})
+	 })
 
 local pk_flash_o_recipe = AddRecipe("pk_flash_o",
 	{Ingredient("purplegem", 1),
