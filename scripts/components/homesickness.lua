@@ -348,7 +348,7 @@ function Homesickness:OnUpdate(dt)
 		local iscurrentlylowstats = HasLowStats(self.inst)
 		self.conseclowstats = (iscurrentlylowstats and self.islowstats) and (self.conseclowstats + 1) or (iscurrentlylowstats and 1) or 0
 		self.islowstats = iscurrentlylowstats
-		if self.conseclowstats == 4 then
+		if self.conseclowstats == 8 then
 			local sanitychange = math.floor((1 - self.inst.components.sanity:GetPercentWithPenalty()) * 5)
 			local hungerchange = math.floor((1 - self.inst.components.hunger:GetPercent()) * 2)
 			local healthchange = math.floor((1 - self.inst.components.health:GetPercentWithPenalty()) * 3)
@@ -358,6 +358,7 @@ function Homesickness:OnUpdate(dt)
 		end
 		if math.random(256) < 2 then
 			print("Bad roll increase by 1")
+			self.inst.components.talker:Say("Homesickness bad roll increase by 1")
 			self.sicknessval = self.sicknessval + 1
 		end
 
