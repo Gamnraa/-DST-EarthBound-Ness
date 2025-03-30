@@ -315,6 +315,8 @@ end
 
 function Homesickness:DoDelta(newval)
 	self.sicknessval = self.sicknessval + newval
+	if self.sicknessval < 0 then self.sicknessval = 0 end
+	if self.sicknessval > 25 then self.sicknessval = 25 end
 end
 
 function Homesickness:OnUpdate(dt)
