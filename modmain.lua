@@ -137,6 +137,8 @@ GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
     GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
 end
 
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/baseball_cap_ninten.xml"), "baseball_cap_ninten.tex")
+
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNESS = require "speech_gramness"
 
