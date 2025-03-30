@@ -86,79 +86,8 @@ local function HasLowStats(inst)
 	inst.components.hunger:GetPercent() < .5 or 
 	inst.components.health:GetPercentWithPenalty() < .67
 end
-	
 
-local function OnSanityUpdated(inst, data)
-	
-	--print(data.newpercent)
-	local homesickness = inst.components.homesickness
-	local gutsOffset = 0
-	local guts = 10
-	if inst:HasTag("homerunner") then
-		gutsOffset = 15
-	end
-	if inst:HasTag("gutsy") then
-		gutsOffset = gutsOffset + 12
-	end
-	if inst:HasTag("supergutsy") then
-		gutsOffset = gutsOffset + 30
-	end
-	
-	local level = 0
-
-	if data.newpercent > .8 then
-		level = 0
-	elseif data.newpercent > .6 then
-		level = 1
-	elseif data.newpercent > .4 then
-		level = 2
-	elseif data.newpercent > .2 then
-		level = 3
-	elseif data.newpercent > 0 then
-		level = 4
-	else
-		level = 5
-	end
-	
-	if homesickness.favoritefoodbuff and level > 0 then
-		level = level - 1
-	end
-	if homesickness.foodbuff and level > 0 then
-		level = level - 1
-	end
-	if homesickness.offenseupbuff and level > 0 then	
-		level = level - 1
-	end
-	--print(level)
-	homesickness.guts = gutsLevels[level] + gutsOffset
-	--print(homesickness.guts)
-	if homesickness.level ~= level then
-		print("change in homesickness levels, recalculating")
-		print(level)
-		homesickness.level = level
-		
-		
-		homesickness.sanitydrain = sanityLevels[level]
-		homesickness.resourcefulness = resourcefulChances[level]
-		
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workRateModifiers[level], "homesickness")
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workRateModifiers[level], "homesickness")
-		inst.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, workRateModifiers[level], "homesickness")
-		
-		inst.components.combat.externaldamagemultipliers:SetModifier(inst, damageMultipliers[level], "homesickness")
-		
-		if interruptTimes[level] and not homesickness.actioninterrupt then
-			print("BEGINNING INTERRUPTIONS")
-			homesickness.actioninterrupt = inst:DoTaskInTime(math.random(interruptTimes[level][1], interruptTimes[level][2]), function() homesickness:DoNextInterrupt() end)
-		elseif homesickness.actioninterrupt and not interruptTimes[level] then
-			print("CANCELING INTERRUPTIONS")
-			homesickness.actioninterrupt:Cancel()
-			homesickness.actioninterrupt = nil
-		end
-	end
-end
-
-local function UpdateHomesicknessStatus(homesickness, inst)
+local function UpdateHomesicknessStatus(homesickness, inst, line)
 	print("Homesickness change in level detected", homesickness.level)
 
 	local level = homesickness.level
@@ -179,15 +108,22 @@ local function UpdateHomesicknessStatus(homesickness, inst)
 		homesickness.actioninterrupt:Cancel()
 		homesickness.actioninterrupt = nil
 	end
+
+	if line then
+		inst.components.talker:Say(GetString("ANNOUNCE_HOMESICKNESS_" .. line.change, line.reason))
+	end
 end
 
 local function OnNewDay(self)
 	if math.random(100) < 40 and self.level > 0 then
 		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
 		self.sicknessval = self.level * 5
-		self:SetLevel(0)
+		self:SetLevel(self.level - 1, {change = "FEEL_BETTER", reason = "NEW_DAY"})
 	end
 end
+
+local sicknessthreshold = 10
+local maxsicknessval = sicknessthreshold * 5
 
 local Homesickness = Class(function(self, inst, enable)
     self.inst = inst
@@ -308,21 +244,56 @@ function Homesickness:Disable()
 	self:StopWatchingWorldState("cycles", OnNewDay)
 end
 
-function Homesickness:SetLevel(newlevel)
+function Homesickness:SetLevel(newlevel, line)
 	self.level = newlevel
-	UpdateHomesicknessStatus(self,  self.inst)
+	UpdateHomesicknessStatus(self,  self.inst, line)
 end
 
 function Homesickness:DoDelta(newval)
 	self.sicknessval = self.sicknessval + newval
 	if self.sicknessval < 0 then self.sicknessval = 0 end
-	if self.sicknessval > 25 then self.sicknessval = 25 end
+	if self.sicknessval > maxsicknessval then self.sicknessval = maxsicknessval end
 end
 
 function Homesickness:OnUpdate(dt)
-	local currentlevel = math.floor(self.sicknessval / 5)
+	local reason
 
-	self.maxhomesickness = self.sicknessval == 25
+	self.maxhomesickness = self.sicknessval == maxsicknessval
+
+	if dt < self.nexttick then
+		self.nexttick = self.nexttick - dt
+	elseif not self.maxhomesickness then
+		print("Homesickness ticking", self.inst)
+		local iscurrentlylowstats = HasLowStats(self.inst)
+		self.conseclowstats = (iscurrentlylowstats and self.islowstats) and (self.conseclowstats + 1) or (iscurrentlylowstats and 1) or 0
+		self.islowstats = iscurrentlylowstats
+		if self.conseclowstats == 8 then
+			local sanitychange = math.floor((1 - self.inst.components.sanity:GetPercentWithPenalty()) * 5)
+			local hungerchange = math.floor((1 - self.inst.components.hunger:GetPercent()) * 2)
+			local healthchange = math.floor((1 - self.inst.components.health:GetPercentWithPenalty()) * 3)
+			print("Homesickness low stats maintained for 8 ticks\nsanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
+			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
+			self.conseclowstats = 0
+			reason = {"FEEL_WORSE", "BAD_STATS"}
+		end
+		if math.random(256) < 2 then
+			print("Bad roll increase by 6")
+			self.inst.components.talker:Say("Homesickness bad roll increase by 6")
+			self.sicknessval = self.sicknessval + 6
+		end
+
+		if self.sicknessval >= maxsicknessval then
+			self.maxhomesickness = true
+			self.sicknessval = maxsicknessval
+		end
+
+		self.nexttick = 15
+	else
+		self.nexttick = 15
+	end
+
+	local currentlevel = math.floor(self.sicknessval / sicknessthreshold)
+
 
 	local gutsOffset = 0
 	local guts = 10
@@ -340,38 +311,7 @@ function Homesickness:OnUpdate(dt)
 
 	if self.level ~= currentlevel then
 		self.level = currentlevel
-		UpdateHomesicknessStatus(self, self.inst)
-	end
-	
-	if dt < self.nexttick then
-		self.nexttick = self.nexttick - dt
-	elseif not self.maxhomesickness then
-		print("Homesickness ticking", self.inst)
-		local iscurrentlylowstats = HasLowStats(self.inst)
-		self.conseclowstats = (iscurrentlylowstats and self.islowstats) and (self.conseclowstats + 1) or (iscurrentlylowstats and 1) or 0
-		self.islowstats = iscurrentlylowstats
-		if self.conseclowstats == 8 then
-			local sanitychange = math.floor((1 - self.inst.components.sanity:GetPercentWithPenalty()) * 5)
-			local hungerchange = math.floor((1 - self.inst.components.hunger:GetPercent()) * 2)
-			local healthchange = math.floor((1 - self.inst.components.health:GetPercentWithPenalty()) * 3)
-			print("Homesickness low stats maintained for 4 ticks\nsanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
-			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
-			self.conseclowstats = 0
-		end
-		if math.random(256) < 2 then
-			print("Bad roll increase by 1")
-			self.inst.components.talker:Say("Homesickness bad roll increase by 1")
-			self.sicknessval = self.sicknessval + 1
-		end
-
-		if self.sicknessval >= 25 then
-			self.maxhomesickness = true
-			self.sicknessval = 25
-		end
-
-		self.nexttick = 15
-	else
-		self.nexttick = 15
+		UpdateHomesicknessStatus(self, self.inst, reason)
 	end
 end
 

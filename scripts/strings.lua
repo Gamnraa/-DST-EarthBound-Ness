@@ -6,21 +6,34 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_OFFENSE_UP_NESS_END = "My Offense Up's outt
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF = "That wasn't my brightest idea, but maybe the adrenaline rush will help, haha!"
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_CAST_PARALYSIS_ON_SELF_BAD_IDEA = "Youch! Yeah, not my brightest idea at all!"
-STRINGS.CHARACTERS.ANNOUNCE_PARALYSIS_SELF_BUFF_OVER = "All that adrenaline from paralyzing myself is starting to wear off!"
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_PARALYSIS_SELF_BUFF_OVER = "All that adrenaline from paralyzing myself is starting to wear off!"
+
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_BETTER = {
+    NEW_DAY = "A new day and a fresh me. I can't let my feelings get the better of me!",
+}
+
+STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_WORSE = {
+    BAD_STATS = {
+        "Everyone expects so much of me, and I can't even take care of myself...",
+        "If something happens to me; Mom, Dad, Tracy: I'm sorry for making you worry.",
+        "I'm really not doing too good right now.",
+        "I'm always so reckless."
+    }
+}
 
 STRINGS.CHARACTERS.GRAMNESS.ACTIONFAIL.CAST_PSI = {
     CANT_CAST_FRIEND = "It wouldn't be nice to target my friend like that!",
     NOT_ENOUGH_SANITY = "No can do!",
     SELF_HAS_BUFF = "I've already covered myself!",
     TARGET_HAS_BUFF = "I just gave them a helping hand!",
-    ALREADY_TARGETTED = "I got them already!"
+    ALREADY_TARGETTED = "I got them already!",
 }
 
 STRINGS.CHARACTERS.GRAMNESS.CAST_PARALYSIS = {
     SELF = {
         "Oops!",
         "That... wasn't-!",
-        "Guh! M-misszz-zt-zt-zt-ztt!",
+        "Paralysszz-zt-zt-zt-ztt!",
     },
     OTHER = {
         "Paralysis!",
