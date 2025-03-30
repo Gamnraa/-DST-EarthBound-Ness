@@ -184,8 +184,8 @@ end
 local function OnNewDay(self)
 	if math.random(100) < 40 and self.level > 0 then
 		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
-		self.level = self.level - 1
 		self.sicknessval = self.level * 5
+		self:SetLevel(0)
 	end
 end
 
