@@ -110,11 +110,12 @@ local function UpdateHomesicknessStatus(homesickness, inst, line)
 	end
 
 	if line then
-		inst.components.talker:Say(GetString("ANNOUNCE_HOMESICKNESS_" .. line.change, line.reason))
+		inst.components.talker:Say(GetString(inst, "ANNOUNCE_HOMESICKNESS_" .. line.change, line.reason))
 	end
 end
 
 local function OnNewDay(self)
+	print("Homesickness new day started")
 	if math.random(100) < 40 and self.level > 0 then
 		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
 		self.sicknessval = self.level * 5
@@ -145,8 +146,8 @@ local Homesickness = Class(function(self, inst, enable)
 	enable = enable or TUNING.ENABLE_GRAMNESS_HOMESICKNESS
 	if enable then
 		--self.inst:ListenForEvent("sanitydelta", OnSanityUpdated)
-		self.inst:StartUpdatingComponent(self)
-		self:WatchWorldState("cycles", OnNewDay)
+		--self.inst:StartUpdatingComponent(self)
+		--self:WatchWorldState("cycles", OnNewDay)
 	end
 end, nil, {})
 
@@ -274,7 +275,7 @@ function Homesickness:OnUpdate(dt)
 			print("Homesickness low stats maintained for 8 ticks\nsanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 			self.conseclowstats = 0
-			reason = {"FEEL_WORSE", "BAD_STATS"}
+			reason = {change = "FEEL_WORSE", reason = "BAD_STATS"}
 		end
 		if math.random(256) < 2 then
 			print("Bad roll increase by 6")
