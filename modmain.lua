@@ -389,7 +389,7 @@ AddStategraphState("butterfly", Ness_ButterflyCaughtState)
 AddPrefabPostInit("butterfly", function(inst)
 	--spawn logic and vfx will come later
 	--inst:AddTag("magic")
-	if math.random(1024) ~= 51 then
+	if math.random(1024) == 51 then
 		if not GLOBAL.TheWorld.ismastersim then return end
 
 		inst:DoTaskInTime(0, function()
