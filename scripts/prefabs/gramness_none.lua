@@ -35,7 +35,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_gramness_batter", {
 	build_name_override = "ms_gramness_batter",
 	type = "base",
 	rarity = "ModMade",
-	skin_tags = {"BASE", "GRAMNESS", "CHARACTER"},
+	skin_tags = {"BASE", "GRAMNESS"},
 }))
 
 table.insert(prefabs, CreatePrefabSkin("ms_gramness_kraken", {
@@ -53,7 +53,25 @@ table.insert(prefabs, CreatePrefabSkin("ms_gramness_kraken", {
 	build_name_override = "ms_gramness_kraken",
 	type = "base",
 	rarity = "ModMade",
-	skin_tags = {"BASE", "GRAMNESS", "CHARACTER"},
+	skin_tags = {"BASE", "GRAMNESS"},
+}))
+
+table.insert(prefabs, CreatePrefabSkin("ms_gramness_hallowed", {
+	assets = {
+		Asset("ANIM", "anim/ms_gramness_hallowed.zip"),
+		Asset("ANIM", "anim/ghost_gramness_build.zip"),
+	},
+	
+	skins = {
+		normal_skin = "ms_gramness_hallowed",
+		ghost_skin = "ghost_gramness_build",
+	},
+	
+	base_prefab = "gramness",
+	build_name_override = "ms_gramness_hallowed",
+	type = "base",
+	rarity = "ModMade",
+	skin_tags = {"BASE", "GRAMNESS", "HALLOWED"},
 }))
 
 table.insert(prefabs, CreatePrefabSkin("ms_baseball_cap_ninten_onett", { --The ID of our skin

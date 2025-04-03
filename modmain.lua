@@ -35,6 +35,9 @@ Assets = {
 
 	Asset( "IMAGE", "bigportraits/ms_gramness_kraken.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramness_kraken.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramness_hallowed.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramness_hallowed.xml" ),
 	
 	Asset( "IMAGE", "images/map_icons/gramness.tex" ),
 	Asset( "ATLAS", "images/map_icons/gramness.xml" ),
@@ -123,7 +126,11 @@ STRINGS.SKIN_QUOTES.ms_gramness_batter = "\"I think I prefer the old name, haha!
 
 STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Guest Honor"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramness_kraken = "Formal celebratory wear of the people of Newport, bestowed upon Ness for defeating the Kraken of the Sea."
-STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Hopefully they really like Papa's cooking!\""
+STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Hopefully they really liked Papa's cooking!\""
+
+STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Shark"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_kraken = "Skate Punk outfit of the infamous Onett Sharks street gang, known for hanging out around the town's arcade."
+STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Mom says it's just a phase!\""
 
 STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_onett = "Onett Meteors Baseball Cap"
 STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "An Onett Meteors baseball cap to compliement the uniform."
