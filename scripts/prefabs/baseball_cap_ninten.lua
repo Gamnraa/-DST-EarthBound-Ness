@@ -7,6 +7,8 @@ local ninten_skins = {
     ["ms_gramninten_summer"] = "swap_hat_off_alt",
     ["ms_gramninten_halloween"] = "swap_hat_off_alt",
     ["ms_gramninten_ken"] = "swap_hat_ken",
+    ["ms_gramninten_batter"] = "swap_hat_batter",
+    ["ms_gramninten_kenbatter"] = "swap_hat_ken_alt"
 }
 
 
