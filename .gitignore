@@ -45,3 +45,5 @@ luac.out
 *.scml
 *.xml
 *.zip
+*.fev
+*.fsb
