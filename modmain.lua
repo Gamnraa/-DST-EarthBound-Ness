@@ -74,6 +74,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/pk_flash_o.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/pk_flash_o.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/paralysis_ness.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/paralysis_ness.xml" ),
 	
 	Asset("SOUNDPACKAGE", "sound/psisfx.fev"),
 	Asset("SOUND", "sound/psisfx.fsb"),

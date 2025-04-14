@@ -3,20 +3,18 @@
 --Should I ever want another PSI that works similarly to the two
 local assets =
 {
-    Asset("ANIM", "anim/swap_offense_up_ness.zip"),
-    Asset("ANIM", "anim/ground_offense_up.zip"),
-	Asset("ANIM", "anim/ground_four_d_slip_o.zip"),
-	Asset("ANIM", "anim/swap_four_d_slip_o.zip"),
+    Asset("ANIM", "anim/swap_paralysis_ness.zip"),
+    Asset("ANIM", "anim/ground_paralysis_ness.zip"),
 }
 
 local psiLines = {
   "Paralysis!",
   "Not so fast!",
-  "You're not going anywhere!",
+  "Haha, You're not going anywhere!",
 }
 	
 local function onequip(inst, owner)
-    owner.AnimState:OverrideSymbol("swap_object", "swap_offense_up_ness", "swap_offense_up_ness")
+    owner.AnimState:OverrideSymbol("swap_object", "swap_" .. inst.prefab, "swap_" .. inst.prefab)
 	--owner.AnimState:OverrideSymbol("swap_object", "swap_four_d_slip", "swap_four_d_slip")
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
@@ -244,8 +242,8 @@ local function makeBuff(name, attachedfn, detachedfn, duration, priority, prefab
 	return Prefab(name, fn, nil, prefabs)
 end
 
-return createPsi("paralysis_ness", "offense_up"),
-       createPsi("paralysis_ness_o"),
+return createPsi("paralysis_ness", "paralysis_ness"),
+       --createPsi("paralysis_ness_o"),
 	   makeBuff("buff_paralysis", onAttached, exitParalysis, nil, 1, {"offense_up_fx"}),
        makeBuff("buff_paralysis_self", onAttachedSelf, removeSelfBuff, 180, 1, {"offense_up_fx"})
 
