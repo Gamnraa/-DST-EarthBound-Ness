@@ -106,6 +106,9 @@ local function onAttached(inst, target)
 		target.paralysisfx = SpawnPrefab("moonstorm_ground_lightning_fx")
 		target.paralysisfx.entity:SetParent(target.entity)
 	end
+
+	target.paraylsisfx = SpawnPrefab("paralysis_fx")
+	target.paralysisfx.entity:SetParent(target.entity)
 end
 
 local function onTimerDone(inst, data)

@@ -12,6 +12,7 @@ PrefabFiles = {
 	"offense_up_fx",
 	"pk_flash_fx",
 	"magicbutterflyfx",
+	"paralysis_fx",
 }
 
 Assets = {
@@ -295,16 +296,13 @@ local Ness_Paralyzed = State{
 		if inst.brain then inst.brain:Stop() end
 
         inst.AnimState:PlayAnimation("frozen_loop_pst", true)
-        inst.SoundEmitter:PlaySound("psisfx/psisfx/paralysis")
         --TODO lightning fx
 
         inst.sg:SetTimeout((data.duration or 6))
     end,
 
     ontimeout = function(inst)
-		--inst.sg:RemoveStateTag("nointerrupt")
         inst.sg:GoToState(inst.sg.sg.states.hit ~= nil and "hit" or "idle")
-        --inst:PushEvent("exitparalysis")
     end,
 
 	--This needs to be a catch-all
