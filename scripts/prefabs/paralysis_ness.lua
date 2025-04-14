@@ -103,11 +103,9 @@ local function onAttached(inst, target)
 	
 	if target.components.combat then
 		target.components.combat.externaldamagetakenmultipliers:SetModifier(target, 1.25, "paralysis_ness")
-		target.paralysisfx = SpawnPrefab("moonstorm_ground_lightning_fx")
-		target.paralysisfx.entity:SetParent(target.entity)
 	end
 
-	target.paraylsisfx = SpawnPrefab("paralysis_fx")
+	target.paralysisfx = SpawnPrefab("paralysis_fx")
 	target.paralysisfx.entity:SetParent(target.entity)
 end
 
@@ -247,7 +245,7 @@ end
 
 return createPsi("paralysis_ness", "paralysis_ness"),
        --createPsi("paralysis_ness_o"),
-	   makeBuff("buff_paralysis", onAttached, exitParalysis, nil, 1, {"offense_up_fx"}),
-       makeBuff("buff_paralysis_self", onAttachedSelf, removeSelfBuff, 180, 1, {"offense_up_fx"})
+	   makeBuff("buff_paralysis", onAttached, exitParalysis, nil, 1, {"paralysis_fx"}),
+       makeBuff("buff_paralysis_self", onAttachedSelf, removeSelfBuff, 180, 1, {"paralysis_fx"})
 
 
