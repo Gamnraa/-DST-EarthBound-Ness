@@ -87,7 +87,7 @@ local function HasLowStats(inst)
 	inst.components.health:GetPercentWithPenalty() < .67
 end
 
-local function UpdateHomesicknessStatus(homesickness, inst, line)
+local function UpdateHomesicknessStatus(homesickness, inst)
 	print("Homesickness change in level detected", homesickness.level)
 
 	local level = homesickness.level
@@ -109,9 +109,10 @@ local function UpdateHomesicknessStatus(homesickness, inst, line)
 		homesickness.actioninterrupt = nil
 	end
 
-	if line then
-		inst.components.talker:Say(GetString(inst, "ANNOUNCE_HOMESICKNESS_" .. line.change, line.reason))
+	if next(self.line) then
+		inst.components.talker:Say(GetString(inst, "ANNOUNCE_HOMESICKNESS_" .. self.line.change, self.line.reason))
 	end
+	self.line = {}
 end
 
 local function OnNewDay(self)
@@ -142,6 +143,8 @@ local Homesickness = Class(function(self, inst, enable)
 	self.sicknessval = 0
 	self.nexttick = 15
 	self.maxhomesickness = false
+
+	self.line = {}
 	
 	enable = enable or TUNING.ENABLE_GRAMNESS_HOMESICKNESS
 	if enable then
@@ -247,17 +250,18 @@ end
 
 function Homesickness:SetLevel(newlevel, line)
 	self.level = newlevel
-	UpdateHomesicknessStatus(self,  self.inst, line)
+	if line then self.line = line end
+	UpdateHomesicknessStatus(self,  self.inst)
 end
 
-function Homesickness:DoDelta(newval)
+function Homesickness:DoDelta(newval, line)
 	self.sicknessval = self.sicknessval + newval
 	if self.sicknessval < 0 then self.sicknessval = 0 end
 	if self.sicknessval > maxsicknessval then self.sicknessval = maxsicknessval end
+	if line then self.line = line end
 end
 
 function Homesickness:OnUpdate(dt)
-	local reason
 
 	self.maxhomesickness = self.sicknessval == maxsicknessval
 
@@ -275,12 +279,13 @@ function Homesickness:OnUpdate(dt)
 			print("Homesickness low stats maintained for 8 ticks\nsanity increasing by", sanitychange, "\nhunger increasing by", hungerchange, "\nhealth changing by", healthchange)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 			self.conseclowstats = 0
-			reason = {change = "FEEL_WORSE", reason = "BAD_STATS"}
+			self.line = {change = "FEEL_WORSE", reason = "BAD_STATS"}
 		end
 		if math.random(256) < 2 then
 			print("Bad roll increase by 6")
 			self.inst.components.talker:Say("Homesickness bad roll increase by 6")
 			self.sicknessval = self.sicknessval + 6
+			self.line = {change = "FEEL_WORSE", reason = "BAD_LUCK"}
 		end
 
 		if self.sicknessval >= maxsicknessval then
@@ -312,7 +317,7 @@ function Homesickness:OnUpdate(dt)
 
 	if self.level ~= currentlevel then
 		self.level = currentlevel
-		UpdateHomesicknessStatus(self, self.inst, reason)
+		UpdateHomesicknessStatus(self, self.inst)
 	end
 end
 
