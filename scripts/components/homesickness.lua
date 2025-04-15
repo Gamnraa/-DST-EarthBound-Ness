@@ -282,7 +282,7 @@ function Homesickness:OnUpdate(dt)
 		end
 		if math.random(256) < 2 then
 			print("Bad roll increase by 6")
-			self.inst.components.talker:Say("Homesickness bad roll increase by 6")
+			--self.inst.components.talker:Say("Homesickness bad roll increase by 6")
 			self.sicknessval = self.sicknessval + 6
 			self.line = {change = "FEEL_WORSE", reason = "BAD_LUCK"}
 		end
