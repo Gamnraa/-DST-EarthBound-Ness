@@ -109,14 +109,13 @@ local function UpdateHomesicknessStatus(homesickness, inst)
 		homesickness.actioninterrupt = nil
 	end
 
-	if next(self.line) then
-		inst.components.talker:Say(GetString(inst, "ANNOUNCE_HOMESICKNESS_" .. self.line.change, self.line.reason))
+	if next(homesickness.line) then
+		inst.components.talker:Say(GetString(inst, "ANNOUNCE_HOMESICKNESS_" .. homesickness.line.change, homesickness.line.reason))
 	end
-	self.line = {}
+	homesickness.line = {}
 end
 
 local function OnNewDay(self)
-	print("Homesickness new day started")
 	if math.random(100) < 40 and self.level > 0 then
 		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
 		self.sicknessval = self.level * 5
