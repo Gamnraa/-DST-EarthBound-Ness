@@ -164,13 +164,11 @@ local function oneatfood(inst, data)
 
 	local dialog = nil
 	if data.food.components.edible:GetHunger(inst) >= 75 and math.random(100) < 75 then
-		inst.components.homesickness:DoDelta(-2)
-		dialog = "Filling my stomach always makes me feel a little better..."
+		inst.components.homesickness:DoDelta(-4, {change = "FEEL_BETTER", reason = "EAT_LARGE_PORTION"})
 	end
 	
 	if data.food.prefab == favoritefood then
-		inst.components.homesickness:DoDelta((math.random(4, 7)))
-		dialog = "It almost reminds me of home..."
+		inst.components.homesickness:DoDelta(-(math.random(6, 8)), {change = "FEEL_BETTER", reason = "EAT_FAVORITE_FOOD"})
 	end
 	
 	if dialog then

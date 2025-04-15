@@ -10,6 +10,8 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_PARALYSIS_SELF_BUFF_OVER = "All that adrena
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_BETTER = {
     NEW_DAY = "A new day and a fresh me. I can't let my feelings get the better of me!",
+    EAT_LARGE_PORTION = "Filling my stomach always makes me feel a little better...",
+    EAT_FAVORITE_FOOD = "It almost reminds me of home..."
 }
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_WORSE = {
@@ -18,6 +20,12 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_WORSE = {
         "If something happens to me; Mom, Dad, Tracy: I'm sorry for making you worry.",
         "I'm really not doing too good right now.",
         "I'm always so reckless."
+    },
+    BAD_LUCK = {
+        "...I... just feel a bit crappy all the sudden.",
+        "I think I miss home.",
+        "Me and my dumb thoughts...",
+        "Ah, and it was such a nice day until my dumb brain got better ideas..."
     }
 }
 
