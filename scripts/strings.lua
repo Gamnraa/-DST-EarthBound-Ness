@@ -11,7 +11,9 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_PARALYSIS_SELF_BUFF_OVER = "All that adrena
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_BETTER = {
     NEW_DAY = "A new day and a fresh me. I can't let my feelings get the better of me!",
     EAT_LARGE_PORTION = "Filling my stomach always makes me feel a little better...",
-    EAT_FAVORITE_FOOD = "It almost reminds me of home..."
+    EAT_FAVORITE_FOOD = "It almost reminds me of home...",
+    LAND_CRIT = "The heat of battle always makes me forget about the worst of my problems!",
+    KILL_WITH_CRIT = "Take THAT! Aha, I feel amazing!!",
 }
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_WORSE = {
