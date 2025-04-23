@@ -392,12 +392,6 @@ return {
             HUNGRY = "only_used_by_wolfang",
             FULL = "only_used_by_wolfang",
         },
-
-        APPLYMODULE =
-        {
-            COOLDOWN = "only_used_by_wx78",
-            NOTENOUGHSLOTS = "only_used_by_wx78",
-        },
         REMOVEMODULES =
         {
             NO_MODULES = "only_used_by_wx78",
@@ -1574,10 +1568,11 @@ return {
             GENERIC = "Red equals dead!",
             BLOOM = "Look at the all the spores!",
         },
-        MUSHTREE_TALL_WEBBED 
+        MUSHTREE_TALL_WEBBED =
 		{
 			GENERIC =  "Guess the spiders own it now, hahaha!",
 			ACIDCOVERED = "That can't be healthy for it!",
+        },
         SPORE_TALL =
         {
             GENERIC = "It's bright and blue!",
