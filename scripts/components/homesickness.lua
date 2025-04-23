@@ -267,7 +267,6 @@ function Homesickness:OnUpdate(dt)
 	if dt < self.nexttick then
 		self.nexttick = self.nexttick - dt
 	elseif not self.maxhomesickness then
-		print("Homesickness ticking", self.inst)
 		local iscurrentlylowstats = HasLowStats(self.inst)
 		self.conseclowstats = (iscurrentlylowstats and self.islowstats) and (self.conseclowstats + 1) or (iscurrentlylowstats and 1) or 0
 		self.islowstats = iscurrentlylowstats
@@ -280,8 +279,7 @@ function Homesickness:OnUpdate(dt)
 			self.conseclowstats = 0
 			self.line = {change = "FEEL_WORSE", reason = "BAD_STATS"}
 		end
-		if math.random(256) < 2 then
-			print("Bad roll increase by 6")
+		if math.random(256) < 2 + self.level then
 			--self.inst.components.talker:Say("Homesickness bad roll increase by 6")
 			self.sicknessval = self.sicknessval + 6
 			self.line = {change = "FEEL_WORSE", reason = "BAD_LUCK"}
