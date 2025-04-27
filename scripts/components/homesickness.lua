@@ -115,16 +115,18 @@ local function UpdateHomesicknessStatus(homesickness, inst)
 	homesickness.line = {}
 end
 
+local sicknessthreshold = 10
+local maxsicknessval = sicknessthreshold * 5
+
 local function OnNewDay(self)
 	if math.random(100) < 40 and self.level > 0 then
 		print("Good homesickness roll, homesickness dropping to " .. (self.level - 1))
-		self.sicknessval = self.level * 5
+		self.sicknessval = (self.level - 1) * sicknessthreshold
 		self:SetLevel(self.level - 1, {change = "FEEL_BETTER", reason = "NEW_DAY"})
 	end
 end
 
-local sicknessthreshold = 10
-local maxsicknessval = sicknessthreshold * 5
+
 
 local Homesickness = Class(function(self, inst, enable)
     self.inst = inst
