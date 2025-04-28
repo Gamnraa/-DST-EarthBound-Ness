@@ -107,6 +107,7 @@ local function fn()
 
     --weapon (from weapon component) added to pristine state for optimization
     inst:AddTag("weapon")
+	inst:AddTag("nessbat")
 
     MakeInventoryFloatable(inst, "med", 0.1, {0.7, 0.5, 0.7})
 

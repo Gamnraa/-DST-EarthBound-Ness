@@ -35,13 +35,7 @@ local CommonHandlers = GLOBAL.CommonHandlers
 		inst.sg:SetTimeout(16 * FRAMES)
 		
 		if target then
-			if inst.prefab == "gramness" then
-				inst.components.talker:Say("Batter up!")
-			elseif inst.prefab == "gramninten" then
-				inst.components.talker:Say("Get ready for another homerun!")
-			else
-				inst.components.combat:BattleCry()
-			end
+			inst.components.combat:BattleCry()
 				
 			if target:IsValid() then
 				inst:FacePoint(target:GetPosition())

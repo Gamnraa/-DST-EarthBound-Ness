@@ -995,6 +995,12 @@ return {
 		SPIDER = "Time to bash!",
 		SPIDER_WARRIOR = "You're no match for me!",
 		DEER = "Gotcha!",
+        HOUND = "Bad, bad dog!",
+        BOSS = "I have more than enough experience taking down big baddies like you!",
+        SWING_BAT_GENERIC = "Batter UP!",
+        SWING_BAT_SMALL_TARGET = "This one's going out of the park, folks!",
+        SWING_BAT_BIG_TARGET = "The bigger they are, the higher they fly!",
+        SWING_HAMBAT = "All this fighting is making me hungry for some reason, haha!"
 	},
 	COMBAT_QUIT =
 	{
