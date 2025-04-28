@@ -153,11 +153,11 @@ local function docritattempt(inst, data)
 				end
 			else
 				doresourcefulattempt(inst, {victim = data.target})
-				if math.random(128) < 4 then
+				if math.random(128) < 24 then
 					inst.comonents.homesickness:DoDelta(-2, {change = "FEEL_BETTER", reason = "KILL_WITH_CRIT"})
 				end
 			end
-		elseif math.random(128) < 1 then
+		elseif math.random(128) < 8 then
 			inst.components.homesickness:DoDelta(-1, {change = "FEEL_BETTER", reason = "LAND_CRIT"})
 		end
 	end
