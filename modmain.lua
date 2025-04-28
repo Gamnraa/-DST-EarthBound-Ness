@@ -427,6 +427,7 @@ AddCharacterRecipe("pk_flash",
 	{
 		"MAGIC",
 	})
+STRINGS.RECIPE_DESC.PK_FLASH = "Distract anything and everything in range."
 
 AddCharacterRecipe("paralysis_ness",
 	{Ingredient("purplegem", 1),
@@ -438,12 +439,13 @@ AddCharacterRecipe("paralysis_ness",
 		product = "paralysis_ness",
 		builder_tag = "nesscraft",
 		numtogive = 1,
-		atlas = "images/inventoryimages/offense_up.xml",
-		image = "offense_up.tex"
+		atlas = "images/inventoryimages/paralysis_ness.xml",
+		image = "paralysis_ness.tex"
 	 },
 	 {
 		"MAGIC",
 	 })
+STRINGS.RECIPE_DESC.PARALYSIS_NESS = "Stop evil-doers in their tracks!"
 
 local pk_flash_o_recipe = AddRecipe("pk_flash_o",
 	{Ingredient("purplegem", 1),
