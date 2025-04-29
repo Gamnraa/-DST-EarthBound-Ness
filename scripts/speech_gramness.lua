@@ -1030,13 +1030,14 @@ return {
         SWING_BAT_GENERIC = "Batter UP!",
         SWING_BAT_SMALL_TARGET = {
             "This one's going out of the park, folks!",
-            "Heads up!",
-            "Let's see how far I can hit this one!"
+            "Batter UP!",
+            "Let's see how far I can hit this one!",
         },
         SWING_BAT_BIG_TARGET = {
             "The bigger they are, the higher they fly!",
             "I'll send you packing with enough OOMPH!",
-            "It's all in the form!"
+            "It's all in the form!",
+            "Batter UP!",
         },
         SWING_BAT_BOSS = {
             "Nothing me and the ol' bat can't handle!",

@@ -282,6 +282,8 @@ function Homesickness:OnUpdate(dt)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 			self.conseclowstats = 0
 			self.line = {change = "FEEL_WORSE", reason = "BAD_STATS"}
+
+			print("Homesickness val", self.sicknessval)
 		end
 		if math.random(256) < 2 + self.level then
 			--self.inst.components.talker:Say("Homesickness bad roll increase by 6")
@@ -300,6 +302,8 @@ function Homesickness:OnUpdate(dt)
 	end
 
 	local currentlevel = math.floor(self.sicknessval / sicknessthreshold)
+
+	--print("Homesickness level", self.level, "current", currentlevel)
 
 
 	local gutsOffset = 0

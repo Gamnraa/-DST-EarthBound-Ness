@@ -154,11 +154,13 @@ local function docritattempt(inst, data)
 			else
 				doresourcefulattempt(inst, {victim = data.target})
 				if math.random(128) < 24 then
-					inst.comonents.homesickness:DoDelta(-2, {change = "FEEL_BETTER", reason = "KILL_WITH_CRIT"})
+					print("Good homesickness crit roll, -5")
+					inst.components.homesickness:DoDelta(-5, {change = "FEEL_BETTER", reason = "KILL_WITH_CRIT"})
 				end
 			end
 		elseif math.random(128) < 8 then
-			inst.components.homesickness:DoDelta(-1, {change = "FEEL_BETTER", reason = "LAND_CRIT"})
+			print("good homesickness crit roll, -1")
+			inst.components.homesickness:DoDelta(-3, {change = "FEEL_BETTER", reason = "LAND_CRIT"})
 		end
 	end
 end
@@ -169,11 +171,11 @@ local function oneatfood(inst, data)
 
 	local dialog = nil
 	if data.food.components.edible:GetHunger(inst) >= 75 and math.random(100) < 75 then
-		inst.components.homesickness:DoDelta(-4, {change = "FEEL_BETTER", reason = "EAT_LARGE_PORTION"})
+		inst.components.homesickness:DoDelta(-6, {change = "FEEL_BETTER", reason = "EAT_LARGE_PORTION"})
 	end
 	
 	if data.food.prefab == favoritefood then
-		inst.components.homesickness:DoDelta(-(math.random(6, 8)), {change = "FEEL_BETTER", reason = "EAT_FAVORITE_FOOD"})
+		inst.components.homesickness:DoDelta(-(math.random(10, 20)), {change = "FEEL_BETTER", reason = "EAT_FAVORITE_FOOD"})
 	end
 	
 	if dialog then
@@ -209,26 +211,27 @@ local function battlecrystring(combat, target)
 	local weapon = combat.inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
 	local pos = combat.inst:GetPosition()
 	local friends = TheSim:FindEntities(pos.x, 0, pos.z, 15, {"player"}, {"playerghost"})
+
     return target ~= nil
         and target:IsValid()
         and GetString(
             combat.inst,
             "BATTLECRY",
 			(target:HasTag("paralyzed") and "TARGET_PARALYZED") or
-			(weapon and weapon:HasTag("nessbat") and
+			(weapon and weapon:HasTag("nessbat") and  (
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] > 1.5 and "SWING_BAT_SMALL_TARGET") or
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] <= 1.5 and "SWING_BAT_BIG_TARGET") or
 				(target:HasTag("epic") and 
 					(math.random(100) < 67 and "SWING_BAT_BOSS") or
 					(friends and math.random(100) < 36 and "BOSS_ENCOURAGE_FRIENDS") or "BOSS"
 				) or 
-				"SWING_BAT_GENERIC"
+				"SWING_BAT_GENERIC")
 			) or
             (target:HasTag("prey") and not target:HasTag("hostile") and "PREY") or
             (string.find(target.prefab, "pig") ~= nil and target:HasTag("pig") and not target:HasTag("werepig") and "PIG") or
-			(target:HasTag("epic") and 
+			(target:HasTag("epic") and (
 				(friends and math.random(100) < 36 and "BOSS_ENCOURAGE_FRIENDS") or "BOSS"
-			) or
+			)) or
 			(weapon and weapon.prefab == "hambat" and "SWING_HAMBAT") or
             target.prefab
         )
