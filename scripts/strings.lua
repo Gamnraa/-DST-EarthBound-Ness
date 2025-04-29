@@ -77,12 +77,12 @@ STRINGS.CHARACTERS.WAXWELL.DESCRIBE.GRAMNESS =
     MURDERER = "Murderer!, I thought you defeated your evil self!",
     REVIVER = "%s uses his powers well!",
     GHOST = "We both know the price of revival!",
-    FIRESTARTER = "That’s no place for a fire, %s!",
+    FIRESTARTER = "That's no place for a fire, %s!",
 }
 STRINGS.CHARACTERS.WX78.DESCRIBE.GRAMNESS =
 {
     GENERIC = "WHY DID YOU GO BACK TO BEING A FLESHLING, %s",
-    ATTACKER = "%s‘S EVIL SELF IS COMING BACK, EXCELLENT",
+    ATTACKER = "%s'S EVIL SELF IS COMING BACK, EXCELLENT",
     MURDERER = "MAYBE I WILL DEVELOP A SECOND ROBOT BODY FOR YOU",
     REVIVER = "%s IS A USEFUL MINION INDEED",
     GHOST = "HAH, YOU WERE WEAK ALL ALONG",
@@ -94,45 +94,45 @@ STRINGS.CHARACTERS.WILLOW.DESCRIBE.GRAMNESS =
     ATTACKER = "Take it easy kid!",
     MURDERER = "Murderer! Better hope your bat is fireproof!",
     REVIVER = "Alright, I'm sorry for burning your bat that one time…",
-    GHOST = "Don’t worry, I’ll go grab a heart.",
-    FIRESTARTER = "HAHA, THAT’S the spirit %s!",
+    GHOST = "Don't worry, I'll go grab a heart.",
+    FIRESTARTER = "HAHA, THAT'S the spirit %s!",
 }
 STRINGS.CHARACTERS.WENDY.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Hey, %s!",
     ATTACKER = "%s Is getting violent…",
     MURDERER = "Abby and I will put an end to you, %s!",
-    REVIVER = "You’re a good friend %s!",
+    REVIVER = "You're a good friend %s!",
     GHOST = "Abigail will keep you company while I get you a heart, %s.",
-    FIRESTARTER = "Let’s play a different game, %s…",
+    FIRESTARTER = "Let's play a different game, %s…",
 }
 STRINGS.CHARACTERS.WOODIE.DESCRIBE.GRAMNESS =
 {
     GENERIC = "%s! Hey little buddy!",
     ATTACKER = "Whoa, calm down with that bat of yours bud!",
-    MURDERER = "You’re in for it now kid!",
+    MURDERER = "You're in for it now kid!",
     REVIVER = "Good work little buddy!",
-    GHOST = "Don't worry %s, Me n’ Lucy will go fetch you a heart.",
+    GHOST = "Don't worry %s, Me n' Lucy will go fetch you a heart.",
     FIRESTARTER = "Walter oughta teach you some fire saftey!",
 }
 
 STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Ah, greeting dear %s!",
-    ATTACKER = "Don’t make me confiscate that baseball bat young man!",
+    ATTACKER = "Don't make me confiscate that baseball bat young man!",
     MURDERER = "Your mother would be ashamed, young man!",
     REVIVER = "My, how sweet of you dear!",
-    GHOST = "Don’t fret dear, I'll get you sorted!",
-    FIRESTARTER = "It’s not safe to play with fire dearie!",
+    GHOST = "Don't fret dear, I'll get you sorted!",
+    FIRESTARTER = "It's not safe to play with fire dearie!",
 }
 STRINGS.CHARACTERS.WEBBER.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Hey %s. Wanna play some baseball?!",
-    ATTACKER = "Hey if you don’t wanna play you could’ve just said so %s!",
+    ATTACKER = "Hey if you don't wanna play you could've just said so %s!",
     MURDERER = "How could you %s!?",
-    REVIVER = "Thanks %s, you’re a great friend!",
-    GHOST = "Oh no! We’ll get help %s!",
-    FIRESTARTER = "Um, we don’t think you’re supposed to do that…!",
+    REVIVER = "Thanks %s, you're a great friend!",
+    GHOST = "Oh no! We'll get help %s!",
+    FIRESTARTER = "Um, we don't think you're supposed to do that…!",
 }
 STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.GRAMNESS =
 {
@@ -155,10 +155,10 @@ STRINGS.CHARACTERS.WINONA.DESCRIBE.GRAMNESS =
 STRINGS.CHARACTERS.WORTOX.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Hmmm, PSI is new!",
-    ATTACKER = "I’ll stop sneaking hot sauce in your burgers, I swear!",
-    MURDERER = "Eep! Please don’t kill me, I'm just a poor little imp!",
+    ATTACKER = "I'll stop sneaking hot sauce in your burgers, I swear!",
+    MURDERER = "Eep! Please don't kill me, I'm just a poor little imp!",
     REVIVER = "%s you have a courageous soul!",
-    GHOST = "Don’t worry, I won’t eat you!",
+    GHOST = "Don't worry, I won't eat you!",
     FIRESTARTER = "Hyuhyuhyu what a fun prank!",
 }
 STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.GRAMNESS =
@@ -172,20 +172,20 @@ STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.GRAMNESS =
 }
 STRINGS.CHARACTERS.WARLY.DESCRIBE.GRAMNESS =
 {
-    GENERIC = "Salut %s, I’ve been working on a new recipe if you would like to try it!",
-    ATTACKER = "I miss my Mama too, there’s no need to get violent about it!",
+    GENERIC = "Salut %s, I've been working on a new recipe if you would like to try it!",
+    ATTACKER = "I miss my Mama too, there's no need to get violent about it!",
     MURDERER = "Mon dieu! How could you do such a horrible thing!",
-    REVIVER = "Thank you petite monsieur, I’ll make you some burgers later!",
-    GHOST = "I won’t leave you behind, mon amie!",
+    REVIVER = "Thank you petite monsieur, I'll make you some burgers later!",
+    GHOST = "I won't leave you behind, mon amie!",
     FIRESTARTER = "Ah, did willow give you matches, %s?!",
 }
 STRINGS.CHARACTERS.WURT.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Hi hat boy!",
     ATTACKER = "Glurph, thought you were friend.",
-    MURDERER = "Never should’ve trusted you, florp!",
+    MURDERER = "Never should've trusted you, florp!",
     REVIVER = "You good friend, Flort!",
-    GHOST = "Don’t worry hat boy, will get you heart!",
+    GHOST = "Don't worry hat boy, will get you heart!",
     FIRESTARTER = "Wicker not gonna read story because of you!",
 }
 STRINGS.CHARACTERS.WALTER.DESCRIBE.GRAMNESS =
@@ -194,14 +194,14 @@ STRINGS.CHARACTERS.WALTER.DESCRIBE.GRAMNESS =
     ATTACKER = "Hey! That was an accident…right?!",
     MURDERER = "You went too far!",
     REVIVER = "Thanks %s, glad to be in your party!",
-    GHOST = "Don’t worry %s, Woby and I are on it!",
+    GHOST = "Don't worry %s, Woby and I are on it!",
     FIRESTARTER = "Did nobody listen at my fire safety meeting…",
 }
 STRINGS.CHARACTERS.WANDA.DESCRIBE.GRAMNESS =
 {
     GENERIC = "Oh, %s you should tell me about this \"Phase distorter\" sometime!",
     ATTACKER = "How strange, most timeless he doesn't do that",
-    MURDERER = "That \"Giygas\" fellow must’ve gotten the better of him in this timeline!",
+    MURDERER = "That \"Giygas\" fellow must've gotten the better of him in this timeline!",
     REVIVER = "Thanks for bringing me back, %s!",
     GHOST = "Don't fret, I'll get you back on your feet!",
     FIRESTARTER = "Did he learn PK Fire in this timeline?",
