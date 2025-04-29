@@ -989,18 +989,61 @@ return {
     ANNOUNCE_ELIXIR_TOO_SUPER = "This one seems a little strong.",	
 	BATTLECRY =
 	{
-		GENERIC = "I'll deal with 'em!",
+		GENERIC = {
+            "I'll deal with 'em!",
+            "Leave it to me!",
+            "Another day, another battle!",
+        },
 		PIG = "Let's fight!",
 		PREY = "Gotcha!",
-		SPIDER = "Time to bash!",
-		SPIDER_WARRIOR = "You're no match for me!",
+		SPIDER = {
+            "You're gonna get it!",
+            "Time to bash!",
+            "Let's battle, spider!",
+        },
+		SPIDER_WARRIOR = {
+            "You're no match for me!",
+            "I'll tame you one way or another!",
+            "Let's see what you got!",
+        },
 		DEER = "Gotcha!",
-        HOUND = "Bad, bad dog!",
-        BOSS = "I have more than enough experience taking down big baddies like you!",
+        HOUND = {
+            "Bad, bad dog!",
+            "Another runaway dog! I got it!",
+            "You picked the wrong fight, doggie!",
+        },
+        BOSS = {
+            "I have more than enough experience taking down big baddies like you!",
+            "You don't scare me!",
+            "Just like dealing with the Sanctuary Guardians!",
+        },
+        BOSS_ENCOURAGE_FRIENDS = {
+            "Come on guys, this bad guy's nothing if we work together!",
+            "You're gonna learn the power friends can have, haha!",
+            "If I learned anything at all, then bad guys like you don't stand a chance against friends looking out for each other!",
+        },
+        TARGET_PARALYZED = {
+            "Hm, can't fight back? Neat trick I learned, huh?",
+            "Paralysis makes this a cakewalk!",
+            "And now, my chance to strike!",
+        },
         SWING_BAT_GENERIC = "Batter UP!",
-        SWING_BAT_SMALL_TARGET = "This one's going out of the park, folks!",
-        SWING_BAT_BIG_TARGET = "The bigger they are, the higher they fly!",
-        SWING_HAMBAT = "All this fighting is making me hungry for some reason, haha!"
+        SWING_BAT_SMALL_TARGET = {
+            "This one's going out of the park, folks!",
+            "Heads up!",
+            "Let's see how far I can hit this one!"
+        },
+        SWING_BAT_BIG_TARGET = {
+            "The bigger they are, the higher they fly!",
+            "I'll send you packing with enough OOMPH!",
+            "It's all in the form!"
+        },
+        SWING_BAT_BOSS = {
+            "Nothing me and the ol' bat can't handle!",
+            "You're tough, but that won't stop me from hitting this homerun!",
+            "Just gotta swing... harder!"
+        },
+        SWING_HAMBAT = "All this fighting is making me hungry for some reason, haha!",
 	},
 	COMBAT_QUIT =
 	{

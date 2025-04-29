@@ -207,18 +207,27 @@ end
 
 local function battlecrystring(combat, target)
 	local weapon = combat.inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+	local pos = combat.inst:GetPosition()
+	local friends = TheSim:FindEntities(pos.x, 0, pos.z, 15, {"player"}, {"playerghost"})
     return target ~= nil
         and target:IsValid()
         and GetString(
             combat.inst,
             "BATTLECRY",
-            (target:HasTag("prey") and not target:HasTag("hostile") and "PREY") or
-            (string.find(target.prefab, "pig") ~= nil and target:HasTag("pig") and not target:HasTag("werepig") and "PIG") or
-			(target:HasTag("epic") and "BOSS") or
+			(target:HasTag("paralyzed") and "TARGET_PARALYZED") or
 			(weapon and weapon:HasTag("nessbat") and
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] > 1.5 and "SWING_BAT_SMALL_TARGET") or
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] <= 1.5 and "SWING_BAT_BIG_TARGET") or
+				(target:HasTag("epic") and 
+					(math.random(100) < 67 and "SWING_BAT_BOSS") or
+					(friends and math.random(100) < 36 and "BOSS_ENCOURAGE_FRIENDS") or "BOSS"
+				) or 
 				"SWING_BAT_GENERIC"
+			) or
+            (target:HasTag("prey") and not target:HasTag("hostile") and "PREY") or
+            (string.find(target.prefab, "pig") ~= nil and target:HasTag("pig") and not target:HasTag("werepig") and "PIG") or
+			(target:HasTag("epic") and 
+				(friends and math.random(100) < 36 and "BOSS_ENCOURAGE_FRIENDS") or "BOSS"
 			) or
 			(weapon and weapon.prefab == "hambat" and "SWING_HAMBAT") or
             target.prefab
