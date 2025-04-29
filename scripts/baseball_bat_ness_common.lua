@@ -325,7 +325,9 @@ local knockback = State{
     }
 	
 local function BaseballKnockbackEvent(inst, data)
-	inst.sg:GoToState("baseballknockback", {knocker = data.knocker, radius = data.radius, strengthmult = data.strengthmult})
+	if not inst:HasTag("paralyzed") then
+		inst.sg:GoToState("baseballknockback", {knocker = data.knocker, radius = data.radius, strengthmult = data.strengthmult})
+	end
 end
 
 function MassAddStategraphEvent(entityStates, event, eventFunction)
