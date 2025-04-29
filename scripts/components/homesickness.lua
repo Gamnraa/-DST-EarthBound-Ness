@@ -191,12 +191,14 @@ function Homesickness:OnSave()
 end
 
 function Homesickness:OnLoad(data)
-	self:SetLevel(data.level)
+	
 	if data.actioninterrupt then 
 		print("Scheduling next interrupt in... " .. data.actioninterrupt .. " seconds")
 		self.actioninterrupt = self.inst:DoTaskInTime(data.actioninterrupt, function() self:DoNextInterrupt() end)
 	end
 	
+	self:SetLevel(data.level)
+
 	--TODO REFACTOR TO DoTaskInTime CHECKS LIKE ABOVE
 	if data.favoritefoodbuff then
 		self.favoritefoodbuff = self.inst:DoTaskInTime(data.favoritefoodbuff, function() self.inst.components.talker:Say("The good feelings never last...") self.favoritefoodbuff = nil end)
