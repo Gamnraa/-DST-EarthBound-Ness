@@ -982,11 +982,11 @@ return {
 
     ANNOUNCE_NO_ABIGAIL_FLOWER = "only_used_by_wendy",
 
-    ANNOUNCE_ELIXIR_BOOSTED = "It's like a BOO-ster Shot.",
-    ANNOUNCE_ELIXIR_GHOSTVISION = "I feel fright headed.",
-    ANNOUNCE_ELIXIR_PLAYER_SPEED = "I think I could lift a horse.",
+    ANNOUNCE_ELIXIR_BOOSTED = "Never skip your shots!",
+    ANNOUNCE_ELIXIR_GHOSTVISION = "Whoa, now this is something!",
+    ANNOUNCE_ELIXIR_PLAYER_SPEED = "Check out my muscles!",
 
-    ANNOUNCE_ELIXIR_TOO_SUPER = "This one seems a little strong.",	
+    ANNOUNCE_ELIXIR_TOO_SUPER = "I feel like destroying the universe.",	
 	BATTLECRY =
 	{
 		GENERIC = {
@@ -2886,7 +2886,7 @@ return {
 		},
 		TREASURECHEST_TRAP = "I wonder what's inside?",
 		CHESTUPGRADE_STACKSIZE = "Now to apply it to my chests!", -- Describes the kit upgrade item.
-		COLLAPSEDCHEST = "",								 																									 
+		COLLAPSEDCHEST = "Guess I was a little too careless, haha!",								 																									 
 		SACRED_CHEST =
 		{
 			GENERIC = "It wants an offering!",
@@ -4867,7 +4867,7 @@ return {
 		-- Cult of the Lamb
 		COTL_TRINKET = "I'm sure someone would want it!",
 		TURF_COTL_GOLD = "Follow the yellow brick road!",
-		TURF_COTL_BRICK = "Bricky, jsut missing the yellow!",
+		TURF_COTL_BRICK = "Bricky, just missing the yellow!",
 		COTL_TABERNACLE_LEVEL1 =
 		{
 			LIT = "It puts me at ease.",
@@ -5131,7 +5131,7 @@ return {
         -- Rifts 2
         SHADOWRIFT_PORTAL = "If it's anything like the Cave of the Past, count me out!",
 
-		SHADOW_FORGE = "It's capable of making terribles, but...",
+		SHADOW_FORGE = "It's capable of making terrible things, but...",
 		SHADOW_FORGE_KIT = "Maybe I shouldn't set it up.",
 
         FUSED_SHADELING = "I'll bash you all the same!",
@@ -5197,7 +5197,7 @@ return {
         MUTATEDWARG = "Uh oh!!",
         MUTATEDBEARGER = "Oh, we're just getting started, huh?",
 
-        LUNARFROG = "Quit staring.",
+        LUNARFROG = "Um. Hi?",
 
         DEERCLOPSCORPSE =
         {
@@ -5221,7 +5221,7 @@ return {
         },
 
         BEARGERFUR_SACK = "It's freeszing!",
-        HOUNDSTOOTH_BLOWPIPE = "It's real loud!",
+        HOUNDSTOOTH_BLOWPIPE = "This'll make bad guys hurt!",
         DEERCLOPSEYEBALL_SENTRYWARD =
         {
             GENERIC = "Hello?",    -- Enabled.
@@ -5264,7 +5264,7 @@ return {
         },
         DECOR_PICTUREFRAME =
         {
-            GENERIC = "What nice art!.",
+            GENERIC = "What nice art!",
             UNDRAWN = "I should draw something in this.",
         },
         DECOR_PORTRAITFRAME = "Looking good!",
@@ -5439,7 +5439,7 @@ return {
         MERM_TOOLSHED = "Now this has to have baseball bats for sure!",
         MERM_TOOLSHED_UPGRADED = "Now this has to have baseball bats for sure!",
         MERMARMORHAT = "My head's too big, haha!",
-        MERMARMORUPGRADEDHAT = "My head's too big, haha",
+        MERMARMORUPGRADEDHAT = "My head's too big, haha!",
         MERM_TOOL = "Haha, this thing's useless!",
         MERM_TOOL_UPGRADED = "It wouldn't be so bad if it wasn't so slimy...",
 
@@ -5455,7 +5455,7 @@ return {
         -- Rifts 4
 
         SHADOW_BEEF_BELL = "It's been enhanced by something sinister.",
-        SADDLE_SHADOW = "Maybe I shouldn't sit on that!.",
+        SADDLE_SHADOW = "Maybe I shouldn't sit on that!",
         SHADOW_BATTLEAXE = "That seems dangerous!",
         VOIDCLOTH_BOOMERANG = "Don't miss the catch on this one!",
 		ROPE_BRIDGE_KIT = "I'll make sure it's secure, don't worry one bit!",
@@ -5514,7 +5514,7 @@ return {
         PUMPKINCARVER = "Yay!",
 		SNOWMAN =
 		{
-			GENERIC = "I make a nice snowman!",
+			GENERIC = "Hello, Mr. Snowman!",
 			SNOWBALL = "The start of the perfect snowman!",
 		},
         SNOWBALL_ITEM = "Snowball fights are always a fun time!",
@@ -5536,8 +5536,8 @@ return {
         CHESSPIECE_DEPTHWORM  = "It's a worm, figures.",
 
         -- Meta 5
-        GHOSTLYELIXIR_LUNAR = "Ah yes. Very science-y.",
-        GHOSTLYELIXIR_SHADOW = "Ah yes. Very science-y.",
+        GHOSTLYELIXIR_LUNAR = "Ghostly!",
+        GHOSTLYELIXIR_SHADOW = "How paranormal!",
 
 		SLINGSHOTMODKIT = "Hmmmm, not bad!",
 		SLINGSHOT_BAND_PIGSKIN = "That'll pack a punch!",
@@ -5550,7 +5550,7 @@ return {
 		SLINGSHOT_HANDLE_STICKY = "That'll pack a punch!",
 		SLINGSHOT_HANDLE_JELLY = "That'll pack a punch!",
 		SLINGSHOT_HANDLE_SILK = "That'll pack a punch!",
-		SLINGSHOT_HANDLE_VOIDCLOTH = "That'll pack a punch!.",
+		SLINGSHOT_HANDLE_VOIDCLOTH = "That'll pack a punch!",
 
 		WOBY_TREAT = "I'm jealouse. I love treats!",
 		BANDAGE_BUTTERFLYWINGS = "Everyone said it seemed so impractical, but look at you go!",

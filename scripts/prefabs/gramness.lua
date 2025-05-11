@@ -15,7 +15,12 @@ TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.GRAMNESS = {
 	"offense_up_ness",
 	"pk_flash",
 	"baseball_cap_ninten",
-	"backpack",
+}
+
+local start_inv = {
+	"offense_up_ness",
+	"pk_flash",
+	"baseball_cap_ninten",
 }
 
 local start_item_images = {
@@ -26,10 +31,6 @@ local start_item_images = {
 TUNING.STARTING_ITEM_IMAGE_OVERRIDE = type(TUNING.STARTING_ITEM_IMAGE_OVERRIDE) == "table" and MergeMaps(TUNING.STARTING_ITEM_IMAGE_OVERRIDE, start_item_images) or start_item_images
 
 
-local start_inv = {}
-for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
-    start_inv[string.lower(k)] = v.GRAMNESS
-end
 
 local exemptiontags = {"stump"}
 
@@ -235,7 +236,7 @@ local function battlecrystring(combat, target)
 			(weapon and weapon.prefab == "hambat" and "SWING_HAMBAT") or
             target.prefab
         )
-        or nil
+        or "GENERIC"
 end
 
 -- When the character is revived from human
