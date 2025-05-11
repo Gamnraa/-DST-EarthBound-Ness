@@ -427,7 +427,22 @@ AddCharacterRecipe("pk_flash",
 	{
 		"MAGIC",
 	})
-STRINGS.RECIPE_DESC.PK_FLASH = "Distract anything and everything in range."
+	
+AddCharacterRecipe("offense_up_ness",
+	{Ingredient("purplegem", 1),
+	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
+	 GLOBAL.TECH.MAGIC_THREE,
+	 {
+		product = "offense_up_ness",
+		builder_tag = "nesscraft",
+		numtogive = 1,
+		atlas = "images/inventoryimages/offense_up.xml",
+		image = "offense_up.tex"
+	},
+	{
+		"MAGIC",
+	})
+STRINGS.RECIPE_DESC.OFFENSE_UP_NESS = "Find your strength."
 
 AddCharacterRecipe("paralysis_ness",
 	{Ingredient("purplegem", 1),
