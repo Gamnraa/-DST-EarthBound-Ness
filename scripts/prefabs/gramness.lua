@@ -15,12 +15,15 @@ TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.GRAMNESS = {
 	"offense_up_ness",
 	"pk_flash",
 	"baseball_cap_ninten",
+	"backpack"
 }
 
 local start_inv = {
-	"offense_up_ness",
-	"pk_flash",
-	"baseball_cap_ninten",
+	["default"] = {
+		"offense_up_ness",
+		"pk_flash",
+		"baseball_cap_ninten",
+	}
 }
 
 local start_item_images = {
@@ -342,6 +345,8 @@ local master_postinit = function(inst)
 	inst:ListenForEvent("castpsi", oncastpsi)
 
 	inst.components.combat.GetBattleCryString = battlecrystring
+	
+	inst.customidleanim = "ness_idle"
 	
 end
 
