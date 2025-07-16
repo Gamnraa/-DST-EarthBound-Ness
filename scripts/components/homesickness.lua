@@ -247,6 +247,9 @@ function Homesickness:Disable()
 	self.foodbuff = nil
 	
 	self.offenseupbuff = nil
+	self.sicknessval = 0
+	self.level = 0
+	self.nexttick = 15
 	self.inst:StopUpdatingComponent(self)
 	self:StopWatchingWorldState("cycles", OnNewDay)
 end
