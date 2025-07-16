@@ -243,6 +243,11 @@ local function makeBuff(name, attachedfn, detachedfn, duration, priority, prefab
 	return Prefab(name, fn, nil, prefabs)
 end
 
+STRINGS.NAMES.PARALYSIS_NESS = "Paralysis"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.PK_FLASH = "I don't even know what that could be."
+STRINGS.CHARACTERS.WX78.DESCRIBE.PK_FLASH = "ERROR. UNDEFINED OBJECT"
+STRINGS.CHARACTERS.GRAMNESS.DESCRIBE.PK_FLASH = "One of my many tricks up my sleeve, you know."
+
 return createPsi("paralysis_ness", "paralysis_ness"),
        --createPsi("paralysis_ness_o"),
 	   makeBuff("buff_paralysis", onAttached, exitParalysis, nil, 1, {"paralysis_fx"}),
