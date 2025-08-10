@@ -285,7 +285,7 @@ end
 
 local Ness_Paralyzed = State{
     name = "paralyzed",
-    tags = {"busy"},
+    tags = {"busy", "pausepredict"},
 
     onenter = function(inst, data)
 
@@ -296,6 +296,14 @@ local Ness_Paralyzed = State{
 		if inst.brain then inst.brain:Stop() end
 
         inst.AnimState:PlayAnimation("frozen_loop_pst", true)
+
+		if GLOBAL.TheWorld.ismastersim then
+			if inst.components.playercontroller ~= nil then
+				inst.components.playercontroller:RemotePausePrediction(data.duration or nil)
+			end
+		else
+
+		end
         --TODO lightning fx
 
         inst.sg:SetTimeout((data.duration or 6))
