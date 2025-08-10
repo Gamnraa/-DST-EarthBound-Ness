@@ -108,9 +108,21 @@ STRINGS.SKIN_NAMES.ms_gramness_kraken = "The Guest Honor"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramness_kraken = "Formal celebratory wear of the people of Newport, bestowed upon Ness for defeating the Kraken of the Sea."
 STRINGS.SKIN_QUOTES.ms_gramness_kraken = "\"Hopefully they really like Papa's cooking!\""
 
+STRINGS.SKIN_NAMES.ms_gramness_hallowed = "The Shark"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramness_hallowed = "Skate Punk outfit of the infamous Onett Sharks street gang, known for hanging out around the town's arcade."
+STRINGS.SKIN_QUOTES.ms_gramness_hallowed = "\"Mom says it's just a phase!\""
+
 STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_onett = "Onett Meteors Baseball Cap"
 STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "An Onett Meteors baseball cap to compliement the uniform."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_onett.xml"), "ms_baseball_cap_ninten_onett.tex")
+
+GLOBAL.baseball_cap_ninten_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "baseball_cap_ninten" )
+end
+
+GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
+end
 
 STRINGS.CHARACTER_ABOUTME.gramness = "Ness was once your ordinary Eaglelandian boy, until one fateful night when a crash-landing meteor changed the outlook of his life for good..."
 STRINGS.CHARACTER_BIOS.gramness = {
