@@ -9,6 +9,17 @@
 --      -Opening and closing brackets should be on their own line
 --      -If wilson's speech has X unnamed strings in a table, then all other speech files must have at least X unnamed strings in that context too (example, CHESSPIECE_MOOSEGOOSE has 1 string in wilson, but 2 in wortox), this requirement could be relaxed if required by motifying po_vault.lua)
 
+
+--Lucas' notes regarding Ness' usage of Japanese: 
+--[[
+	Ness is considered half Japanese in the comics and he speaks both English and Japanese fluently in it.
+	As I would like to represent that, I am going to establish some rules to follow for how and when Ness uses Japanese.
+	1. Ness primarily speaks English
+	2. Ness will sometimes use Japanese colloquialisms, idioms and slang as a part of his English.
+	3. If Ness speaks full Japanese sentences, he will clarify in English what he said if he wants to be understood or isn't talking to himself.
+	4. If Ness wants to say something, either to himself, or it's something he doesn't want other people to know, then he will speak full sentences in Japanese with no English.
+	Also I don't speak Japanese, I'm just following basic grammar rules of the language so if something feels off that's why
+--]]
 return {
 	ACTIONFAIL =
 	{
@@ -66,6 +77,10 @@ return {
             INUSE = "I'll let them cook!",
             TOOFAR = "Can't reach!",
         },
+		DEPLOY = {
+			HERMITCRAB_RELOCATE = "Nothing's there!"
+		},
+		
 		DISMANTLE =
 		{
 			COOKING = "Something smells good! Let's wait for it first.",
@@ -116,7 +131,7 @@ return {
         },
 		USEKLAUSSACKKEY =
         {
-        	WRONGKEY = "Hm. Dunno why I thought that would work.",
+        	WRONGKEY = "Tsunda... It broke!", --Japanese
         	KLAUS = "Let's take care of this guy first!",
 			QUAGMIRE_WRONGKEY = "We'll open it, don't worry!",
         },
@@ -152,6 +167,7 @@ return {
             GHOSTHEART = "Wait, Ness that's a bad guy, not your friend! Oh, man, that wouldn't have been good, haha!",
             NOTGEM = "I shouldn't do put that there!",
             WRONGGEM = "That's not the right gem.",
+			NOGENERATORSKILL = "I shouldn't mess with things I don't understand, haha!",																			 
             NOTSTAFF = "It doesn't quite fit...",
             MUSHROOMFARM_NEEDSSHROOM = "Looks like it needs a mushroom!",
             MUSHROOMFARM_NEEDSLOG = "Looks like it needs a living log!",
@@ -594,7 +610,7 @@ return {
 	ANNOUNCE_WETTER = "I'm soaked!",
 	ANNOUNCE_SOAKED = "Too much water, too much!!",
 
-	ANNOUNCE_WASHED_ASHORE = "Haha, maybe I'll be next careful next time!",
+	ANNOUNCE_WASHED_ASHORE = "Well, dad did always say, \"Sarumo kikara ochiru!\"", --Japanese
 
     ANNOUNCE_DESPAWN = "Looks like my time here is up!",
 	ANNOUNCE_BECOMEGHOST = "oOooOooo!!",
@@ -987,6 +1003,7 @@ return {
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "Check out my muscles!",
 
     ANNOUNCE_ELIXIR_TOO_SUPER = "I feel like destroying the universe.",	
+	ANNOUNCE_LUNARGUARDIAN_INCOMING = "It's back!",						   
 	BATTLECRY =
 	{
 		GENERIC = {
@@ -1497,9 +1514,9 @@ return {
 		KNIGHT_NIGHTMARE = "Bring it on!",
 		MINOTAUR = "What sanctuary are you guarding?",
 		SPIDER_DROPPER = "You almost got me! Not this time!",
-		NIGHTMARELIGHT = "It bellows out temptation. Luckily, I'm the Chosen Boy!",
+		NIGHTMARELIGHT = "Yuuwaku no hikari sashimaneku boku...", --Japanese
 		NIGHTSTICK = "Dual purpose: now that's handy!",
-		GREENGEM = "It's some sort of emerald.",
+		GREENGEM = "Midori houseki! This one's green!", --Japanese
 		MULTITOOL_AXE_PICKAXE = "Dual purpose: how effecient!",
 		ORANGESTAFF = "I can cover so much distance now!",
 		YELLOWAMULET = "It shines so brightly!",
@@ -1511,8 +1528,8 @@ return {
 		ARMORSLURPER = "It helps me stay full!",
 		ORANGEAMULET = "This would be great for cleaning my room!",
 		YELLOWSTAFF = "PK Dwarf Star!",
-		YELLOWGEM = "Yellow mellow.",
-		ORANGEGEM = "What a pretty orange!",
+		YELLOWGEM = "Kiiro! Yellow.", --Japanese
+		ORANGEGEM = "Kira kira! What a pretty orange!", --Japanese
         OPALSTAFF = "PK Freeze!",
         OPALPRECIOUSGEM = "It's freezing!",
         TELEBASE =
@@ -1723,7 +1740,7 @@ return {
 
 		MAXWELLPHONOGRAPH = "Ugh. Someone put on some rock music!",--single player
 		BOOMERANG = "They're pretty cool!",
-		PIGGUARD = "He's protecting something!",
+		PIGGUARD = "Jibun no ousama te tsutomeru, naniyara wo mamoru butaheibiin ne.", --Japanese
 		ABIGAIL =
 		{
             LEVEL1 =
@@ -1745,7 +1762,7 @@ return {
 		ADVENTURE_PORTAL = "Looks like I'm needed on the other side!",
 		AMULET = "It's brimming with Lifeup!",
 		ANIMAL_TRACK = "Something left these tracks!",
-		ARMORGRASS = "I think a PSI should would be more effective... and comfortable, haha!",
+		ARMORGRASS = "I think a PSI shield would be more effective... and comfortable, haha!",
 		ARMORMARBLE = "I can barely move in it!",
 		ARMORWOOD = "I'm pretty sure I've seen this in a cartoon once.",
 		ARMOR_SANITY = "It's evil, but it'll protect you!",
@@ -2088,6 +2105,7 @@ return {
 		},
         GOGGLESHAT = "Ooh, ooh! We should try to find swim goggles!",
         DESERTHAT = "Anyone wanna test if they'll protect against PK Flash?",
+		ANTLIONHAT = "Maji yabai! If only my baseball cap was as useful!", --Japanese  
 		DEVTOOL = "It smells of bacon!",
 		DEVTOOL_NODEV = "I'm not strong enough to wield it.",
 		DIRTPILE = "What's this?",
@@ -2309,7 +2327,7 @@ return {
 		FURTUFT = "Bunches of fur!",
 		GEARS = "Maybe I could build myself a robot body again!",
 		GHOST = "I've fought ghosts before!",
-		GOLDENAXE = "This axe is awesome!",
+		GOLDENAXE = "Kore ono wa maji yabai! What an awesome axe!", --Japanese
 		GOLDENPICKAXE = "It's a super pickaxe!",
 		GOLDENPITCHFORK = "Nice!",
 		GOLDENSHOVEL = "I'll dig a nice pool!",
@@ -2370,7 +2388,7 @@ return {
 		},
 		HONEY = "Mmmmm, I love honey!",
 		HONEYCOMB = "Cool!",
-		HONEYHAM = "Ohhhh-ho-ho-hooooo, let's eat already!",
+		HONEYHAM = "Oishii, I think full just looking at it!",
 		HONEYNUGGETS = "I'm a happy boy with these!",
 		HORN = "A beefalo horn.",
 		HOUND = "Bad, bad dog! I'll bash you!",
@@ -2419,14 +2437,14 @@ return {
 		},
 		LIGHTNINGGOATHORN = "I can feel the static electricity.",
 		GOATMILK = "Delicious!",
-		LITTLE_WALRUS = "Your dad sures love to hunt!",
+		LITTLE_WALRUS = "Kaeru no ko wa kaeru, haha!", --Japanese
 		LIVINGLOG = "It just mumbling gibberish in my head.",
 		LOG =
 		{
 			BURNING = "Our supplies!",
 			GENERIC = "I think with some practice, I could fashion a baseball bat out of you!",
 		},
-		LUCY = "That axe is alive!",
+		LUCY = "Nan te kawaru ono. Kare ga doko mitsukerota ka?", --Japanese - Ness likes to use it when he doesn't want to be understood by someone, typically whoever he's talking about!
 		LUREPLANT = "It traps living things.",
 		LUREPLANTBULB = "Maybe I could use it?",
 		MALE_PUPPET = "He's trapped!", --single player
@@ -3887,7 +3905,7 @@ return {
 		TACKLESKETCH = "Maybe I could make this!",
 
         MALBATROSS = "It's not very keen on sharing the fish, haha!",
-        MALBATROSS_FEATHER = "Plucked from a fine feathered fiend.",
+        MALBATROSS_FEATHER = "It's very vibrant.",
         MALBATROSS_BEAK = "Beaky!",
         MAST_MALBATROSS_ITEM = "A proper mast!",
         MAST_MALBATROSS = "It makes for a great sail!",
@@ -3930,7 +3948,7 @@ return {
 		OCEANFISHINGLURE_HERMIT_HEAVY = "I'll catch something twice my size!",
 
 		OCEANFISH_SMALL_1 = "An easy catch!",
-		OCEANFISH_SMALL_2 = "Haha, that was easy!",
+		OCEANFISH_SMALL_2 = "Asameshi mae, ne? I'm a natural!", --Japanese
 		OCEANFISH_SMALL_3 = "I gotcha!",
 		OCEANFISH_SMALL_4 = "Tinee tiny!",
 		OCEANFISH_SMALL_5 = "Haha, it looks like popcorn!",
@@ -4062,11 +4080,16 @@ return {
 		SLINGSHOTAMMO_HONEY = "Just a little lick...",
         SLINGSHOTAMMO_SLOW = "It's magical!",
         SLINGSHOTAMMO_FREEZE = "It harnesses the power of PSI!",
-		SLINGSHOTAMMO_POOP = "Well, anything will do I guess, haha!",
+		SLINGSHOTAMMO_POOP = "Well, anything will do I guess, haha!",												  
 		SLINGSHOTAMMO_STINGER = "That's gotta sting!",
 		SLINGSHOTAMMO_MOONGLASS = "That seems dangerous!",
-		SLINGSHOTAMMO_GELBLOB = "Couldn't I just use- nevermind.",
-		SLINGSHOTAMMO_SCRAPFEATHER = "I guess it works!",							 
+		SLINGSHOTAMMO_GELBLOB = "Couldn't I just use- nevermind.",											  
+		SLINGSHOTAMMO_SCRAPFEATHER = "I guess it works!",
+		SLINGSHOTAMMO_DREADSTONE = ".",
+        SLINGSHOTAMMO_GUNPOWDER = "Shots to be slinged.",
+        SLINGSHOTAMMO_LUNARPLANTHUSK = "Shots to be slinged.",
+        SLINGSHOTAMMO_PUREBRILLIANCE = "Shots to be slinged.",
+        SLINGSHOTAMMO_HORRORFUEL = "Shots to be slinged.",		
         PORTABLETENT = "It's like we're camping!",
         PORTABLETENT_ITEM = "Let's set it up!",
 
@@ -4726,6 +4749,8 @@ return {
         BIRD_MUTANT_SPITTER = "It's very much evil now!",
 
         WAGSTAFF_NPC = "He might be smarter than Andonuts!",
+		WAGSTAFF_NPC_MUTATIONS = "More busy work?",
+        WAGSTAFF_NPC_WAGPUNK = "Haha, warugashiko jii!", --Japanese
         ALTERGUARDIAN_CONTAINED = "Haha, told you it was no match for me!",
 		--Not having with these this time around...
         WAGSTAFF_TOOL_1 = "Mr. Wagstaff needs it!",
@@ -5573,6 +5598,55 @@ return {
         DECK_OF_CARDS = "I know all sorts of fun card games!",
         PLAYING_CARD = "Is this your card?",
         BALATRO_MACHINE = "Oh, hello! Will you tell me my fortune?",
+		
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "Guess I gotta catch one of those moon... thingies...",
+			FILLED = "Sorry, but you're needed, haha!",
+		},
+		WAGBOSS_ROBOT_SECRET = "Hmm... Watashi ga negau, kare ga jibun baka ni shite inai.", --Japanese
+        WAGBOSS_ROBOT = "Why do I have second thoughts about this?",
+        WAGBOSS_ROBOT_POSSESSED = "Haha! I knew it!",
+		WAGBOSS_ROBOT_LEG = "It takes more than some fancy robots to take me down!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "I didn't expect to see you again so soon, haha!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "Hmph. Let's see what jiji is up to...",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "I'll make sure you wish you stayed on the moon!",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "Careful, they're dangerous!",
+            INACTIVE = "It's off.",
+            DAMAGED = "What now?",
+            FRIENDLY = "They're like those one toys, haha!",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "It's like a Cute 'lil UFO!",
+            INACTIVE = "It's off.",
+            DAMAGED = "It won't be doing much now!",
+        },
+		WAGDRONE_PARTS = "Robot junk.",
+		WAGDRONE_BEACON = "I think it's some sort of homing thingy.",
+
+        WAGPUNK_WORKSTATION = "Ohhhhh I wish Jeff were here right now...",
+        WAGPUNK_LEVER = "I got a bad feeling.",
+        WAGPUNK_FLOOR_KIT = "It floats well nice!",
+        WAGPUNK_CAGEWALL = "Oh? So you're trapping me here?",
+
+		WAGSTAFF_ITEM_1 = "Some lose a glove?",
+		WAGSTAFF_ITEM_2 = "For smart people!",
+
+        HERMITCRAB_RELOCATION_KIT = "Tsunda. I feel bad about this, but...", --Japanese
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "Oh, hello, hahaha!",
+            GENERIC = "Nande? That doesn't look right!",
+        },
+
+        GESTALT_GUARD_EVOLVED = "I think it doesn't trust me.",
+        FLOTATIONCUSHION = "Now I won't drown at sea, haha!",
+        LUNAR_SEED = "It makes my head all fuzzy.",
     },
 
     DESCRIBE_GENERIC = "No problem here.",
