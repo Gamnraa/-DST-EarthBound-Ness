@@ -14,6 +14,7 @@ STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_BETTER = {
     EAT_FAVORITE_FOOD = "It almost reminds me of home...",
     LAND_CRIT = "The heat of battle always makes me forget about the worst of my problems!",
     KILL_WITH_CRIT = "Take THAT! Aha, I feel amazing!!",
+    KILL = "I can't die out here. I need to get ahold of myself!",
 }
 
 STRINGS.CHARACTERS.GRAMNESS.ANNOUNCE_HOMESICKNESS_FEEL_WORSE = {

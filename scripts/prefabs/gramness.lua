@@ -44,7 +44,6 @@ local function doresourcefulattempt(inst, data)
 	if homesickness.resourcefulness[1] < 1 then return end
 	
 	local number = math.random(100)
-	print("rolled " .. number)
 	local numDrops = 0
 	
 	if number <= homesickness.resourcefulness[2] then
@@ -70,9 +69,9 @@ local function doresourcefulattempt(inst, data)
 	local target = data.victim or data.target
 	
 	if target then
-		--for _, v in pairs(exemptiontags) do
-		--	if target:HasTag(v) then return end
-		--end
+		if math.random(128) < 9 then
+			inst.components.homesickness:DoDelta(-5, {change = "FEEL_BETTER", reason = "KILL"})
+		end
 		
 		if data.action and target:HasTag("stump") and data.action == ACTIONS.DIG then return end
 		
@@ -158,12 +157,10 @@ local function docritattempt(inst, data)
 			else
 				doresourcefulattempt(inst, {victim = data.target})
 				if math.random(128) < 27 then
-					print("Good homesickness crit roll, -5")
 					inst.components.homesickness:DoDelta(-5, {change = "FEEL_BETTER", reason = "KILL_WITH_CRIT"})
 				end
 			end
 		elseif math.random(128) < 20 then
-			print("good homesickness crit roll, -1")
 			inst.components.homesickness:DoDelta(-3, {change = "FEEL_BETTER", reason = "LAND_CRIT"})
 		end
 	end
