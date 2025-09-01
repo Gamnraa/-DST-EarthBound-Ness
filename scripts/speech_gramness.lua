@@ -4085,11 +4085,11 @@ return {
 		SLINGSHOTAMMO_MOONGLASS = "That seems dangerous!",
 		SLINGSHOTAMMO_GELBLOB = "Couldn't I just use- nevermind.",											  
 		SLINGSHOTAMMO_SCRAPFEATHER = "I guess it works!",
-		SLINGSHOTAMMO_DREADSTONE = ".",
-        SLINGSHOTAMMO_GUNPOWDER = "Shots to be slinged.",
-        SLINGSHOTAMMO_LUNARPLANTHUSK = "Shots to be slinged.",
-        SLINGSHOTAMMO_PUREBRILLIANCE = "Shots to be slinged.",
-        SLINGSHOTAMMO_HORRORFUEL = "Shots to be slinged.",		
+		SLINGSHOTAMMO_DREADSTONE = "Strange.",
+        SLINGSHOTAMMO_GUNPOWDER = "Mom doesn't like me playing with firecrackers.",
+        SLINGSHOTAMMO_LUNARPLANTHUSK = "Oh, that's very clever!",
+        SLINGSHOTAMMO_PUREBRILLIANCE = "That's using your noggin!",
+        SLINGSHOTAMMO_HORRORFUEL = "That's horrible!.",		
         PORTABLETENT = "It's like we're camping!",
         PORTABLETENT_ITEM = "Let's set it up!",
 
@@ -5630,10 +5630,10 @@ return {
 
         WAGPUNK_WORKSTATION = "Ohhhhh I wish Jeff were here right now...",
         WAGPUNK_LEVER = "I got a bad feeling.",
-        WAGPUNK_FLOOR_KIT = "It floats well nice!",
+        WAGPUNK_FLOOR_KIT = "It floats real nice!",
         WAGPUNK_CAGEWALL = "Oh? So you're trapping me here?",
 
-		WAGSTAFF_ITEM_1 = "Some lose a glove?",
+		WAGSTAFF_ITEM_1 = "Someone lose a glove?",
 		WAGSTAFF_ITEM_2 = "For smart people!",
 
         HERMITCRAB_RELOCATION_KIT = "Tsunda. I feel bad about this, but...", --Japanese
