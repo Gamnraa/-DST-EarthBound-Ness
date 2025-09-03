@@ -84,7 +84,36 @@ table.insert(prefabs, CreatePrefabSkin("ms_baseball_cap_ninten_onett", { --The I
     type = "item", --We are now creating a modded item/structure! Thus our skin's type is "item" (Note: there aren't different types for modded "structures", to the game there is no difference between skinning an item, a structure, or even a mob! (Yes you could create mob skins if you wanted!)
     rarity = "ModMade",
 
-    skin_tags = {"BASEBALLCAPNINTEN"}, --Skin tags, you should add a tag matching the original prefab of the item/structure we're adding a skin for in full capitalization
+    skin_tags = {"BASEBALLCAPNINTEN", "CRAFTABLE"}, --Skin tags, you should add a tag matching the original prefab of the item/structure we're adding a skin for in full capitalization
+}))
+
+table.insert(prefabs, CreatePrefabSkin("ms_baseball_cap_ninten_kraken", {
+	assets = {
+		--Asset("ANIM", "anim/ms_ness_kraken_hat.zip"),
+	
+		Asset("DYNAMIC_ANIM", "anim/dynamic/ms_ness_kraken_hat.zip"),
+		Asset("PKGREF", "anim/dynamic/ms_ness_kraken_hat.dyn"),
+	},
+	base_prefab = "baseball_cap_ninten",
+	type = "item",
+	build_name_override = "ms_ness_kraken_hat",
+	rarity = "ModMade",
+	skin_tags = {"BASEBALLCAPNINTEN"},
+}))
+
+table.insert(prefabs, CreatePrefabSkin("ms_ness_kraken_hat", {
+	assets = {
+		--Asset("ANIM", "anim/ms_ness_kraken_hat.zip"),
+	
+		Asset("DYNAMIC_ANIM", "anim/dynamic/ms_ness_kraken_hat.zip"),
+		Asset("PKGREF", "anim/dynamic/ms_ness_kraken_hat.dyn"),
+	},
+	base_prefab = "featherhat",
+	type = "item",
+	build_name_override = "ms_ness_kraken_hat",
+	rarity = "ModMade",
+	skin_tags = {"FEATHERHAT", "CRAFTABLE"},
+	granted_items = {"ms_baseball_cap_ninten_kraken"}
 }))
 
 

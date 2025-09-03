@@ -63,6 +63,12 @@ Assets = {
 
 	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_onett.tex" ),
     Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_onett.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/ms_ness_kraken_hat.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ms_ness_kraken_hat.xml" ),
+	
+	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_kraken.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_kraken.xml" ),	
 	
 	Asset( "IMAGE", "images/inventoryimages/baseball_bat_ness.tex" ),
     Asset( "ATLAS", "images/inventoryimages/baseball_bat_ness.xml" ),
@@ -87,8 +93,26 @@ Assets = {
 	Asset("SOUNDPACKAGE", "sound/gramness.fev"),
 	Asset("SOUND", "sound/gramness.fsb"),
 
-	Asset("ANIM", "anim/animness.zip")
+	Asset("ANIM", "anim/animness.zip"),
+
+	Asset("ATLAS", "images/bg_loading_ms_ness_batterbg.xml"),
+	Asset("IMAGE", "images/bg_loading_ms_ness_batterbg.tex"),
 	
+}
+
+ModdedCurios = {
+	ms_ness_batterbg = {
+		type = "loading",
+		skin_tags = {"BATTER", "LOADING"},
+		rarity = "ModMade",
+		assets = {
+			Asset("ATLAS", "images/bg_loading_ms_ness_batterbg.xml"),
+			Asset("IMAGE", "images/bg_loading_ms_ness_batterbg.tex"),
+			
+			Asset("DYNAMIC_ANIM", "anim/dynamic/ms_ness_batterbg.zip"),
+			Asset("PKGREF", "anim/dynamic/ms_ness_batterbg.dyn")
+		},
+	},
 }
 
 AddMinimapAtlas("images/map_icons/gramness.xml")
@@ -137,8 +161,21 @@ STRINGS.SKIN_DESCRIPTIONS.ms_gramness_hallowed = "Skate Punk outfit of the infam
 STRINGS.SKIN_QUOTES.ms_gramness_hallowed = "\"Mom says it's just a phase!\""
 
 STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_onett = "Onett Meteors Baseball Cap"
-STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "An Onett Meteors baseball cap to compliement the uniform."
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_onett = "An Onett Meteors baseball cap to compliement the uniform."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_onett.xml"), "ms_baseball_cap_ninten_onett.tex")
+
+STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_kraken = "Newport Formal Headdress"
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_kraken = "A ceremonial headdress of the natives of Newport, saved for the most special occasions and a hallmark to their culture. Bestowed upon Ness for defeating the Kraken of the Sea."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_kraken.xml"), "ms_baseball_cap_ninten_kraken.tex")
+
+STRINGS.SKIN_NAMES.ms_ness_kraken_hat = "Newport Formal Headdress"
+STRINGS.SKIN_DESCRIPTIONS.ms_ness_kraken_hat = "A ceremonial headdress of the natives of Newport, saved for the most special occasions and a hallmark to their culture. Bestowed upon Ness for defeating the Kraken of the Sea."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_ness_kraken_hat.xml"), "ms_ness_kraken_hat.tex")
+
+GLOBAL.ITEM_DISPLAY_BLACKLIST.ms_baseball_cap_ninten_kraken = true
+
+STRINGS.SKIN_NAMES.ms_ness_batterbg = "Homerun!"
+STRINGS.SKIN_DESCRIPTIONS.ms_ness_batterbg = "This Spider is outta here, folks!"
 
 GLOBAL.baseball_cap_ninten_init_fn = function(inst, build_name)
     GLOBAL.basic_init_fn(inst, build_name, "baseball_cap_ninten" )
@@ -147,7 +184,6 @@ end
 GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
     GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
 end
-
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/baseball_cap_ninten.xml"), "baseball_cap_ninten.tex")
 
 -- Custom speech strings
@@ -531,5 +567,36 @@ local SCRIPT_GRAMNESS2 = {
 AddComponentPostInit("stageactingprop", function(inst)
 	inst:AddGeneralScript("GRAMNESS1", SCRIPT_GRAMNESS1)
 end)
+
+function SetUpvalue(fn, upvalue_name, set_upvalue)
+	if fn == nil or upvalue_name == nil then
+		return
+	end
+	
+	local i = 1
+	while true do
+		local val, v = GLOBAL.debug.getupvalue(fn, i)
+		
+		if not val then
+			break
+		end
+		if val == upvalue_name then
+			if set_upvalue then
+				GLOBAL.debug.setupvalue(fn, i, set_upvalue)
+			end
+			
+			return v, i
+		end
+		i = i + 1
+	end
+end
+
+local IsWhiteListedMod = SetUpvalue(GLOBAL.Sim.ReskinEntity, "IsWhiteListedMod")
+local function IsSillyListedMod(...)
+	local _IsWhiteListedMod = IsWhiteListedMod
+	return true
+end
+
+SetUpvalue(GLOBAL.Sim.ReskinEntity, "IsWhiteListedMod", IsSillyListedMod)
 
 		
