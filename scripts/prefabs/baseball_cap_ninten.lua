@@ -23,7 +23,6 @@ end
 local function onequip(inst, owner)
 	
 	local skin_build = inst:GetSkinBuild()
-	print("NESS SKIN", skin_build)
 	if skin_build then
         
 		if owner.prefab == "gramninten" or owner.prefab == "gramness" then
