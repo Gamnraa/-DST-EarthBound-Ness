@@ -88,7 +88,6 @@ local function HasLowStats(inst)
 end
 
 local function UpdateHomesicknessStatus(homesickness, inst)
-	print("Homesickness change in level detected", homesickness.level)
 
 	local level = homesickness.level
 	homesickness.sanitydrain = sanityLevels[level]
@@ -125,8 +124,6 @@ local function OnNewDay(self)
 		self:SetLevel(self.level - 1, {change = "FEEL_BETTER", reason = "NEW_DAY"})
 	end
 end
-
-
 
 local Homesickness = Class(function(self, inst, enable)
     self.inst = inst
