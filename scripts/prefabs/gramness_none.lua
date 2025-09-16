@@ -117,5 +117,20 @@ table.insert(prefabs, CreatePrefabSkin("ms_ness_kraken_hat", {
 }))
 
 
+table.insert(prefabs, CreatePrefabSkin("ms_ness_shark_hat", {
+	assets = {
+		--Asset("ANIM", "anim/ms_ness_kraken_hat.zip"),
+	
+		Asset("DYNAMIC_ANIM", "anim/dynamic/ms_ness_shark_hat.zip"),
+		Asset("PKGREF", "anim/dynamic/ms_ness_shark_hat.dyn"),
+	},
+	base_prefab = "footballhat",
+	type = "item",
+	build_name_override = "ms_ness_shark_hat",
+	rarity = "ModMade",
+	skin_tags = {"FOOTBALLHAT", "CRAFTABLE"},
+}))
+
+
 
 return unpack(prefabs)

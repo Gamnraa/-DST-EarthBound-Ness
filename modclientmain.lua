@@ -61,7 +61,10 @@ Assets = {
     Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_onett.xml" ),
 
 	Asset( "IMAGE", "images/inventoryimages/ms_ness_kraken_hat.tex" ),
-    Asset( "ATLAS", "images/inventoryimages/ms_ness_kraken_hat.xml" ),	
+    Asset( "ATLAS", "images/inventoryimages/ms_ness_kraken_hat.xml" ),
+	
+	Asset( "IMAGE", "images/inventoryimages/ms_ness_shark_hat.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ms_ness_shark_hat.xml" ),	
 	
 	Asset( "IMAGE", "images/inventoryimages/baseball_bat_ness.tex" ),
     Asset( "ATLAS", "images/inventoryimages/baseball_bat_ness.xml" ),
@@ -152,6 +155,10 @@ RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_bas
 STRINGS.SKIN_NAMES.ms_ness_kraken_hat = "Newport Formal Headdress"
 STRINGS.SKIN_DESCRIPTIONS.ms_ness_kraken_hat = "A ceremonial headdress of the natives of Newport, saved for the most special occasions and a hallmark to their culture. Bestowed upon Ness for defeating the Kraken of the Sea."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_ness_kraken_hat.xml"), "ms_ness_kraken_hat.tex")
+
+STRINGS.SKIN_NAMES.ms_ness_shark_hat = "Sharks Skate Punk Helmet"
+STRINGS.SKIN_DESCRIPTIONS.ms_ness_shark_hat = "A rockin' helmet worn by nefarious Shark skateboarders."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_ness_shark_hat.xml"), "ms_ness_shark_hat.tex")
 
 GLOBAL.ITEM_DISPLAY_BLACKLIST.ms_baseball_cap_ninten_kraken = true
 

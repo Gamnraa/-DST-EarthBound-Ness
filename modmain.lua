@@ -66,6 +66,9 @@ Assets = {
 
 	Asset( "IMAGE", "images/inventoryimages/ms_ness_kraken_hat.tex" ),
     Asset( "ATLAS", "images/inventoryimages/ms_ness_kraken_hat.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/ms_ness_shark_hat.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/ms_ness_shark_hat.xml" ),
 	
 	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_kraken.tex" ),
     Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_kraken.xml" ),	
@@ -94,6 +97,7 @@ Assets = {
 	Asset("SOUND", "sound/gramness.fsb"),
 
 	Asset("ANIM", "anim/animness.zip"),
+	Asset("ANIM", "anim/ms_gramness_hallowed_hat.zip"),
 
 	Asset("ATLAS", "images/bg_loading_ms_ness_batterbg.xml"),
 	Asset("IMAGE", "images/bg_loading_ms_ness_batterbg.tex"),
@@ -173,6 +177,10 @@ STRINGS.SKIN_DESCRIPTIONS.ms_ness_kraken_hat = "A ceremonial headdress of the na
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_ness_kraken_hat.xml"), "ms_ness_kraken_hat.tex")
 
 GLOBAL.ITEM_DISPLAY_BLACKLIST.ms_baseball_cap_ninten_kraken = true
+
+STRINGS.SKIN_NAMES.ms_ness_shark_hat = "Sharks Skate Punk Helmet"
+STRINGS.SKIN_DESCRIPTIONS.ms_ness_shark_hat = "A rockin' helmet worn by nefarious Shark skateboarders."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_ness_shark_hat.xml"), "ms_ness_shark_hat.tex")
 
 STRINGS.SKIN_NAMES.ms_ness_batterbg = "Homerun!"
 STRINGS.SKIN_DESCRIPTIONS.ms_ness_batterbg = "This Spider is outta here, folks!"
@@ -454,6 +462,28 @@ AddPrefabPostInit("butterfly", function(inst)
 
 		inst:ListenForEvent("death", cancel)
 		inst:ListenForEvent("nesscaught", cancel)
+	end
+end)
+
+
+AddPrefabPostInit("footballhat", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then return end
+
+	local oldequip = inst.components.equippable.onequipfn
+	inst.components.equippable.onequipfn = function(inst, owner, ...)
+		oldequip(inst, owner, ...)
+		local skin_build = inst:GetSkinBuild()
+		if owner.prefab == "gramness" and owner.components.skinner.skin_name == "ms_gramness_hallowed" and skin_build == "ms_ness_shark_hat" then
+			owner.AnimState:OverrideSymbol("HAIR_HAT", "ms_gramness_hallowed_hat", "HAIR_HAT")
+		end
+	end
+
+	local oldunequip = inst.components.equippable.onunequipfn
+	inst.components.equippable.onunequipfn = function(inst, owner, ...)
+		oldunequip(inst, owner, ...)
+		if owner == "gramness" and owner.components.skinner.skin_name == "ms_gramness_hallowed" then
+			inst.AnimState:ClearOverrideSymbol("HAIR_HAT")
+		end
 	end
 end)
 
