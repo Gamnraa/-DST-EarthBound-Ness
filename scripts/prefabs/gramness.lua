@@ -75,7 +75,6 @@ local function doresourcefulattempt(inst, data)
 		
 		if data.action and target:HasTag("stump") and data.action == ACTIONS.DIG then return end
 		
-		print("Dropping extra loot")
 		local lootdropper = target.components.lootdropper
 		if not lootdropper then return end
 		local pos = target:GetPosition()
@@ -104,9 +103,7 @@ local function doresourcefulattempt(inst, data)
 			end
 			
 			if lootdropper.loot then
-				print(lootdropper.loot)
 				for k, v in pairs(lootdropper.loot) do
-					print(k, v)
 					table.insert(loots, v)
 				end
 			end
@@ -115,7 +112,6 @@ local function doresourcefulattempt(inst, data)
 		if #loots < 1 then return end
 		--If it proves too inconsistent, simply creating a 'master table' that combines all them will do
 		for i =1, numDrops, 1 do
-			print(i)
 			local loot = loots[math.random(#loots)]
 			loot = SpawnPrefab(loot)
 			lootdropper:FlingItem(loot, pos)

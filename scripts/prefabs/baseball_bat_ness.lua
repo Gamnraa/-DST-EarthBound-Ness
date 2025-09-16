@@ -10,7 +10,6 @@ local DAMAGE = TUNING.BASEBALL_BAT_NESS_DAMAGE or 24
 local function onattack(inst, attacker, target)
 	if attacker.components.homesickness then
 		local roll = math.random(100)
-		print("rolled a " .. roll)
 
 		local isdead = target.components.health:IsDead()
 	
@@ -24,7 +23,6 @@ local function onattack(inst, attacker, target)
 			if not isdead then isdead = target.components.health:IsDead() end
 			if isdead then
 				if target:HasTag("epic") then
-					print("killed a boss with a critical hit, extra special drop")
 					local lootdropper = target.components.lootdropper
 					--if math.random(2) == 1 then
 						local baseball = SpawnPrefab("baseball_cap_ninten")
@@ -36,7 +34,6 @@ local function onattack(inst, attacker, target)
 						lootdropper:FlingItem(loot)	
 					end
 				end
-				print("TO THE MOON!")
 				--inst.Physics:SetVel(50 * math.cos(angle), 10, 50 * math.sin(angle))
 				attacker:PushEvent("killed", {victim = target})
 				target:PushEvent("baseballknockback", {knocker = attacker, radius = 1.7, strengthmult = 8})

@@ -258,7 +258,6 @@ function Homesickness:SetLevel(newlevel, line)
 end
 
 function Homesickness:DoDelta(newval, line)
-	print("Homesickness delta", newval, self.sicknessval, self.sicknessval + newval)
 	self.sicknessval = self.sicknessval + newval
 	if self.sicknessval < 0 then self.sicknessval = 0 end
 	if self.sicknessval > maxsicknessval then self.sicknessval = maxsicknessval end
@@ -283,8 +282,6 @@ function Homesickness:OnUpdate(dt)
 			self.sicknessval = self.sicknessval + sanitychange + hungerchange + healthchange
 			self.conseclowstats = 0
 			self.line = {change = "FEEL_WORSE", reason = "BAD_STATS"}
-
-			print("Homesickness val", self.sicknessval)
 		end
 		if math.random(256) < 2 + (self.level * 2) then
 			self.inst.components.talker:Say("Homesickness bad roll increase by 6")
