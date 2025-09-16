@@ -44,14 +44,6 @@ local function removePsi(inst, target)
 	target:DoTaskInTime(0, function()
 		target.offenseupfx = nil
 	end)
-
-	
-	if target.components.homesickness then
-		print("End of homesickness buff")
-		target.components.homesickness.offenseupbuff = nil
-		target:RemoveTag("gutsy")
-		target:PushEvent("sanitydelta", {oldpercent = target.components.sanity:GetPercent(), newpercent = target.components.sanity:GetPercent()})
-	end
 end
 
 local function onAttached(inst, target)
@@ -66,11 +58,6 @@ local function onAttached(inst, target)
 		inst:ListenForEvent("onhitother", onAttack, target)
 		target.offenseupfx = SpawnPrefab("offense_up_fx")
 		target.offenseupfx.entity:SetParent(target.entity)
-	end
-	
-	if target.components.homesickness then
-		target:AddTag("gutsy")
-		target.components.homesickness.offenseupbuff = true
 	end
 end
 
