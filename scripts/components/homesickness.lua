@@ -247,6 +247,7 @@ function Homesickness:Disable()
 	self.sicknessval = 0
 	self.level = 0
 	self.nexttick = 15
+	UpdateHomesicknessStatus(self, self.inst)
 	self.inst:StopUpdatingComponent(self)
 	self:StopWatchingWorldState("cycles", OnNewDay)
 end
@@ -284,7 +285,6 @@ function Homesickness:OnUpdate(dt)
 			self.line = {change = "FEEL_WORSE", reason = "BAD_STATS"}
 		end
 		if math.random(256) < 2 + (self.level * 2) then
-			self.inst.components.talker:Say("Homesickness bad roll increase by 6")
 			self.sicknessval = self.sicknessval + 6
 			self.line = {change = "FEEL_WORSE", reason = "BAD_LUCK"}
 		end
